@@ -29,7 +29,7 @@
     .logo-container { display: flex; align-items: center; }
     .logo-img { height: 50px; width: auto; }
     
-    nav ul { display: flex; list-style: none; gap: 2rem; align-items: center; }
+    nav ul { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
     nav a { 
       color: var(--navy); 
       text-decoration: none; 
@@ -38,15 +38,10 @@
       letter-spacing: 0.15em; 
       text-transform: uppercase; 
       transition: 0.3s;
-      padding: 0.5rem 1rem;
     }
     nav a:hover { color: var(--sage); }
     
-    /* Box around FAQS in nav per image_27cda3.png */
-    nav li a[href="#faqs"] {
-      border: 1px solid var(--navy);
-      padding: 0.8rem 1.5rem;
-    }
+    /* Removed border from FAQS nav item */
 
     section { padding: 8rem 4rem; }
     .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.2em; display: block; margin-bottom: 1.5rem; }
@@ -54,7 +49,7 @@
     /* ─── HERO SECTION ─── */
     #hero { 
       min-height: 85vh; 
-      background: #1e262f; /* Darker navy per image_27ce16.png */
+      background: #1e262f; 
       display: grid; 
       grid-template-columns: 1.2fr 1fr; 
       align-items: center; 
@@ -307,11 +302,6 @@
     button.addEventListener('click', () => {
       const faqItem = button.parentElement;
       
-      // Close other open items
-      document.querySelectorAll('.faq-item').forEach(item => {
-        if (item !== faqItem) item.classList.remove('active');
-      });
-
       // Toggle current item
       faqItem.classList.toggle('active');
     });
