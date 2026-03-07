@@ -8,7 +8,6 @@
   <style>
     :root {
       --sage: #8aaa3a;
-      --sage-dark: #6b8a2a;
       --navy: #1a242f; 
       --cream: #f9f9f4;
       --white: #ffffff;
@@ -24,226 +23,185 @@
     /* ─── HEADER ─── */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: var(--navy); padding: 1.2rem 4rem;
+      background: var(--white); padding: 1rem 4rem;
       display: flex; align-items: center; justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
-    .logo { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--sage); text-decoration: none; font-weight: 600; }
-    .logo span { color: var(--white); font-weight: 300; margin-left: 0.3rem; }
+    .logo-img { height: 50px; width: auto; }
     nav ul { display: flex; list-style: none; gap: 2.5rem; }
-    nav a { color: var(--white); text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; transition: 0.3s; }
+    nav a { color: var(--navy); text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; transition: 0.3s; }
     nav a:hover { color: var(--sage); }
+    .nav-btn { border: 1px solid var(--navy); padding: 0.6rem 1.2rem; }
 
     section { padding: 8rem 4rem; }
     .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.2em; display: block; margin-bottom: 1rem; }
 
     /* ─── HERO ─── */
-    #hero { height: 100vh; background: var(--navy); display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; padding: 0 6rem; color: var(--white); }
-    .hero-content h1 { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; line-height: 1; margin-bottom: 2rem; }
+    #hero { height: 80vh; background: var(--navy); display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; padding: 0 6rem; color: var(--white); margin-top: 70px; }
+    .hero-content h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
     .hero-content h1 em { color: var(--sage); font-style: italic; }
-    .stats-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    .stat-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--sage); font-weight: 400; }
-    .stat-item p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; }
 
     /* ─── ABOUT ─── */
-    .about-details-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; }
-    .experience-card { background: var(--cream); padding: 4rem; border-left: 6px solid var(--sage); }
-    .experience-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--navy); }
-    .experience-card .subtitle { display: block; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.1em; margin-bottom: 2rem; }
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; }
+    .about-section-title { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--navy); margin-bottom: 1.5rem; }
+    .bio-box { background: var(--cream); padding: 3rem; border-left: 5px solid var(--sage); margin: 2rem 0; }
+    .principal-title { font-weight: 700; color: var(--sage); text-transform: uppercase; font-size: 0.8rem; display: block; margin-bottom: 0.5rem; }
 
-    /* ─── SERVICES (UPDATED) ─── */
+    /* ─── SERVICES ─── */
     #services { background: var(--cream); }
-    .services-intro { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 6rem; border-bottom: 1px solid var(--border); padding-bottom: 4rem; }
-    .intro-col h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 1rem; color: var(--navy); }
-    
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2.5rem; }
-    .service-card { background: var(--white); padding: 3.5rem; border: 1px solid var(--border); transition: 0.4s; display: flex; flex-direction: column; }
-    .service-card:hover { border-color: var(--sage); box-shadow: 0 15px 40px rgba(0,0,0,0.05); }
-    .service-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1.5rem; color: var(--navy); border-bottom: 2px solid var(--cream); padding-bottom: 0.5rem; }
-    .service-list { list-style: none; margin-top: 1rem; }
-    .service-list li { font-size: 0.95rem; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; color: var(--text-main); }
-    .service-list li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; }
-    .service-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
+    .services-intro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-bottom: 5rem; }
+    .service-card { background: var(--white); padding: 2.5rem; border: 1px solid var(--border); }
+    .service-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; margin-bottom: 1.2rem; color: var(--navy); }
+    .service-list { list-style: none; font-size: 0.9rem; }
+    .service-list li { margin-bottom: 0.6rem; padding-left: 1.2rem; position: relative; }
+    .service-list li::before { content: "•"; position: absolute; left: 0; color: var(--sage); }
 
-    /* ─── FAQ ─── */
-    #faqs { background: var(--white); max-width: 1100px; margin: 0 auto; }
-    .faq-header-text { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); margin-bottom: 0.5rem; }
-    .faq-item { border-bottom: 1px solid var(--border); padding: 2.5rem 0; }
-    .faq-question { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--navy); margin-bottom: 1rem; position: relative; padding-right: 40px; line-height: 1.2; }
-    .faq-question::after { content: '▲'; position: absolute; right: 0; top: 10px; font-size: 0.8rem; color: var(--sage); }
+    /* ─── FAQS (Matched to Image) ─── */
+    #faqs { max-width: 1000px; margin: 0 auto; padding: 6rem 2rem; }
+    .faq-main-title { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; color: var(--sage); margin-bottom: 1rem; }
+    .faq-intro { font-size: 1rem; margin-bottom: 4rem; }
+    .faq-intro a { color: var(--sage); text-decoration: none; border-bottom: 1px solid var(--sage); }
+    .faq-item { border-bottom: 1px solid #eee; padding: 2.5rem 0; }
+    .faq-question { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--navy); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: flex-start; }
+    .faq-question::after { content: '▲'; font-size: 0.7rem; color: var(--sage); margin-top: 15px; }
+    .faq-answer { font-size: 1.05rem; color: var(--text-main); line-height: 1.7; max-width: 90%; }
 
     /* ─── CONTACT ─── */
     #contact { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; background: var(--navy); color: var(--white); }
-    #contact .section-label { color: var(--sage); }
-    #contact h2 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; line-height: 1.1; }
-    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 1.2rem; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); margin-bottom: 1rem; font-family: inherit; color: white; }
-    .btn-submit { background: var(--sage); color: var(--navy); border: none; padding: 1.2rem; width: 100%; font-weight: 700; text-transform: uppercase; cursor: pointer; transition: 0.3s; }
-    .btn-submit:hover { background: var(--white); }
+    .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 1rem; margin-bottom: 1rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); color: white; }
+    .submit-btn { background: var(--sage); color: var(--navy); border: none; padding: 1rem 2rem; font-weight: 700; cursor: pointer; width: 100%; }
 
-    @media (max-width: 1024px) {
-      #hero, .about-details-grid, #contact, section, .services-intro { grid-template-columns: 1fr; padding: 4rem 2rem; }
-      header { padding: 1.2rem 2rem; }
+    @media (max-width: 768px) {
+      #hero, #contact, .services-intro-grid { grid-template-columns: 1fr; }
+      header { padding: 1rem; }
+      .faq-question { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <a href="#" class="logo">Location<span>Strategy</span></a>
+  <img src="LS logo.webp" alt="Location Strategy Logo" class="logo-img">
   <nav>
     <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#faqs">FAQs</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li class="nav-btn"><a href="#faqs">FAQs</a></li>
     </ul>
   </nav>
 </header>
 
 <section id="hero">
   <div class="hero-content">
-    <span class="section-label" style="color: var(--white); opacity: 0.6;">Strategic Real Estate Consulting</span>
+    <span class="section-label" style="color: white; opacity: 0.7;">Real Estate & Demographics</span>
     <h1>The right <em>location,</em> every time.</h1>
-    <p style="font-size: 1.2rem; max-width: 500px; opacity: 0.8;">Expert market analysis, feasibility studies, and development advisory helping you make data-driven decisions.</p>
-  </div>
-  <div class="stats-box">
-    <div class="stat-item"><h4>15+</h4><p>Years of Experience</p></div>
-    <div class="stat-item"><h4>500+</h4><p>Market Studies</p></div>
-    <div class="stat-item"><h4>98%</h4><p>Client Satisfaction</p></div>
-    <div class="stat-item"><h4>12</h4><p>Special Districts Created</p></div>
+    <p>Strategic Real Estate Consulting & Market Analysis.</p>
   </div>
 </section>
 
 <section id="about">
-  <div class="about-details-grid">
-    <div class="experience-card">
-      <span class="section-label">Experience & Expertise</span>
-      <h3>Julie Chang</h3>
-      <span class="subtitle">Principal</span>
-      <p>For over a decade, Julie Chang thrived on Wall Street, working with market data, technology and analytics. In pivoting to licensed real estate, she recognized the emotional and psychological drivers that dictate Buyer & Seller decision making.</p>
-      <p>Her ability to unify macro economics with micro decision criteria allows her to speak analytically to fund managers while understanding the hyper-local end user.</p>
+  <div class="about-grid">
+    <div>
+      <span class="section-label">Why Choose Location Strategy?</span>
+      <h2 class="about-section-title">Your success is the destination.</h2>
+      <p>Choosing Location Strategy is a decision rooted in unparalleled expertise and a commitment to your success. Our distinctive approach combines personalized solutions with an in-depth understanding of the Texas market. Elevate your real estate journey where every decision is strategic.</p>
     </div>
-    <div class="history-card">
-      <span class="section-label">Our History</span>
-      <h3>The Vision</h3>
-      <p>Founded in 2019 by Scott Davis, a veteran of commercial real estate and land acquisition, Location Strategy was built on the philosophy that local nuances are paramount to success.</p>
-      <p>We serve national builders, developers, asset owners, and private equity firms across multiple states.</p>
+
+    <div class="bio-box">
+      <span class="principal-title">Principal</span>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem;">Julie Chang</h3>
+      <p>For over a decade, Julie Chang thrived on Wall Street in market data, technology, and analytics. After pivoting to real estate, she recognized the emotional facets and psychological drivers in Buyer & Seller decision-making. A graduate of UT Austin (BBA MIS), Julie unifies macro economics with micro decision criteria.</p>
+    </div>
+
+    <div>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: 1rem;">History of Location Strategy</h3>
+      <p>Founded in 2019 by Scott Davis, a veteran of commercial real estate and land acquisition, Location Strategy was built on the philosophy that understanding local nuances is paramount to success. We serve national builders, developers, and private equity clients across multiple states.</p>
     </div>
   </div>
 </section>
 
 <section id="services">
   <span class="section-label">What We Do</span>
-  <div class="services-intro">
-    <div class="intro-col">
-      <h3>Strategic Consulting</h3>
-      <p>Providing feasibility analysis for ground-up or infill development. We support builders, banks, and private equity from concept through bond issuance.</p>
+  <div class="services-intro-grid">
+    <div>
+      <h4>Strategic Consulting</h4>
+      <p>Real estate feasibility analysis for ground-up or infill development, helping developers and lenders evaluate sites from concept to bond issuance.</p>
     </div>
-    <div class="intro-col">
-      <h3>Development Planning</h3>
-      <p>Expert help with underwriting materials like pro formas, market analysis, and absorption forecasts to ensure lender approval.</p>
+    <div>
+      <h4>Development Planning</h4>
+      <p>Assistance with underwriting materials like pro forma, competitive market analysis, and absorption forecasts for lender approval.</p>
     </div>
-    <div class="intro-col">
-      <h3>Project Feasibility</h3>
-      <p>Identifying market challenges and opportunities to position your project and achieve financial targets or timelines.</p>
+    <div>
+      <h4>Project Feasibility</h4>
+      <p>Identifying market challenges and opportunities to position projects and achieve financial targets.</p>
     </div>
   </div>
 
   <span class="section-label">Services We Offer</span>
-  <div class="services-grid">
+  <div class="services-intro-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
     <div class="service-card">
       <h4>Standard Market Study</h4>
       <ul class="service-list">
-        <li>City/MSA level analysis of income, jobs, and growth</li>
-        <li>Drivers of population growth and household formation</li>
-        <li>Retail, Commercial and Residential landscape overview</li>
-        <li>CMA Analysis (Transit, Facilities, Safety, Education)</li>
-        <li>Multi-family vs. Single-family trend impact analysis</li>
-        <li><strong>Demand & Absorption forecasting included</strong></li>
+        <li>City/MSA analysis of income, jobs, and growth</li>
+        <li>Retail, Commercial, and Residential landscape overview</li>
+        <li>CMA analysis of transit, safety, and community facilities</li>
+        <li>Demand and Absorption forecasting</li>
       </ul>
     </div>
-
     <div class="service-card">
       <h4>Standard Rental Analysis</h4>
       <ul class="service-list">
-        <li>10-20 Comparable evaluation & neighborhood mapping</li>
-        <li>Pricing, concessions, and vacancy rate summaries</li>
-        <li>Construction pipeline & impact of new deliveries</li>
-        <li>Feature/Amenity matrix & building photography</li>
-        <li>Proximity analysis to freeways, grocery, and transit</li>
+        <li>Rental comp analysis (10-20 comparables)</li>
+        <li>Pricing, concessions, and vacancy rate evaluation</li>
+        <li>Impact of new unit deliveries on rental rates</li>
+        <li>Feature and amenity matrix with photography</li>
       </ul>
-    </div>
-
-    <div class="service-card">
-      <h4>Special District Creation</h4>
-      <p>Specialized analysis for MUD, LID, PID, TIRZ, and TIF areas.</p>
-      <ul class="service-list">
-        <li>All Standard Market Study content</li>
-        <li>Detailed assessed value forecasting</li>
-        <li>District-specific growth modeling</li>
-      </ul>
-    </div>
-
-    <div class="service-card">
-      <h4>Market Study Visualization</h4>
-      <ul class="service-list">
-        <li>Drone and ground photography of project site</li>
-        <li>Mapped visuals of community work/play ecosystems</li>
-        <li>MSA industry and commercial growth corridors</li>
-        <li>Adjacent neighborhood character documentation</li>
-      </ul>
-    </div>
-
-    <div class="service-card" style="grid-column: 1 / -1;">
-      <h4>Highest and Best Use</h4>
-      <p>Determine the optimal real estate mix based on trade area opportunities. Includes subtype analysis and strategic timing recommendations for project stages.</p>
     </div>
   </div>
 </section>
 
 <section id="faqs">
-    <h2 class="faq-header-text">Frequently Asked Questions</h2>
-    <p style="margin-bottom: 3rem; color: var(--text-muted);">Please reach us at <a href="mailto:jchang@locationstrategyllc.com" style="color: var(--sage);">jchang@locationstrategyllc.com</a> if you cannot find an answer.</p>
+  <h2 class="faq-main-title">Frequently Asked Questions</h2>
+  <p class="faq-intro">Please reach us at <a href="mailto:jchang@locationstrategyllc.com">jchang@locationstrategyllc.com</a> if you cannot find an answer to your question.</p>
 
-    <div class="faq-item">
-        <h3 class="faq-question">What services do you offer as a real estate consultant?</h3>
-        <p class="faq-answer">Our services encompass a diverse array of offerings tailored to meet your needs, including property valuation, market research, investment analysis, and development advisory.</p>
-    </div>
+  <div class="faq-item">
+    <h3 class="faq-question">What services do you offer as a real estate consultant?</h3>
+    <p class="faq-answer">As a real estate consultant, our services encompass a diverse array of offerings tailored to meet your needs. These include expert property valuation, in-depth market research, thorough investment analysis, proficient property management, and dedicated real estate brokerage services. Explore the possibilities with us.</p>
+  </div>
 
-    <div class="faq-item">
-        <h3 class="faq-question">What is your experience in the real estate industry?</h3>
-        <p class="faq-answer">With over a decade of experience, we bring expertise across property management, brokerage, and investment analysis to guide your real estate endeavors.</p>
-    </div>
+  <div class="faq-item">
+    <h3 class="faq-question">What is your experience in the real estate industry?</h3>
+    <p class="faq-answer">With more than a decade of dedicated experience in the real estate industry, we bring a wealth of expertise across multiple domains, including proficient property management, seasoned real estate brokerage, and insightful investment analysis. Explore the depth of our industry knowledge and let us guide you through your real estate endeavors.</p>
+  </div>
 
-    <div class="faq-item">
-        <h3 class="faq-question">What types of properties do you specialize in?</h3>
-        <p class="faq-answer">We specialize in residential and commercial properties, including multi-family, houses, office buildings, industrial, and retail spaces.</p>
-    </div>
+  <div class="faq-item">
+    <h3 class="faq-question" style="border-bottom: none;">What types of properties do you specialize in?</h3>
+    <p class="faq-answer">Specializing in both residential and commercial properties, our expertise extends to a diverse range of real estate, encompassing multi-family, houses, office buildings, industrial and retail spaces.</p>
+  </div>
 </section>
 
 <section id="contact">
   <div>
-    <span class="section-label">Inquiry</span>
+    <span class="section-label" style="color: var(--sage);">Inquiry</span>
     <h2>Let's discuss your project.</h2>
-    <p style="margin-top: 2rem; opacity: 0.7;">Reach out for a complimentary initial consultation regarding market feasibility or site selection.</p>
-    <p style="margin-top: 2rem; font-weight: 700; font-size: 1.2rem;">jchang@locationstrategyllc.com</p>
+    <p style="margin-top: 1rem; opacity: 0.7;">jchang@locationstrategyllc.com</p>
   </div>
   <form class="contact-form">
     <input type="text" placeholder="Full Name" required>
     <input type="email" placeholder="Email Address" required>
     <select>
-      <option disabled selected>Select a Service</option>
       <option>Standard Market Study</option>
       <option>Standard Rental Analysis</option>
-      <option>Special District Creation</option>
-      <option>Highest and Best Use</option>
+      <option>Development Planning</option>
     </select>
     <textarea rows="5" placeholder="Tell us about your project..."></textarea>
-    <button type="submit" class="btn-submit">Send Message</button>
+    <button type="submit" class="submit-btn">Send Message</button>
   </form>
 </section>
 
-<footer style="background: #111; color: var(--white); padding: 4rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
-  <p style="opacity: 0.4; font-size: 0.8rem;">© 2026 Location Strategy, LLC. All rights reserved.</p>
+<footer style="text-align: center; padding: 4rem; background: #0b0f14; color: white; font-size: 0.8rem; opacity: 0.6;">
+  © 2026 Location Strategy LLC. All rights reserved.
 </footer>
 
 </body>
