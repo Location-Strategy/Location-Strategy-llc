@@ -9,19 +9,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
    :root {
-      --primary-blue: #2c7bb6;    /* Professional blue from the logo/links */
-      --dark-grey: #333333;       /* Main text color */
-      --light-grey: #f4f4f4;      /* Background sections */
-      --white: #ffffff;           /* Pure white background */
-      --border: #e0e0e0;          /* Subtle dividers */
-      --text-muted: #666666;      /* Secondary text */
+      --olive-dark: #5b6d44;      /* The dark green used in headers/titles */
+      --sage-green: #b2c58c;      /* The primary green from your CTA box */
+      --sage-light: #d8e2c1;      /* A lighter tint for hovers/accents */
+      --white: #ffffff;           /* Main background */
+      --bg-light: #f9faf7;        /* Very light gray/green for section backgrounds */
+      --text-main: #333333;       /* Professional dark gray for body text */
+      --border: #e0e4d9;          /* Subtle sage-tinted borders */
       
-      /* Mapping new colors to your existing structure */
+      /* Mapping these to your existing structure */
       --navy: var(--white);       
-      --navy-mid: var(--light-grey);
-      --gold: var(--primary-blue);
-      --gold-light: #5ba4da;
-      --cream: var(--dark-grey);
+      --navy-mid: var(--bg-light);
+      --gold: var(--olive-dark);
+      --gold-light: var(--sage-green);
+      --cream: var(--text-main);
       --warm-white: var(--white);
     }
 
