@@ -8,28 +8,25 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-   :root {
-      --green: #8aaa3a;
-      --green-dark: #6b8a2a;
-      --green-bg: #9ab84a;
-      --text-dark: #3a3a2a;
-      --text-heading: #6b7a2a;
-      --text-body: #4a4a3a;
-      --white: #ffffff;
-      --light-bg: #f9f9f4;
-      --border: #d4d9b8;
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #142130;
+      --gold: #c9a84c;
+      --gold-light: #e2c97e;
+      --cream: #f5f1eb;
+      --warm-white: #faf8f5;
+      --text-muted: #8a9aaa;
+      --border: rgba(201,168,76,0.2);
     }
-
 
     html { scroll-behavior: smooth; }
 
-   body {
-      font-family: 'Lato', sans-serif;
-      color: var(--text-body);
-      background: var(--white);
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--navy);
+      color: var(--cream);
+      overflow-x: hidden;
     }
-
-
 
     /* ─── NOISE OVERLAY ─── */
     body::before {
@@ -44,7 +41,7 @@
 
     /* ─── SCROLLBAR ─── */
     ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: var(--green); }
+    ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
     /* ─── NAV ─── */
@@ -118,7 +115,7 @@
 
     .nav-cta:hover {
       background: var(--gold);
-      color: var(--green);
+      color: var(--navy);
     }
 
     /* Hamburger */
@@ -140,7 +137,7 @@
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: var(--green);
+      background: var(--navy);
       z-index: 99;
       flex-direction: column;
       align-items: center;
@@ -201,11 +198,14 @@
       background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
     }
 
-   .hero-grid-line {
-      display: none; /* Add this line */
+    .hero-grid-line {
       position: absolute;
       background: var(--border);
     }
+    .hero-grid-line.v1 { left: 33%; top: 0; width: 1px; height: 100%; }
+    .hero-grid-line.v2 { left: 66%; top: 0; width: 1px; height: 100%; }
+    .hero-grid-line.h1 { top: 50%; left: 0; width: 100%; height: 1px; }
+
     .hero-content {
       position: relative;
       z-index: 1;
@@ -269,7 +269,7 @@
 
     .btn-primary {
       background: var(--gold);
-      color: var(--green);
+      color: var(--navy);
       border: none;
       padding: 1rem 2.2rem;
       font-family: 'DM Sans', sans-serif;
@@ -479,7 +479,7 @@
     }
 
     /* ─── ABOUT ─── */
-    #about { background: var(--light-bg); }
+    #about { background: var(--navy-mid); }
 
     .about-grid {
       display: grid;
@@ -594,7 +594,7 @@
     }
 
     .service-card {
-      background: var(--green);
+      background: var(--navy);
       padding: 2.5rem;
       position: relative;
       overflow: hidden;
@@ -614,7 +614,7 @@
     }
 
     .service-card:hover {
-      background: var(--green-darkn);
+      background: var(--navy-mid);
     }
 
     .service-card:hover::before {
@@ -679,7 +679,7 @@
     }
 
     /* ─── PROCESS ─── */
-    #process { background: var(--green-bg); }
+    #process { background: var(--navy-mid); }
 
     .process-grid {
       display: grid;
@@ -690,7 +690,7 @@
     }
 
     .process-step {
-      background: var(--sage green);
+      background: var(--navy-mid);
       padding: 2.5rem 2rem;
       position: relative;
       transition: background 0.3s;
@@ -850,7 +850,7 @@
     }
 
     .form-group select option {
-      background: var(--green);
+      background: var(--navy);
       color: var(--cream);
     }
 
