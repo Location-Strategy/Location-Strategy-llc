@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Location Strategy LLC</title>
+  <title>Location Strategy LLC | Market Intelligence</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,7 +18,7 @@
       --text-muted: #7a7a6a;
       --white: #ffffff;
       --border: #d4d9b8;
-      --shadow: rgba(58, 58, 42, 0.1);
+      --shadow: rgba(58, 58, 42, 0.05);
     }
 
     html { scroll-behavior: smooth; }
@@ -39,7 +39,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 999;
-      opacity: 0.4;
+      opacity: 0.3;
     }
 
     /* ─── SCROLLBAR ─── */
@@ -56,7 +56,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 1.5rem 4rem;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(15px);
       border-bottom: 1px solid var(--border);
       transition: all 0.3s ease;
@@ -72,9 +72,7 @@
     }
 
     .nav-logo span { color: var(--text-dark); font-weight: 300; }
-
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-
     .nav-links a {
       text-decoration: none;
       color: var(--text-body);
@@ -83,57 +81,20 @@
       letter-spacing: 0.12em;
       text-transform: uppercase;
       transition: color 0.3s ease;
-      position: relative;
     }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--green);
-      transition: width 0.3s ease;
-    }
-
     .nav-links a:hover { color: var(--green); }
-    .nav-links a:hover::after { width: 100%; }
 
     .nav-cta {
-      background: var(--green);
+      background: var(--green-dark);
       color: var(--white);
       padding: 0.6rem 1.5rem;
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s ease;
       text-decoration: none;
-      border: 1px solid var(--green);
+      transition: 0.3s;
     }
-
-    .nav-cta:hover { background: transparent; color: var(--green); }
-
-    /* Hamburger */
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--green-dark); transition: 0.3s; }
-
-    .mobile-menu {
-      position: fixed;
-      top: 0; right: -100%;
-      width: 100%; height: 100vh;
-      background: var(--white);
-      z-index: 101;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      transition: 0.5s ease;
-    }
-    .mobile-menu.open { right: 0; }
-    .mobile-menu a { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--text-heading); text-decoration: none; }
-    .mobile-close { position: absolute; top: 1.5rem; right: 2rem; background: none; border: none; font-size: 2rem; color: var(--green); }
 
     /* ─── HERO ─── */
     #hero {
@@ -142,226 +103,199 @@
       grid-template-columns: 1fr 1fr;
       align-items: center;
       padding: 8rem 4rem 4rem;
-      position: relative;
       background: var(--green-bg);
     }
-
-    .hero-content { position: relative; z-index: 1; }
-
-    .hero-eyebrow { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; opacity: 0; animation: fadeUp 0.8s forwards 0.3s; }
-    .hero-eyebrow-line { width: 40px; height: 1px; background: var(--green); }
-    .hero-eyebrow-text { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dark); font-weight: 700; }
-
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-size: clamp(3rem, 5vw, 5rem);
       font-weight: 300;
       line-height: 1.1;
       color: var(--text-heading);
       margin-bottom: 2rem;
-      opacity: 0; animation: fadeUp 0.9s forwards 0.5s;
     }
-
     .hero-title em { font-style: italic; color: var(--green); }
 
-    .hero-subtitle { font-size: 0.95rem; color: var(--text-body); max-width: 440px; margin-bottom: 3rem; opacity: 0; animation: fadeUp 0.9s forwards 0.7s; }
-
-    .hero-actions { display: flex; gap: 1.2rem; opacity: 0; animation: fadeUp 0.9s forwards 0.9s; }
-
-    .btn-primary {
-      background: var(--green-dark); color: var(--white);
-      padding: 1rem 2.2rem; text-transform: uppercase; font-size: 0.8rem; font-weight: 700;
-      text-decoration: none; transition: 0.3s;
+    /* ─── SERVICES (DETAILED) ─── */
+    #services { padding: 8rem 4rem; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
     }
-    .btn-primary:hover { background: var(--text-heading); }
 
-    .hero-visual { position: relative; display: flex; align-items: center; justify-content: center; opacity: 0; animation: fadeIn 1.2s forwards 1s; }
-    .hero-card { background: var(--white); border: 1px solid var(--border); padding: 3rem; width: 100%; max-width: 420px; box-shadow: 15px 15px 0 var(--green); }
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      transition: 0.4s;
+      display: flex;
+      flex-direction: column;
+    }
 
-    .hero-stat h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: var(--green-dark); margin-bottom: 0.4rem; }
-    .hero-stat p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-weight: 700; }
+    .service-card:hover { border-color: var(--green); box-shadow: 0 15px 40px var(--shadow); }
 
-    /* ─── MARQUEE ─── */
-    .marquee-wrapper { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 0; overflow: hidden; background: var(--white); }
+    .service-icon { font-size: 1.5rem; color: var(--green); margin-bottom: 1rem; display: block; }
+    
+    .service-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--text-heading);
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--green-bg);
+      padding-bottom: 1rem;
+    }
+
+    .service-list { list-style: none; }
+    .service-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      color: var(--text-body);
+    }
+
+    .service-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: bold;
+    }
+
+    /* Full width card for specific highlights */
+    .service-card.full-width { grid-column: 1 / -1; }
+
+    /* ─── PROCESS & MARQUEE (Keeping same as before) ─── */
+    .marquee-wrapper { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 1.5rem 0; background: var(--white); overflow: hidden; }
     .marquee-track { display: flex; animation: marquee 30s linear infinite; width: max-content; }
     .marquee-item { display: flex; align-items: center; gap: 2rem; padding: 0 3rem; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-muted); font-weight: 700; }
-    .marquee-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); }
-
     @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
-    /* ─── SECTIONS ─── */
-    section { position: relative; padding: 8rem 4rem; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-label { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }
-    .section-label-line { width: 30px; height: 1px; background: var(--green); }
-    .section-label-text { font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dark); font-weight: 700; }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 3.8rem); color: var(--text-heading); margin-bottom: 1.5rem; }
-    .section-title em { font-style: italic; color: var(--green); }
-
-    /* ─── SERVICES GRID ─── */
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 4rem; }
-    .service-card { padding: 3rem 2rem; border: 1px solid var(--border); transition: 0.4s; position: relative; }
-    .service-card:hover { border-color: var(--green); transform: translateY(-5px); box-shadow: 0 10px 30px var(--shadow); }
-    .service-icon { font-size: 2rem; margin-bottom: 1.5rem; display: block; }
-    .service-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; margin-bottom: 1rem; color: var(--text-heading); }
-    .service-card p { font-size: 0.85rem; color: var(--text-body); margin-bottom: 1.5rem; }
-
-    /* ─── PROCESS ─── */
-    #process { background: var(--green-bg); }
-    .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem; }
-    .process-step { background: var(--white); padding: 2.5rem; border: 1px solid var(--border); }
-    .process-step-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--green); opacity: 0.3; display: block; margin-bottom: 1rem; }
-
     /* ─── CONTACT ─── */
+    #contact { background: var(--green-bg); padding: 8rem 4rem; }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
     .form-group { margin-bottom: 1.5rem; }
-    .form-group label { display: block; font-size: 0.7rem; text-transform: uppercase; font-weight: 700; margin-bottom: 0.5rem; color: var(--text-muted); }
-    .form-group input, .form-group textarea {
-      width: 100%; padding: 1rem; border: 1px solid var(--border); background: var(--green-bg); font-family: inherit; outline: none; transition: 0.3s;
-    }
-    .form-group input:focus, .form-group textarea:focus { border-color: var(--green); background: var(--white); }
+    .form-group label { display: block; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .form-group input, .form-group textarea { width: 100%; padding: 1rem; border: 1px solid var(--border); font-family: inherit; }
 
     footer { padding: 4rem; background: var(--text-heading); color: var(--white); text-align: center; }
-    footer p { font-size: 0.8rem; opacity: 0.6; letter-spacing: 0.05em; }
 
     /* Animations */
-    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
     @media (max-width: 900px) {
-      #hero, .services-grid, .process-grid, .contact-grid { grid-template-columns: 1fr; }
-      nav { padding: 1.2rem 2rem; }
-      .nav-links, .nav-cta { display: none; }
-      .hamburger { display: flex; }
-      section { padding: 5rem 2rem; }
+      .services-grid, .contact-grid, #hero { grid-template-columns: 1fr; }
+      nav, section, #hero { padding: 2rem; }
     }
   </style>
 </head>
 <body>
 
-<nav id="navbar">
+<nav>
   <a href="#" class="nav-logo">Location <span>Strategy</span></a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
     <li><a href="#services">Services</a></li>
-    <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get in Touch</a>
-  <button class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
-  </button>
+  <a href="#contact" class="nav-cta">Inquiry</a>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-close" onclick="toggleMenu()">✕</button>
-  <a href="#about" onclick="toggleMenu()">About</a>
-  <a href="#services" onclick="toggleMenu()">Services</a>
-  <a href="#process" onclick="toggleMenu()">Process</a>
-  <a href="#contact" onclick="toggleMenu()">Contact</a>
-</div>
-
 <section id="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <div class="hero-eyebrow-line"></div>
-      <span class="hero-eyebrow-text">Strategic Consulting</span>
-    </div>
-    <h1 class="hero-title">The right<br><em>location,</em><br>every time.</h1>
-    <p class="hero-subtitle">Location Strategy LLC provides expert market analysis and feasibility studies to help you make data-driven investment decisions.</p>
-    <div class="hero-actions">
-      <a href="#services" class="btn-primary">Explore Services</a>
-    </div>
+  <div>
+    <h1 class="hero-title">Precision <em>Intelligence</em><br>for Real Estate.</h1>
+    <p>Providing the data-driven clarity required to minimize risk and maximize the potential of every site.</p>
   </div>
-
-  <div class="hero-visual">
-    <div class="hero-card">
-      <div class="hero-stat">
-        <h3>15+</h3>
-        <p>Years Experience</p>
-      </div>
-      <div style="height: 1px; background: var(--border); margin: 2rem 0;"></div>
-      <div class="hero-stat">
-        <h3>500+</h3>
-        <p>Market Studies</p>
-      </div>
-    </div>
+  <div style="background: var(--white); padding: 3rem; border: 1px solid var(--border);">
+     <p style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--green-dark); margin-bottom: 1rem;">Core Philosophy</p>
+     <h2 style="font-family: 'Cormorant Garamond'; font-size: 2rem; font-weight: 300;">We don't just provide data. We provide the strategy for where you belong.</h2>
   </div>
 </section>
 
 <div class="marquee-wrapper">
   <div class="marquee-track">
-    <div class="marquee-item"><div class="marquee-dot"></div>Feasibility Studies</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Rental Analysis</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Site Selection</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Investment Advisory</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Feasibility Studies</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Rental Analysis</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Site Selection</div>
-    <div class="marquee-item"><div class="marquee-dot"></div>Investment Advisory</div>
+    <div class="marquee-item">Market Studies</div>
+    <div class="marquee-item">Rental Analysis</div>
+    <div class="marquee-item">Site Selection</div>
+    <div class="marquee-item">Highest & Best Use</div>
+    <div class="marquee-item">Market Studies</div>
+    <div class="marquee-item">Rental Analysis</div>
+    <div class="marquee-item">Site Selection</div>
+    <div class="marquee-item">Highest & Best Use</div>
   </div>
 </div>
 
 <section id="services">
   <div class="section-inner">
     <div class="reveal">
-      <div class="section-label">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">Expertise</span>
-      </div>
-      <h2 class="section-title">What we <em>deliver</em></h2>
+       <p style="font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--green-dark); font-weight: 700; margin-bottom: 1rem;">Consulting Services</p>
+       <h2 style="font-family: 'Cormorant Garamond'; font-size: 3.5rem; line-height: 1; margin-bottom: 4rem;">Comprehensive <em>Offerings</em></h2>
     </div>
+
     <div class="services-grid">
       <div class="service-card reveal">
         <span class="service-icon">📊</span>
-        <h3>Market Studies</h3>
-        <p>Comprehensive analysis of supply, demand, and absorption for commercial and residential assets.</p>
+        <h3>Standard Market Study</h3>
+        <ul class="service-list">
+          <li>City and MSA level analysis of income, jobs, growth, and demographics tracking nationally/regionally.</li>
+          <li>Drivers of job/population growth and their relation to household formation.</li>
+          <li>Overview of Retail, Commercial, and Residential Landscape.</li>
+          <li>Competitive Market Area (CMA) analysis for specific asset types.</li>
+          <li>CMA eco-system analysis: transit, community facilities, safety/crime, culture, parks, and education.</li>
+          <li><strong>Standard Rental Analysis components included.</strong></li>
+          <li>Single-family market trends as move-up/alternative options impacting multi-family desirability.</li>
+          <li>Demand & Absorption forecasting.</li>
+        </ul>
       </div>
-      <div class="service-card reveal">
-        <span class="service-icon">⚖️</span>
-        <h3>Highest & Best Use</h3>
-        <p>Evaluating scenarios to maximize the legal, physical, and financial potential of your property.</p>
-      </div>
-      <div class="service-card reveal">
-        <span class="service-icon">🏘️</span>
-        <h3>Rental Analysis</h3>
-        <p>Detailed benchmarking and occupancy trends to ensure your yield projections are accurate.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="process">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-label">
-        <div class="section-label-line"></div>
-        <span class="section-label-text">Our Method</span>
+      <div class="service-card reveal">
+        <span class="service-icon">🏠</span>
+        <h3>Standard Rental Analysis</h3>
+        <ul class="service-list">
+          <li>Historical and Current Apartment Market Outlook for the region.</li>
+          <li>Comp analysis evaluating 10-20 properties (Subject or comparable neighborhoods).</li>
+          <li>Deep dive into pricing, concessions, and vacancy rates.</li>
+          <li>Impact of current apartment construction and new unit deliveries on rates/occupancy.</li>
+          <li>Amenity matrix (In-unit laundry, parking, storage, pet policy, shared features).</li>
+          <li>Photos of comparable units and building profiles.</li>
+          <li>Basic demographic and community access analysis (Freeways, grocery, transit).</li>
+        </ul>
       </div>
-      <h2 class="section-title">A <em>structured</em> approach</h2>
-    </div>
-    <div class="process-grid">
-      <div class="process-step reveal">
-        <span class="process-step-num">01</span>
-        <h4 style="font-weight:700; margin-bottom:0.5rem">Discovery</h4>
-        <p style="font-size:0.8rem">Defining goals and market parameters.</p>
+
+      <div class="service-card reveal">
+        <span class="service-icon">🏛️</span>
+        <h3>Special District Creation</h3>
+        <ul class="service-list">
+          <li>All content included in the Regular Market Study.</li>
+          <li>Custom assessed value forecast for specialized tax areas.</li>
+          <li>Specific focus on MUD, LID, PID, TIRZ, and TIF areas.</li>
+        </ul>
       </div>
-      <div class="process-step reveal">
-        <span class="process-step-num">02</span>
-        <h4 style="font-weight:700; margin-bottom:0.5rem">Acquisition</h4>
-        <p style="font-size:0.8rem">Gathers proprietary local market data.</p>
+
+      <div class="service-card reveal">
+        <span class="service-icon">📸</span>
+        <h3>Study Visualization</h3>
+        <ul class="service-list">
+          <li>Drone and ground photography of the project site and immediate community.</li>
+          <li>Photography and mapped visuals of key competitors and neighborhood amenities.</li>
+          <li>Visual ecosystem mapping of "Work, Play, and Services."</li>
+          <li>Mapped visuals of key MSA industries, airport/transit hubs, and commercial growth corridors.</li>
+        </ul>
       </div>
-      <div class="process-step reveal">
-        <span class="process-step-num">03</span>
-        <h4 style="font-weight:700; margin-bottom:0.5rem">Modeling</h4>
-        <p style="font-size:0.8rem">Rigorous financial and demand analysis.</p>
-      </div>
-      <div class="process-step reveal">
-        <span class="process-step-num">04</span>
-        <h4 style="font-weight:700; margin-bottom:0.5rem">Insight</h4>
-        <p style="font-size:0.8rem">Final strategic Go/No-Go report.</p>
+
+      <div class="service-card full-width reveal" style="background: var(--green-bg);">
+        <span class="service-icon">💡</span>
+        <h3>Highest and Best Use (HBU)</h3>
+        <p style="margin-bottom: 1.5rem; max-width: 800px;">Our most strategic offering, determining the optimal real estate mix based on trade area opportunities.</p>
+        <ul class="service-list" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <li>Analysis of real estate subtypes within the trade area.</li>
+          <li>Timing recommendations for development stages.</li>
+          <li>Feasibility of product mix (Residential, Retail, Office, or Mixed-Use).</li>
+          <li>Risk-adjusted yield optimization through site density analysis.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -371,24 +305,22 @@
   <div class="section-inner">
     <div class="contact-grid">
       <div class="reveal">
-        <h2 class="section-title">Let’s find your <em>next</em> move.</h2>
-        <p>We work with investors, developers, and municipalities nationwide. Schedule a confidential consultation.</p>
+        <h2 style="font-family: 'Cormorant Garamond'; font-size: 3rem; color: var(--text-heading);">Ready to <em>begin?</em></h2>
+        <p>Contact us to discuss your project scope or request a sample report.</p>
       </div>
       <div class="reveal">
-        <form class="contact-form">
-          <div class="form-group">
-            <label>Name</label>
-            <input type="text" placeholder="John Doe">
+        <form>
+          <div class="form-group"><label>Full Name</label><input type="text"></div>
+          <div class="form-group"><label>Email Address</label><input type="email"></div>
+          <div class="form-group"><label>Service Interest</label>
+            <select style="width:100%; padding:1rem; border:1px solid var(--border);">
+              <option>Standard Market Study</option>
+              <option>Rental Analysis</option>
+              <option>Special Districts</option>
+              <option>Highest & Best Use</option>
+            </select>
           </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="john@company.com">
-          </div>
-          <div class="form-group">
-            <label>Message</label>
-            <textarea rows="4" placeholder="How can we help?"></textarea>
-          </div>
-          <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer">Send Inquiry</button>
+          <button type="submit" class="nav-cta" style="width:100%; border:none; cursor:pointer;">Request Consultation</button>
         </form>
       </div>
     </div>
@@ -400,34 +332,13 @@
 </footer>
 
 <script>
-  // Intersection Observer for Scroll Animations
-  const observerOptions = { threshold: 0.1 };
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+      if (entry.isIntersecting) entry.target.classList.add('visible');
     });
-  }, observerOptions);
+  }, { threshold: 0.1 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Navbar Shrink Effect
-  window.addEventListener('scroll', () => {
-    const nav = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      nav.style.padding = '0.8rem 4rem';
-      nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.05)';
-    } else {
-      nav.style.padding = '1.5rem 4rem';
-      nav.style.boxShadow = 'none';
-    }
-  });
-
-  // Mobile Menu Toggle
-  function toggleMenu() {
-    document.getElementById('mobileMenu').classList.toggle('open');
-  }
 </script>
 
 </body>
