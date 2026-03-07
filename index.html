@@ -8,25 +8,28 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --navy: #0d1b2a;
-      --navy-mid: #142130;
-      --gold: #c9a84c;
-      --gold-light: #e2c97e;
-      --cream: #f5f1eb;
-      --warm-white: #faf8f5;
-      --text-muted: #8a9aaa;
-      --border: rgba(201,168,76,0.2);
+   :root {
+      --green: #8aaa3a;
+      --green-dark: #6b8a2a;
+      --green-bg: #9ab84a;
+      --text-dark: #3a3a2a;
+      --text-heading: #6b7a2a;
+      --text-body: #4a4a3a;
+      --white: #ffffff;
+      --light-bg: #f9f9f4;
+      --border: #d4d9b8;
     }
+
 
     html { scroll-behavior: smooth; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: var(--navy);
-      color: var(--cream);
-      overflow-x: hidden;
+   body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-body);
+      background: var(--white);
     }
+
+
 
     /* ─── NOISE OVERLAY ─── */
     body::before {
