@@ -32,21 +32,18 @@
     section { padding: 8rem 4rem; }
     .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.2em; display: block; margin-bottom: 1.5rem; }
 
-    /* HERO */
+    /* HERO - Integrated with your custom stats text */
     #hero { 
-      min-height: 85vh; background: #1e262f; display: grid; grid-template-columns: 1.2fr 1fr; 
-      align-items: center; padding: 6rem; color: var(--white); margin-top: 80px; 
+      min-height: 70vh; background: #1e262f; display: flex; 
+      align-items: center; justify-content: center; padding: 6rem; color: var(--white); margin-top: 80px; 
     }
-    .hero-content h1 { font-family: 'Cormorant Garamond', serif; font-size: 5.5rem; font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
-    .hero-content h1 em { color: var(--sage); font-style: italic; }
-    .hero-content p { font-size: 1.25rem; max-width: 500px; opacity: 0.9; font-weight: 300; }
-
     .stats-box { 
+      width: 100%; max-width: 1200px;
       border: 1px solid rgba(255,255,255,0.1); padding: 4rem; display: grid; 
-      grid-template-columns: 1fr 1fr; gap: 3rem; background: rgba(255,255,255,0.02);
+      grid-template-columns: repeat(3, 1fr); gap: 3rem; background: rgba(255,255,255,0.02);
+      text-align: center;
     }
-    .stat-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); font-weight: 400; line-height: 1; }
-    .stat-item p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #ccc; }
+    .stat-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--sage); font-weight: 400; line-height: 1.2; }
 
     /* ABOUT US SECTION */
     #about { max-width: 1250px; margin: 0 auto; }
@@ -56,7 +53,7 @@
 
     /* PRINCIPAL CARD */
     .principal-card { background: var(--cream); border: 1px solid #eee; }
-    .principal-image { width: 100%; height: auto; display: block; }
+    .principal-image { width: 100%; height: auto; display: block; filter: grayscale(10%); }
     .principal-content { padding: 2.5rem; }
     .principal-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--navy); margin-bottom: 0.5rem; }
 
@@ -66,21 +63,26 @@
     .services-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--navy); margin-bottom: 1.5rem; }
     .services-list { list-style: none; margin-top: 2rem; }
     .services-list li { font-size: 1.1rem; margin-bottom: 1rem; padding-left: 2rem; position: relative; }
-    .services-list li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; font-size: 1.5rem; line-height: 1; }
+    .services-list li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; font-size: 1.5rem; line-height: 1.2; }
 
     /* FAQ SECTION */
     #faqs { max-width: 1000px; margin: 4rem auto; padding: 0 4rem; }
     .faq-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); margin-bottom: 0.5rem; }
     .faq-item { border-bottom: 1px solid #eee; padding: 1rem 0; }
-    .faq-question { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; }
+    .faq-question { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; }
     .faq-answer { max-height: 0; overflow: hidden; transition: all 0.4s ease-in-out; font-size: 1.1rem; opacity: 0; }
     .faq-item.active .faq-answer { max-height: 500px; padding-bottom: 2rem; opacity: 1; }
-    .faq-toggle-icon { transition: transform 0.4s; }
+    .faq-toggle-icon { font-size: 1.2rem; transition: transform 0.4s; }
     .faq-item.active .faq-toggle-icon { transform: rotate(180deg); }
 
+    footer { text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem; }
+
     @media (max-width: 1024px) {
-      #hero, .about-grid, .services-container { grid-template-columns: 1fr; padding: 4rem 2rem; }
+      #hero { padding: 4rem 2rem; }
+      .stats-box { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
+      .about-grid, .services-container { grid-template-columns: 1fr; gap: 3rem; }
       header { padding: 1rem 2rem; }
+      .about-text h2, .services-text h2 { font-size: 3rem; }
     }
   </style>
 </head>
@@ -102,16 +104,19 @@
 </header>
 
 <section id="hero">
-  <div class="hero-content">
-    <span class="section-label" style="color: #7a7a7a;">Strategic Real Estate Consulting</span>
-    <h1>The right <em>location,</em> every time.</h1>
-    <p>Expert market analysis, feasibility studies, and development advisory helping you make data-driven decisions.</p>
-  </div>
   <div class="stats-box">
-    <div class="stat-item"><h4>15+</h4><p>Years of Experience</p></div>
-    <div class="stat-item"><h4>500+</h4><p>Market Studies</p></div>
-    <div class="stat-item"><h4>98%</h4><p>Client Satisfaction</p></div>
-    <div class="stat-item"><h4>12</h4><p>Special Districts Created</p></div>
+    <div class="stat-item">
+        <span class="section-label" style="color:rgba(255,255,255,0.5)">Expertise</span>
+        <h4>Data driven demand and market analysis</h4>
+    </div>
+    <div class="stat-item">
+        <span class="section-label" style="color:rgba(255,255,255,0.5)">Experience</span>
+        <h4>500+ Market Studies</h4>
+    </div>
+    <div class="stat-item">
+        <span class="section-label" style="color:rgba(255,255,255,0.5)">Established</span>
+        <h4>Founded in 2019</h4>
+    </div>
   </div>
 </section>
 
@@ -146,7 +151,7 @@
     </div>
     
     <div class="services-list-box">
-      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage);">Market Studies and Feasibility Analysis Services:</h3>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); margin-bottom: 1rem;">Market Studies and Feasibility Analysis Services:</h3>
       <ul class="services-list">
         <li>City and MSA level analysis of income, jobs, and demographics</li>
         <li>Drivers of job and population growth relating to household formation</li>
@@ -161,32 +166,39 @@
 
 <section id="faqs">
   <h2 class="faq-title">Frequently Asked Questions</h2>
-  <p style="margin-bottom: 2rem;">Please reach us at <a href="mailto:jchang@locationstrategyllc.com" style="color: var(--sage);">jchang@locationstrategyllc.com</a> if you cannot find an answer.</p>
+  <p style="margin-bottom: 2rem;">Please reach us at <a href="mailto:jchang@locationstrategyllc.com" style="color: var(--sage); text-decoration: none; border-bottom: 1px solid var(--sage);">jchang@locationstrategyllc.com</a> if you cannot find an answer.</p>
   
   <div class="faq-item">
-    <div class="faq-question">What services do you offer as a real estate consultant? <span class="faq-toggle-icon">▲</span></div>
+    <div class="faq-question">What services do you offer as a real estate consultant? <span class="faq-toggle-icon">▼</span></div>
     <div class="faq-answer">We offer comprehensive market studies, property valuations, investment analysis, and development advisory tailored to the unique nuances of your specific Texas trade area.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question">What is your experience in the real estate industry? <span class="faq-toggle-icon">▲</span></div>
+    <div class="faq-question">What is your experience in the real estate industry? <span class="faq-toggle-icon">▼</span></div>
     <div class="faq-answer">Our team combines over 15 years of institutional experience, from Wall Street analytics to large-scale Texas land acquisition and brokerage.</div>
   </div>
 
   <div class="faq-item">
-    <div class="faq-question">What types of properties do you specialize in? <span class="faq-toggle-icon">▲</span></div>
+    <div class="faq-question">What types of properties do you specialize in? <span class="faq-toggle-icon">▼</span></div>
     <div class="faq-answer">We specialize in residential development (ground-up and infill), multi-family assets, special districts (MUD/PID), and mixed-use commercial projects.</div>
   </div>
 </section>
 
-<footer style="text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem;">
+<footer>
   © 2026 Location Strategy LLC. All rights reserved.
 </footer>
 
 <script>
+  // Simple Toggle Logic for FAQs
   document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
       const faqItem = button.parentElement;
+      
+      // Optional: Close other FAQs when one opens
+      // document.querySelectorAll('.faq-item').forEach(item => {
+      //   if (item !== faqItem) item.classList.remove('active');
+      // });
+
       faqItem.classList.toggle('active');
     });
   });
