@@ -75,15 +75,22 @@
     .service-detailed-card ul li { font-size: 0.9rem; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
     .service-detailed-card ul li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; }
 
-    @media (max-width: 1024px) {
-      #hero, .about-grid, .services-intro, .services-main-grid { grid-template-columns: 1fr; padding: 4rem 2rem; }
-      .hero-content h1 { font-size: 3.5rem; }
-      header { padding: 1rem 2rem; }
-    }
-  </style>
-</head>
-<body>
+    /* FAQS */
+    #faqs { max-width: 1000px; margin: 0 auto; background: var(--white); }
+    .faq-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); margin-bottom: 0.5rem; }
+    .faq-header-info { margin-bottom: 3rem; font-size: 1rem; color: var(--text-main); }
+    .faq-header-info a { color: var(--sage); text-decoration: none; border-bottom: 1px solid var(--sage); }
 
-<header>
-  <div class="logo-container">
-    <img src="
+    .faq-item { border-bottom: 1px solid #eee; padding: 1rem 0; }
+    .faq-question { 
+      font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--navy); 
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; 
+    }
+    .faq-toggle-icon { font-size: 0.8rem; color: var(--sage); transition: transform 0.4s ease; }
+    .faq-answer { max-height: 0; overflow: hidden; transition: all 0.4s ease-in-out; font-size: 1.1rem; color: var(--text-main); opacity: 0; }
+
+    .faq-item.active .faq-answer { max-height: 500px; padding-bottom: 2rem; opacity: 1; }
+    .faq-item.active .faq-toggle-icon { transform: rotate(180deg); }
+
+    @media (max-width: 1024px) {
+      #hero, .about-grid, .services-intro, .services-main-grid { grid-template-
