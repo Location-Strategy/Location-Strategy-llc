@@ -8,15 +8,21 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --navy: #0d1b2a;
-      --navy-mid: #142130;
-      --gold: #c9a84c;
-      --gold-light: #e2c97e;
-      --cream: #f5f1eb;
-      --warm-white: #faf8f5;
-      --text-muted: #8a9aaa;
-      --border: rgba(201,168,76,0.2);
+   :root {
+      --primary-blue: #2c7bb6;    /* Professional blue from the logo/links */
+      --dark-grey: #333333;       /* Main text color */
+      --light-grey: #f4f4f4;      /* Background sections */
+      --white: #ffffff;           /* Pure white background */
+      --border: #e0e0e0;          /* Subtle dividers */
+      --text-muted: #666666;      /* Secondary text */
+      
+      /* Mapping new colors to your existing structure */
+      --navy: var(--white);       
+      --navy-mid: var(--light-grey);
+      --gold: var(--primary-blue);
+      --gold-light: #5ba4da;
+      --cream: var(--dark-grey);
+      --warm-white: var(--white);
     }
 
     html { scroll-behavior: smooth; }
