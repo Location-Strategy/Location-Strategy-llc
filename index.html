@@ -48,14 +48,15 @@
     .stat-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); font-weight: 400; line-height: 1; }
     .stat-item p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: #ccc; }
 
-    /* ABOUT SECTION */
+    /* ABOUT SECTION (Simplied Header Integrated) */
     #about { max-width: 1250px; margin: 0 auto; }
     .about-header { margin-bottom: 4rem; }
-    .about-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--navy); margin-bottom: 1rem; }
-    .about-header h3 { font-size: 1.5rem; font-weight: 400; color: var(--text-main); margin-bottom: 2rem; }
-    
+    .about-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--navy); margin-bottom: 0.5rem; }
+    .about-header h3 { font-size: 1.5rem; font-weight: 400; color: var(--text-main); margin-bottom: 1.5rem; }
+    .about-header .tagline { color: var(--sage); font-weight: 700; font-size: 1.1rem; }
+
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-    .principal-card { background: var(--cream); padding: 0; display: flex; flex-direction: column; }
+    .principal-card { background: var(--cream); display: flex; flex-direction: column; }
     .principal-image { width: 100%; height: auto; display: block; }
     .principal-text { padding: 2.5rem; }
     
@@ -63,7 +64,7 @@
         background: var(--cream); padding: 2.5rem; border-left: 4px solid var(--sage); margin: 2rem 0; 
     }
 
-    /* SERVICES */
+    /* SERVICES SECTION */
     #services { background: var(--white); border-top: 1px solid #eee; }
     .services-intro { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-bottom: 6rem; }
     .intro-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; color: var(--navy); margin-bottom: 1.5rem; border-bottom: 2px solid var(--sage); padding-bottom: 0.5rem; display: inline-block; }
@@ -75,8 +76,8 @@
     .service-detailed-card ul li { font-size: 0.9rem; margin-bottom: 0.8rem; padding-left: 1.5rem; position: relative; }
     .service-detailed-card ul li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; }
 
-    /* FAQS */
-    #faqs { max-width: 1000px; margin: 0 auto; background: var(--white); }
+    /* FAQ SECTION */
+    #faqs { max-width: 1000px; margin: 4rem auto; background: var(--white); }
     .faq-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); margin-bottom: 0.5rem; }
     .faq-header-info { margin-bottom: 3rem; font-size: 1rem; color: var(--text-main); }
     .faq-header-info a { color: var(--sage); text-decoration: none; border-bottom: 1px solid var(--sage); }
@@ -94,7 +95,6 @@
 
     @media (max-width: 1024px) {
       #hero, .about-grid, .services-intro, .services-main-grid { grid-template-columns: 1fr; padding: 4rem 2rem; }
-      .hero-content h1 { font-size: 3.5rem; }
       header { padding: 1rem 2rem; }
     }
   </style>
@@ -103,15 +103,15 @@
 
 <header>
   <div class="logo-container">
-    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" alt="Logo" class="logo-img">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" alt="Location Strategy Logo" class="logo-img">
   </div>
   <nav>
     <ul>
       <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#about">About Us</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#faqs">Faqs</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="#faqs">FAQs</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -135,7 +135,7 @@
     <span class="section-label">Overview</span>
     <h2>Real Estate Market Studies</h2>
     <h3>Data driven demand and market analysis</h3>
-    <p style="color:var(--sage); font-weight: 700;">Founded in 2019, 500+ market studies</p>
+    <p class="tagline">Founded in 2019, 500+ market studies</p>
   </div>
 
   <div class="about-grid">
@@ -196,7 +196,6 @@
         <li>Demand and Absorption forecasting</li>
       </ul>
     </div>
-
     <div class="service-detailed-card">
       <h4>Standard Rental Analysis</h4>
       <ul>
@@ -206,7 +205,6 @@
         <li>Matrix of features and amenities: laundry, parking, storage</li>
       </ul>
     </div>
-
     <div class="service-detailed-card">
         <h4>Market Study: Special District</h4>
         <ul>
@@ -215,7 +213,6 @@
           <li>Specialized infrastructure impact analysis</li>
         </ul>
     </div>
-
     <div class="service-detailed-card">
         <h4>Market Study Visualization</h4>
         <ul>
@@ -224,7 +221,6 @@
           <li>Community ecosystem mapping (Work, Play, and Services)</li>
         </ul>
     </div>
-
     <div class="service-detailed-card" style="grid-column: 1 / -1;">
         <h4>Highest and Best Use</h4>
         <p>Determine the highest and best use real estate or mix of real estate based on opportunities in the trade area. This includes an analysis of subtypes within the real estate type, and potential timing on what stage to introduce specific types to the market.</p>
