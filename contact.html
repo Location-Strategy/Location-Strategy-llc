@@ -6,50 +6,96 @@
   <title>Contact Us | Location Strategy LLC</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <style>
-    :root { --sage: #8aaa3a; --navy: #1a242f; --white: #ffffff; }
-    body { font-family: 'DM Sans', sans-serif; margin: 0; background: var(--navy); color: var(--white); }
+    :root { 
+      --sage: #8aaa3a; 
+      --navy: #1a242f; 
+      --white: #ffffff; 
+      --text-gray: #aab2bd;
+    }
+    body { font-family: 'DM Sans', sans-serif; margin: 0; background: var(--navy); color: var(--white); line-height: 1.6; }
     
     header {
       background: var(--white); padding: 1.5rem 4rem;
       display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 100;
     }
-    nav a { color: var(--navy); text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; }
+    .logo-img { height: 50px; width: auto; }
+    nav a { color: var(--navy); text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.1em; transition: 0.3s; }
+    nav a:hover { color: var(--sage); }
 
     .contact-container {
       display: grid; grid-template-columns: 1fr 1fr;
-      min-height: 80vh; padding: 6rem; gap: 4rem; align-items: center;
+      min-height: 85vh; padding: 6rem; gap: 6rem; align-items: center;
+      max-width: 1400px; margin: 0 auto;
     }
-    h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; margin-bottom: 1rem; }
     
-    form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-info h1 { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; margin-bottom: 1.5rem; font-weight: 300; line-height: 1.1; }
+    .contact-info p { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem; }
+    .email-link { color: var(--sage); text-decoration: none; font-size: 1.5rem; font-weight: 500; border-bottom: 2px solid transparent; transition: 0.3s; }
+    .email-link:hover { border-bottom: 2px solid var(--sage); }
+
+    /* Form Styling */
+    form { display: flex; flex-direction: column; gap: 1.5rem; background: rgba(255,255,255,0.03); padding: 3rem; border: 1px solid rgba(255,255,255,0.1); }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--sage); font-weight: 700; }
+    
     input, textarea { 
       padding: 1.2rem; background: rgba(255,255,255,0.05); 
       border: 1px solid rgba(255,255,255,0.2); color: white; 
+      font-family: 'DM Sans', sans-serif; font-size: 1rem;
+      transition: border-color 0.3s;
     }
+    input:focus, textarea:focus { outline: none; border-color: var(--sage); }
+    
     button { 
       background: var(--sage); color: white; border: none; 
       padding: 1.2rem; font-weight: 700; cursor: pointer; 
-      text-transform: uppercase; letter-spacing: 0.1em;
+      text-transform: uppercase; letter-spacing: 0.15em;
+      transition: background 0.3s, transform 0.2s;
     }
-    @media (max-width: 900px) { .contact-container { grid-template-columns: 1fr; padding: 2rem; } }
+    button:hover { background: #9bbd4a; transform: translateY(-2px); }
+
+    @media (max-width: 1024px) { 
+      .contact-container { grid-template-columns: 1fr; padding: 4rem 2rem; }
+      .contact-info h1 { font-size: 3.5rem; }
+      header { padding: 1rem 2rem; }
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" height="40">
-  <nav><a href="index.html">← Back to Home</a></nav>
+  <a href="index.html">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" class="logo-img" alt="Location Strategy Logo">
+  </a>
+  <nav><a href="index.html">← Return to Home</a></nav>
 </header>
 
 <div class="contact-container">
-  <div>
-    <h1>Let's discuss your project.</h1>
-    <p>jchang@locationstrategyllc.com</p>
+  <div class="contact-info">
+    <h1>Let's discuss your next project.</h1>
+    <p>Expert market analysis and development advisory. We respond to all inquiries within 24 hours.</p>
+    <a href="mailto:jchang@locationstrategyllc.com" class="email-link">jchang@locationstrategyllc.com</a>
   </div>
-  <form>
-    <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <textarea rows="5" placeholder="Tell us about your project" required></textarea>
+
+  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+    <div class="form-group">
+      <label for="full-name">Full Name</label>
+      <input type="text" id="full-name" name="name" placeholder="Name" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="_replyto" placeholder="email@example.com" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="message">Project Details</label>
+      <textarea id="message" name="message" rows="6" placeholder="How can we help?" required></textarea>
+    </div>
+    
+    <input type="text" name="_gotcha" style="display:none">
+    
     <button type="submit">Send Message</button>
   </form>
 </div>
