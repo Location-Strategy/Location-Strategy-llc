@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Location Strategy, LLC</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <title>Location Strategy LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
+   :root {
       --green: #8aaa3a;
       --green-dark: #6b8a2a;
       --green-bg: #9ab84a;
@@ -20,86 +20,108 @@
       --border: #d4d9b8;
     }
 
-    body {
+
+    html { scroll-behavior: smooth; }
+
+  body {
       font-family: 'Lato', sans-serif;
       color: var(--text-body);
       background: var(--white);
     }
 
-    /* ── NAV ── */
-    header {
+
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 60px;
-      background: var(--white);
+      padding: 1.5rem 4rem;
+      background: rgba(13,27,42,0.85);
+      backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      transition: padding 0.3s ease;
     }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--gold);
       text-decoration: none;
     }
 
-    .logo-icon {
-      width: 42px;
-      height: 42px;
+    .nav-logo span { color: var(--cream); font-weight: 300; }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
       position: relative;
     }
 
-    /* SVG pin logo */
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s ease;
     }
 
-    .logo-text span:first-child {
-      font-family: 'Playfair Display', serif;
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text-dark);
-      letter-spacing: 0.02em;
-    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
 
-    .logo-text span:last-child {
-      font-family: 'Playfair Display', serif;
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--green);
-      letter-spacing: 0.03em;
-    }
-
-    nav {
-      display: flex;
-      gap: 36px;
-      align-items: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-family: 'Lato', sans-serif;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+    .nav-cta {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.6rem 1.5rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--text-dark);
-      padding-bottom: 3px;
-      border-bottom: 2px solid transparent;
-      transition: border-color 0.2s, color 0.2s;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
     }
 
-    nav a.active,
-    nav a:hover {
-      border-bottom-color: var(--text-dark);
-      color: var(--text-dark);
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--navy);
     }
 
+    /* Hamburger */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -108,428 +130,1228 @@
       background: none;
       border: none;
     }
-    .hamburger span { width: 24px; height: 2px; background: var(--text-dark); display: block; }
-
-    /* ── HERO ── */
-    .hero {
-      display: grid;
-      grid-template-columns: 60% 40%;
-      height: 400px;
-    }
-
-    .hero-map {
-      background-image: url('https://img1.wsimg.com/isteam/ip/44a86dae-129c-4126-b71d-e7160a72a6a1/cover.png/:/rs=h:1000,cg:true,m');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-    }
-
-    .hero-cta {
-      background-color: #8fad3f;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-cta a {
-      display: inline-block;
-      border: 2px solid var(--text-dark);
-      color: var(--text-dark);
-      font-family: 'Lato', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      text-decoration: none;
-      padding: 14px 28px;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .hero-cta a:hover {
-      background: var(--text-dark);
-      color: var(--white);
-    }
-
-    /* ── WHAT WE DO ── */
-    .section {
-      padding: 70px 60px;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 32px;
-      font-weight: 600;
-      color: var(--text-heading);
-      margin-bottom: 48px;
-    }
-
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 36px;
-    }
-
-    .card {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card-img {
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
+    .hamburger span {
       display: block;
-      background: #e8ebb8;
+      width: 24px; height: 2px;
+      background: var(--gold);
+      transition: all 0.3s;
     }
-
-    .card-img-placeholder {
-      width: 100%;
-      aspect-ratio: 1;
-      background: #d4d9b8;
-      display: flex;
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--navy);
+      z-index: 99;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 2rem;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--cream);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--gold); }
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+      background: none; border: none;
+      color: var(--gold);
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      position: relative;
       overflow: hidden;
     }
 
-    .card h4 {
-      font-family: 'Lato', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      color: var(--text-dark);
-      margin-top: 18px;
-      margin-bottom: 10px;
+    .hero-bg-lines {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-bg-lines::before {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    }
+
+    .hero-bg-lines::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.04) 0%, transparent 70%);
+    }
+
+    .hero-grid-line {
+      position: absolute;
+      background: var(--border);
+    }
+    .hero-grid-line.v1 { left: 33%; top: 0; width: 1px; height: 100%; }
+    .hero-grid-line.v2 { left: 66%; top: 0; width: 1px; height: 100%; }
+    .hero-grid-line.h1 { top: 50%; left: 0; width: 100%; height: 1px; }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.3s;
+    }
+
+    .hero-eyebrow-line {
+      width: 40px; height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-eyebrow-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
+      color: var(--gold);
     }
 
-    .card p {
-      font-size: 14px;
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.5s;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      max-width: 440px;
+      margin-bottom: 3rem;
+      font-weight: 300;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.7s;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.9s ease forwards 0.9s;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+      border: none;
+      padding: 1rem 2.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gold-light);
+      transform: translateX(-101%);
+      transition: transform 0.4s ease;
+    }
+
+    .btn-primary span { position: relative; z-index: 1; }
+    .btn-primary:hover::before { transform: translateX(0); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--cream);
+      border: 1px solid rgba(245,241,235,0.2);
+      padding: 1rem 2.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards 1s;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 2rem;
+      width: 60px; height: 2px;
+      background: var(--gold);
+    }
+
+    .hero-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .hero-stat h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-stat p {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .hero-card-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 2rem 0;
+    }
+
+    .hero-card-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 300;
       line-height: 1.7;
-      color: var(--text-body);
     }
 
-    /* ── SERVICES ── */
-    .services-bg {
-      background: var(--light-bg);
+    /* ─── MARQUEE ─── */
+    .marquee-wrapper {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      overflow: hidden;
+      background: rgba(201,168,76,0.04);
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 30s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      padding: 0 3rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .marquee-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 7rem 4rem;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label-line {
+      width: 30px; height: 1px;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .section-label-text {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .section-body {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-muted);
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--navy-mid); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-box {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--border);
+      padding: 3rem;
+      position: relative;
+    }
+
+    .about-box::after {
+      content: '';
+      position: absolute;
+      bottom: -12px; right: -12px;
+      inset: auto;
+      width: 100%;
+      height: 100%;
+      border: 1px solid rgba(201,168,76,0.1);
+      z-index: -1;
+    }
+
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--cream);
+      margin-bottom: 2rem;
+    }
+
+    .about-quote-author {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .about-values {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .about-value {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.2rem;
+      border: 1px solid transparent;
+      transition: border-color 0.3s ease, background 0.3s ease;
+      cursor: default;
+    }
+
+    .about-value:hover {
+      border-color: var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .about-value-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.6;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .about-value-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+      letter-spacing: 0.05em;
+    }
+
+    .about-value-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── SERVICES ─── */
+    #services {}
+
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 5rem;
     }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
     }
 
-    .service-item {
-      padding: 36px 40px;
+    .service-card {
+      background: var(--navy);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s ease;
+      cursor: default;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .service-card:hover {
+      background: var(--navy-mid);
+    }
+
+    .service-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .service-icon {
+      width: 48px; height: 48px;
       border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2rem;
+      transition: border-color 0.3s ease;
+      font-size: 1.3rem;
     }
 
-    .service-item h4 {
-      font-family: 'Lato', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+    .service-card:hover .service-icon {
+      border-color: var(--gold);
+    }
+
+    .service-num {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      color: rgba(201,168,76,0.3);
+      letter-spacing: 0.1em;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .service-desc {
+      font-size: 0.8rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-link {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--text-dark);
-      margin-bottom: 16px;
+      color: var(--gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.3s ease;
     }
 
-    .service-item ul {
-      padding-left: 18px;
+    .service-card:hover .service-link {
+      gap: 1rem;
     }
 
-    .service-item ul li {
-      font-size: 13.5px;
-      line-height: 1.75;
-      color: var(--text-body);
-      margin-bottom: 4px;
+    /* ─── PROCESS ─── */
+    #process { background: var(--navy-mid); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--border);
+      margin-top: 4rem;
     }
 
-    /* ── FOOTER ── */
-    footer {
-      background: var(--white);
+    .process-step {
+      background: var(--navy-mid);
+      padding: 2.5rem 2rem;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    .process-step:hover { background: rgba(201,168,76,0.04); }
+
+    .process-step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(201,168,76,0.12);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .process-step-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+
+    .process-step-desc {
+      font-size: 0.78rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* ─── CTA BANNER ─── */
+    #cta {
+      background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.02) 100%);
       border-top: 1px solid var(--border);
-      padding: 30px 60px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: var(--cream);
+      line-height: 1.3;
+    }
+
+    .cta-title em { font-style: italic; color: var(--gold); }
+
+    /* ─── CONTACT ─── */
+    #contact {}
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+    }
+
+    .contact-info {}
+
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1.2rem;
+      align-items: flex-start;
+    }
+
+    .contact-item-icon {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-item-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-item-value {
+      font-size: 0.9rem;
+      color: var(--cream);
+      font-weight: 300;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a.contact-item-value:hover { color: var(--gold); }
+
+    /* Form */
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--cream);
+      padding: 0.9rem 1.1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 300;
+      outline: none;
+      transition: border-color 0.3s ease;
+      resize: none;
+      -webkit-appearance: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(138,154,170,0.4);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-group select option {
+      background: var(--navy);
+      color: var(--cream);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 3rem 4rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 1.5rem;
     }
 
-    footer p {
-      font-size: 12px;
-      color: #888;
-      letter-spacing: 0.04em;
-    }
-
-    footer .footer-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 14px;
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
       font-weight: 600;
-      color: var(--text-dark);
+      color: var(--gold);
+      letter-spacing: 0.08em;
     }
 
-    /* ── COOKIE BANNER ── */
-    #cookie-banner {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: #8fad3f;
-      color: var(--text-dark);
-      padding: 20px 22px;
-      max-width: 320px;
-      z-index: 999;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    .footer-logo span { color: var(--cream); font-weight: 300; }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
     }
 
-    #cookie-banner h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 15px;
-      margin-bottom: 8px;
-    }
-
-    #cookie-banner p {
-      font-size: 12.5px;
-      line-height: 1.6;
-      margin-bottom: 14px;
-    }
-
-    #cookie-banner button {
-      background: var(--text-dark);
-      color: var(--white);
-      border: none;
-      padding: 10px 18px;
-      font-family: 'Lato', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+    .footer-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      cursor: pointer;
-      width: 100%;
-      transition: background 0.2s;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.3s;
     }
 
-    #cookie-banner button:hover { background: #222; }
+    .footer-links a:hover { color: var(--gold); }
 
-    /* ── RESPONSIVE ── */
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(138,154,170,0.4);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
-      header { padding: 16px 24px; }
-      nav { display: none; }
+      nav { padding: 1.2rem 2rem; }
+      .nav-links, .nav-cta { display: none; }
       .hamburger { display: flex; }
-      .hero { grid-template-columns: 1fr; height: auto; }
-      .hero-map { height: 260px; }
-      .hero-cta { padding: 40px 24px; }
-      .section { padding: 50px 24px; }
-      .cards-grid { grid-template-columns: 1fr; }
+
+      #hero {
+        grid-template-columns: 1fr;
+        padding: 7rem 2rem 3rem;
+        gap: 3rem;
+      }
+
+      .hero-visual { order: -1; }
+      .hero-card { max-width: 100%; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .services-header { grid-template-columns: 1fr; gap: 1.5rem; }
       .services-grid { grid-template-columns: 1fr; }
-      footer { padding: 24px; flex-direction: column; align-items: flex-start; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .cta-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .section-inner { padding: 5rem 2rem; }
+      footer { padding: 2rem; flex-direction: column; align-items: flex-start; }
+
+      .hero-grid-line { display: none; }
     }
 
-    /* Map card placeholder with SVG map feel */
-    .map-placeholder {
-      width: 100%;
-      aspect-ratio: 1;
-      background: linear-gradient(135deg, #c9d6a0 0%, #a8bf70 40%, #d4ddb0 100%);
-      position: relative;
-      overflow: hidden;
-    }
-    .map-placeholder::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: repeating-linear-gradient(0deg, transparent, transparent 29px, rgba(255,255,255,0.3) 30px),
-                  repeating-linear-gradient(90deg, transparent, transparent 29px, rgba(255,255,255,0.3) 30px);
-    }
-    .map-pin {
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -60%);
-      z-index: 2;
-      color: #3a6fc4;
-      font-size: 32px;
+    @media (max-width: 600px) {
+      .process-grid { grid-template-columns: 1fr; }
+      .hero-stat-grid { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <a href="/" class="logo">
-    <svg class="logo-icon" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <!-- Pin shape -->
-      <path d="M21 4C15.477 4 11 8.477 11 14c0 8 10 20 10 20s10-12 10-20c0-5.523-4.477-10-10-10z" fill="#8aaa3a"/>
-      <circle cx="21" cy="14" r="5" fill="white"/>
-      <!-- Leaf accent -->
-      <path d="M28 7 Q34 2 38 8 Q32 10 28 7z" fill="#6b8a2a" opacity="0.7"/>
-    </svg>
-    <div class="logo-text">
-      <span>Location</span>
-      <span>Strategy</span>
-    </div>
-  </a>
-  <nav>
-    <a href="#home" class="active">Home</a>
-    <a href="#about">About Us</a>
-    <a href="#contact">Contact Us</a>
-    <a href="#faqs">FAQs</a>
-  </nav>
-  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Location <span>Strategy</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('open')" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
-</header>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="document.querySelector('.mobile-menu').classList.remove('open')">✕</button>
+  <a href="#about" onclick="document.querySelector('.mobile-menu').classList.remove('open')">About</a>
+  <a href="#services" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Services</a>
+  <a href="#process" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Process</a>
+  <a href="#contact" onclick="document.querySelector('.mobile-menu').classList.remove('open')">Contact</a>
+</div>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-map">
-    <!-- Aerial map image from the real site -->
-    <img src="https://img1.wsimg.com/isteam/ip/44a86dae-129c-4126-b71d-e7160a72a6a1/cover.png/:/rs=h:1000,cg:true,m"
-         alt="Aerial map" style="width:100%;height:100%;object-fit:cover;display:block;"
-         onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#c9d6a0,#8aaa3a)'"/>
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-grid-line v1"></div>
+  <div class="hero-grid-line v2"></div>
+  <div class="hero-grid-line h1"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="hero-eyebrow-line"></div>
+      <span class="hero-eyebrow-text">Strategic Real Estate Consulting</span>
+    </div>
+    <h1 class="hero-title">
+      The right<br><em>location,</em><br>every time.
+    </h1>
+    <p class="hero-subtitle">
+      Location Strategy LLC provides expert market analysis, feasibility studies, and development advisory services — helping investors, developers, and municipalities make confident, data-driven decisions.
+    </p>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary"><span>Explore Services</span></a>
+      <a href="#contact" class="btn-secondary">Schedule a Consultation</a>
+    </div>
   </div>
-  <div class="hero-cta">
-    <a href="mailto:jchang@locationstrategyllc.com">Send An Email Now</a>
+
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-stat-grid">
+        <div class="hero-stat">
+          <h3>15+</h3>
+          <p>Years of Experience</p>
+        </div>
+        <div class="hero-stat">
+          <h3>500+</h3>
+          <p>Market Studies</p>
+        </div>
+        <div class="hero-stat">
+          <h3>98%</h3>
+          <p>Client Satisfaction</p>
+        </div>
+        <div class="hero-stat">
+          <h3>12</h3>
+          <p>Special Districts Created</p>
+        </div>
+      </div>
+      <div class="hero-card-divider"></div>
+      <p class="hero-card-note">
+        "Precise analysis, strategic clarity, and actionable insight — delivered on time, every time."
+      </p>
+    </div>
   </div>
 </section>
 
-<!-- WHAT WE DO -->
-<section class="section" id="about">
-  <h2 class="section-title">What We Do</h2>
-  <div class="cards-grid">
+<!-- MARQUEE -->
+<div class="marquee-wrapper">
+  <div class="marquee-track">
+    <div class="marquee-item"><div class="marquee-dot"></div>Market Feasibility Studies</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Rental Market Analysis</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Highest & Best Use</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Special District Creation</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Development Advisory</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Site Selection Strategy</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Investment Analysis</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Market Feasibility Studies</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Rental Market Analysis</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Highest & Best Use</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Special District Creation</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Development Advisory</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Site Selection Strategy</div>
+    <div class="marquee-item"><div class="marquee-dot"></div>Investment Analysis</div>
+  </div>
+</div>
 
-    <div class="card">
-      <div class="map-placeholder">
-        <span class="map-pin">📍</span>
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-box">
+          <p class="about-quote">
+            "Every investment decision begins and ends with location. We provide the intelligence to make that decision with certainty."
+          </p>
+          <p class="about-quote-author">— Location Strategy LLC</p>
+        </div>
       </div>
-      <h4>Strategic Real Estate Consulting</h4>
-      <p>Location Strategy provides real estate feasibility analysis consultancy. We provide market studies to developers in ground up or infill development, builders, banks or lenders, asset owners, or private equity / debt in various phases of a project from concept or evaluating sites to in development, positioning to sell or for bond issuance.</p>
+      <div class="about-text reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Who We Are</span>
+        </div>
+        <h2 class="section-title">Experts in <em>real estate</em> location intelligence</h2>
+        <p class="section-body">
+          Location Strategy LLC is a boutique consulting firm specializing in real estate market analysis, strategic advisory, and development feasibility. We combine deep industry expertise with rigorous data analysis to deliver insights that drive confident investment decisions.
+        </p>
+        <div class="about-values">
+          <div class="about-value">
+            <div class="about-value-num">01</div>
+            <div>
+              <div class="about-value-title">Data-Driven Precision</div>
+              <div class="about-value-desc">Every recommendation is grounded in thorough quantitative analysis and current market data.</div>
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-num">02</div>
+            <div>
+              <div class="about-value-title">Strategic Clarity</div>
+              <div class="about-value-desc">Complex market dynamics translated into clear, actionable strategic direction.</div>
+            </div>
+          </div>
+          <div class="about-value">
+            <div class="about-value-num">03</div>
+            <div>
+              <div class="about-value-title">Client Partnership</div>
+              <div class="about-value-desc">We operate as an extension of your team — invested in your long-term success.</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="card">
-      <img
-        src="https://img1.wsimg.com/isteam/ip/44a86dae-129c-4126-b71d-e7160a72a6a1/development.jpg/:/rs=w:365,h:365,cg:true"
-        alt="Development Planning"
-        class="card-img"
-        onerror="this.outerHTML='<div class=\'card-img-placeholder\'><svg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\'><rect x=\'10\' y=\'30\' width=\'60\' height=\'40\' fill=\'#8aaa3a\' opacity=\'.4\'/><rect x=\'20\' y=\'20\' width=\'20\' height=\'50\' fill=\'#8aaa3a\' opacity=\'.6\'/><rect x=\'45\' y=\'38\' width=\'20\' height=\'32\' fill=\'#6b8a2a\' opacity=\'.5\'/></svg></div>'"
-      />
-      <h4>Development Planning Services</h4>
-      <p>Our experts can help with underwriting materials like pro forma, competitive market analysis, and absorption forecasts to make sure your package is ready for lender review and approval.</p>
-    </div>
-
-    <div class="card">
-      <img
-        src="https://img1.wsimg.com/isteam/stock/wDa8gOq/:/rs=w:365,h:365,cg:true,m/cr=w:365,h:365"
-        alt="Project Feasibility"
-        class="card-img"
-        onerror="this.outerHTML='<div class=\'card-img-placeholder\'><svg width=\'80\' height=\'80\' viewBox=\'0 0 80 80\' fill=\'none\'><circle cx=\'40\' cy=\'40\' r=\'30\' fill=\'#8aaa3a\' opacity=\'.3\'/><path d=\'M25 55 L40 20 L55 55z\' fill=\'#6b8a2a\' opacity=\'.5\'/></svg></div>'"
-      />
-      <h4>Project Feasibility</h4>
-      <p>We help identify challenges and opportunity in the market to help you position your project as well as make recommendations on how to achieve financial targets or timelines.</p>
-    </div>
-
   </div>
 </section>
 
 <!-- SERVICES -->
-<section class="section services-bg" id="services">
-  <h2 class="section-title">Services We Offer</h2>
-  <div class="services-grid">
-
-    <div class="service-item">
-      <h4>Standard Market Study</h4>
-      <ul>
-        <li>City and MSA level analysis of income, jobs, growth, demographics and how it tracks nationally and within the region</li>
-        <li>Overview of the Retail, Commercial and Residential Landscape</li>
-        <li>Competitive Market Area analysis for the real estate asset type including income, demographics, household formation, job centers</li>
-        <li>CMA analysis of the eco-system including transit, community facilities, safety/crime, public parks, public education</li>
-        <li>Standard Rental Analysis components are included</li>
-        <li>Statistics and trends in the single family market as those are considered alternatives and move-up options</li>
-        <li>Demand forecast &amp; Absorption forecast</li>
-      </ul>
+<section id="services">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">What We Do</span>
+        </div>
+        <h2 class="section-title">Comprehensive <em>advisory</em> services</h2>
+      </div>
+      <div class="reveal">
+        <p class="section-body">
+          From initial market screening to complex feasibility analysis, we offer a full suite of services tailored to your project's needs and timeline.
+        </p>
+      </div>
     </div>
 
-    <div class="service-item">
-      <h4>Standard Rental Analysis</h4>
-      <ul>
-        <li>Historical and Current Apartment Market Outlook for region</li>
-        <li>Rental comp analysis evaluating 10–20 comparables depending on inventory</li>
-        <li>Pricing, concessions, vacancy rates</li>
-        <li>Summarize current apartment construction and the impact of new unit deliveries on rental rates and occupancy</li>
-        <li>Matrix of features and amenities that each comp contains</li>
-        <li>Photos of comparable units and building</li>
-        <li>Basic demographic analysis and community analysis</li>
-      </ul>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <span class="service-num">01</span>
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Standard Market Study</h3>
+        <p class="service-desc">In-depth analysis of market conditions, supply and demand dynamics, absorption rates, and competitive positioning for any property type.</p>
+        <a href="#contact" class="service-link">Inquire →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">02</span>
+        <div class="service-icon">🏘️</div>
+        <h3 class="service-title">Rental Market Analysis</h3>
+        <p class="service-desc">Comprehensive rental rate benchmarking, occupancy trends, and investment yield projections for residential and commercial properties.</p>
+        <a href="#contact" class="service-link">Inquire →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">03</span>
+        <div class="service-icon">🏛️</div>
+        <h3 class="service-title">Special District Creation</h3>
+        <p class="service-desc">Full advisory and documentation support for establishing Community Facilities Districts, Business Improvement Districts, and other special assessment districts.</p>
+        <a href="#contact" class="service-link">Inquire →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">04</span>
+        <div class="service-icon">⚖️</div>
+        <h3 class="service-title">Highest & Best Use Analysis</h3>
+        <p class="service-desc">Rigorous evaluation of alternative development scenarios to identify the use that maximizes a property's legal, physical, and financial potential.</p>
+        <a href="#contact" class="service-link">Inquire →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">05</span>
+        <div class="service-icon">🔍</div>
+        <h3 class="service-title">Project Feasibility Studies</h3>
+        <p class="service-desc">End-to-end feasibility assessment covering market demand, financial projections, risk analysis, and go/no-go recommendation for development projects.</p>
+        <a href="#contact" class="service-link">Inquire →</a>
+      </div>
+      <div class="service-card reveal">
+        <span class="service-num">06</span>
+        <div class="service-icon">📍</div>
+        <h3 class="service-title">Site Selection Strategy</h3>
+        <p class="service-desc">Systematic evaluation of competing sites using custom-weighted criteria including demographics, access, competition, and regulatory environment.</p>
+        <a href="#contact" class="service-link">Inquire →</a>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="service-item">
-      <h4>Market Study for Special District Creation</h4>
-      <ul>
-        <li>Same content as regular market study</li>
-        <li>Includes assessed value forecast for MUD / LID / PID / TIRZ / TIF areas</li>
-      </ul>
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">How We Work</span>
+      </div>
+      <h2 class="section-title">A proven <em>four-step</em> process</h2>
     </div>
-
-    <div class="service-item">
-      <h4>Additional Market Study Visualization</h4>
-      <ul>
-        <li>Drone and ground photography of the project site and the immediate adjacent community / neighborhood level</li>
-        <li>Photography and mapped visuals of key competitors, neighborhood amenities and community ecosystem of work, play, and services</li>
-        <li>Photography and mapped visuals of key MSA area industries/businesses, airport/transit, commercial growth</li>
-      </ul>
+    <div class="process-grid reveal">
+      <div class="process-step">
+        <div class="process-step-num">01</div>
+        <h3 class="process-step-title">Discovery</h3>
+        <p class="process-step-desc">We begin with a thorough briefing to understand your objectives, timeline, constraints, and the specific questions your project needs answered.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">02</div>
+        <h3 class="process-step-title">Research & Analysis</h3>
+        <p class="process-step-desc">Our team conducts primary and secondary market research, data aggregation, site inspections, and competitive landscape evaluation.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">03</div>
+        <h3 class="process-step-title">Strategic Synthesis</h3>
+        <p class="process-step-desc">Raw data becomes actionable intelligence — we identify patterns, opportunities, and risks to build a clear strategic narrative around your project.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-step-num">04</div>
+        <h3 class="process-step-title">Delivery & Support</h3>
+        <p class="process-step-desc">We deliver comprehensive reports with executive summaries and provide ongoing advisory support as your project evolves.</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="service-item" style="grid-column: 1 / -1;">
-      <h4>Highest and Best Use</h4>
-      <ul>
-        <li>Determine the highest and best use of real estate or mix of real estate based on opportunities in the trade area including an analysis of subtypes within the real estate type, and potential timing on what stage to introduce types</li>
-      </ul>
+<!-- CTA BANNER -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="reveal">
+      <h2 class="cta-title">Ready to make your next move with <em>confidence</em>?</h2>
     </div>
+    <div class="reveal">
+      <a href="#contact" class="btn-primary"><span>Start a Conversation</span></a>
+    </div>
+  </div>
+</section>
 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="section-label">
+          <div class="section-label-line"></div>
+          <span class="section-label-text">Get In Touch</span>
+        </div>
+        <h2 class="section-title">Let's discuss your <em>project</em></h2>
+        <p class="section-body">
+          Whether you're evaluating a new development, seeking a second opinion on a market study, or exploring site selection — we're here to help. Reach out for a complimentary initial consultation.
+        </p>
+        <div class="contact-detail">
+          <div class="contact-item">
+            <div class="contact-item-icon">✉</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <a href="mailto:jchang@locationstrategyllc.com" class="contact-item-value">jchang@locationstrategyllc.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">🌐</div>
+            <div>
+              <div class="contact-item-label">Service Area</div>
+              <span class="contact-item-value">Nationwide · Remote & On-Site</span>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">⏱</div>
+            <div>
+              <div class="contact-item-label">Response Time</div>
+              <span class="contact-item-value">Within 1–2 Business Days</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" placeholder="Jane" required />
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" placeholder="Smith" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="jane@company.com" required />
+          </div>
+          <div class="form-group">
+            <label for="company">Company / Organization</label>
+            <input type="text" id="company" placeholder="Your company name" />
+          </div>
+          <div class="form-group">
+            <label for="service">Service Needed</label>
+            <select id="service">
+              <option value="">Select a service...</option>
+              <option>Standard Market Study</option>
+              <option>Rental Market Analysis</option>
+              <option>Special District Creation</option>
+              <option>Highest & Best Use Analysis</option>
+              <option>Project Feasibility Study</option>
+              <option>Site Selection Strategy</option>
+              <option>Other / General Inquiry</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Project Details</label>
+            <textarea id="message" rows="4" placeholder="Tell us about your project, timeline, and goals..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width:100%;text-align:center;"><span>Send Message →</span></button>
+        </form>
+        <div id="form-success" style="display:none; margin-top:1.5rem; padding:1.2rem; border:1px solid rgba(201,168,76,0.4); background:rgba(201,168,76,0.06);">
+          <p style="color:var(--gold);font-size:0.85rem;letter-spacing:0.05em;">✓ Thank you! We'll be in touch within 1–2 business days.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Location Strategy, LLC</div>
-  <p>Copyright © 2024 Location Strategy, LLC — All Rights Reserved.</p>
+  <div class="footer-logo">Location <span>Strategy</span> LLC</div>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-copy">© 2026 Location Strategy LLC. All rights reserved.</div>
 </footer>
 
-<!-- COOKIE BANNER -->
-<div id="cookie-banner">
-  <h3>Cookie Policy</h3>
-  <p>This website uses cookies. By continuing to use this site, you accept our use of cookies.</p>
-  <button onclick="document.getElementById('cookie-banner').style.display='none'">Accept &amp; Close</button>
-</div>
-
 <script>
-  // Mobile nav toggle
-  function toggleNav() {
-    const nav = document.querySelector('nav');
-    if (nav.style.display === 'flex') {
-      nav.style.display = 'none';
-    } else {
-      nav.style.display = 'flex';
-      nav.style.flexDirection = 'column';
-      nav.style.position = 'absolute';
-      nav.style.top = '70px';
-      nav.style.left = '0';
-      nav.style.right = '0';
-      nav.style.background = '#fff';
-      nav.style.padding = '20px 24px';
-      nav.style.borderBottom = '1px solid #d4d9b8';
-      nav.style.gap = '20px';
-      nav.style.zIndex = '200';
-    }
-  }
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
-      const target = document.querySelector(a.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth' }); }
+  // ─── SCROLL REVEAL ───
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
     });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // ─── NAV SHRINK ───
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.padding = '1rem 4rem';
+    } else {
+      nav.style.padding = '1.5rem 4rem';
+    }
   });
+
+  // ─── FORM SUBMIT ───
+  function handleSubmit(e) {
+    e.preventDefault();
+    document.getElementById('form-success').style.display = 'block';
+    e.target.reset();
+    e.target.style.opacity = '0.4';
+    e.target.style.pointerEvents = 'none';
+  }
 </script>
 </body>
 </html>
