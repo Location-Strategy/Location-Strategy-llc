@@ -9,26 +9,27 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
    :root {
-      --navy: #0d1b2a;
-      --navy-mid: #142130;
-      --gold: #c9a84c;
-      --gold-light: #e2c97e;
-      --cream: #f5f1eb;
-      --warm-white: #faf8f5;
-      --text-muted: #8a9aaa;
-      --border: rgba(201,168,76,0.2);
+      --green: #8aaa3a;
+      --green-dark: #6b8a2a;
+      --green-bg: #9ab84a;
+      --text-dark: #3a3a2a;
+      --text-heading: #6b7a2a;
+      --text-body: #4a4a3a;
+      --white: #ffffff;
+      --light-bg: #f9f9f4;
+      --border: #d4d9b8;
     }
 
 
 
     html { scroll-behavior: smooth; }
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background-color: var(--navy);
-      color: var(--cream);
-      overflow-x: hidden;
+  body {
+      font-family: 'Lato', sans-serif;
+      color: var(--text-body);
+      background: var(--white);
     }
+
 
 
 
@@ -48,79 +49,90 @@
     ::-webkit-scrollbar-track { background: var(--navy); }
     ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
 
-    /* ─── NAV ─── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
+   /* ── NAV ── */
+    header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1.5rem 4rem;
-      background: rgba(13,27,42,0.85);
-      backdrop-filter: blur(18px);
+      padding: 18px 60px;
+      background: var(--white);
       border-bottom: 1px solid var(--border);
-      transition: padding 0.3s ease;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      color: var(--gold);
-      text-decoration: none;
-    }
-
-    .nav-logo span { color: var(--cream); font-weight: 300; }
-
-    .nav-links {
+    .logo {
       display: flex;
-      gap: 2.5rem;
-      list-style: none;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
     }
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      transition: color 0.3s ease;
+    .logo-icon {
+      width: 42px;
+      height: 42px;
       position: relative;
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 1px;
-      background: var(--gold);
-      transition: width 0.3s ease;
+    /* SVG pin logo */
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
     }
 
-    .nav-links a:hover { color: var(--gold); }
-    .nav-links a:hover::after { width: 100%; }
+    .logo-text span:first-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-dark);
+      letter-spacing: 0.02em;
+    }
 
-    .nav-cta {
-      background: transparent;
-      border: 1px solid var(--gold);
-      color: var(--gold);
-      padding: 0.6rem 1.5rem;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s ease;
+    .logo-text span:last-child {
+      font-family: 'Playfair Display', serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--green);
+      letter-spacing: 0.03em;
+    }
+
+    nav {
+      display: flex;
+      gap: 36px;
+      align-items: center;
+    }
+
+    nav a {
       text-decoration: none;
+      font-family: 'Lato', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      padding-bottom: 3px;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
     }
 
-    .nav-cta:hover {
-      background: var(--gold);
-      color: var(--navy);
+    nav a.active,
+    nav a:hover {
+      border-bottom-color: var(--text-dark);
+      color: var(--text-dark);
     }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+    .hamburger span { width: 24px; height: 2px; background: var(--text-dark); display: block; }
+
 
     /* Hamburger */
     .hamburger {
