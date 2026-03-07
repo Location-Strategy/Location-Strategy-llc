@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Location Strategy LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --sage: #8aaa3a; --navy: #1a242f; --white: #ffffff; }
+    body { font-family: 'DM Sans', sans-serif; margin: 0; background: var(--navy); color: var(--white); }
+    
+    header {
+      background: var(--white); padding: 1.5rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav a { color: var(--navy); text-decoration: none; text-transform: uppercase; font-weight: 700; font-size: 0.85rem; }
+
+    .contact-container {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 80vh; padding: 6rem; gap: 4rem; align-items: center;
+    }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; margin-bottom: 1rem; }
+    
+    form { display: flex; flex-direction: column; gap: 1rem; }
+    input, textarea { 
+      padding: 1.2rem; background: rgba(255,255,255,0.05); 
+      border: 1px solid rgba(255,255,255,0.2); color: white; 
+    }
+    button { 
+      background: var(--sage); color: white; border: none; 
+      padding: 1.2rem; font-weight: 700; cursor: pointer; 
+      text-transform: uppercase; letter-spacing: 0.1em;
+    }
+    @media (max-width: 900px) { .contact-container { grid-template-columns: 1fr; padding: 2rem; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" height="40">
+  <nav><a href="index.html">← Back to Home</a></nav>
+</header>
+
+<div class="contact-container">
+  <div>
+    <h1>Let's discuss your project.</h1>
+    <p>jchang@locationstrategyllc.com</p>
+  </div>
+  <form>
+    <input type="text" placeholder="Full Name" required>
+    <input type="email" placeholder="Email Address" required>
+    <textarea rows="5" placeholder="Tell us about your project" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</div>
+
+</body>
+</html>
