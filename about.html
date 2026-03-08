@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | Location Strategy LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --sage: #8aaa3a;
+      --navy: #1a242f; 
+      --cream: #f9f9f4;
+      --white: #ffffff;
+      --text-main: #3a3a2a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text-main); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    /* NAVIGATION */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--white); padding: 1.2rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .logo-img { height: 45px; width: auto; }
+    nav ul { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
+    nav a { color: var(--navy); text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; transition: 0.3s; }
+    nav a:hover { color: var(--sage); }
+
+    /* HEADER SECTION */
+    .about-header { background: var(--navy); color: white; padding: 10rem 4rem 5rem; text-align: center; }
+    .about-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; letter-spacing: 0.02em; }
+
+    /* CONTENT GRID */
+    section { padding: 6rem 4rem; max-width: 1200px; margin: 0 auto; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
+    
+    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.2em; display: block; margin-bottom: 1rem; }
+    
+    .about-text h2, .principal-content h3 { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 3.2rem; 
+      color: var(--navy); 
+      margin-bottom: 1.5rem; 
+      line-height: 1.1;
+      font-weight: 400;
+    }
+
+    .about-text p, .principal-content p { margin-bottom: 1.5rem; font-size: 1.05rem; color: #4a4a3a; }
+
+    /* PRINCIPAL CARD */
+    .principal-card { background: var(--cream); border: 1px solid #eee; position: sticky; top: 120px; }
+    .principal-image { width: 100%; height: auto; display: block; }
+    .principal-content { padding: 3rem; }
+
+    footer { text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem; }
+
+    /* MOBILE RESPONSIVENESS */
+    @media (max-width: 1024px) {
+      header { padding: 1rem 2rem; }
+      nav ul { gap: 1.5rem; }
+      .about-header { padding: 8rem 2rem 4rem; }
+      .about-header h1 { font-size: 2.8rem; }
+      section { padding: 4rem 2rem; }
+      .about-grid { grid-template-columns: 1fr; gap: 4rem; }
+      .about-text h2, .principal-content h3 { font-size: 2.6rem; }
+      .principal-card { position: static; }
+      .principal-content { padding: 2rem; }
+    }
+
+    @media (max-width: 480px) {
+      nav a { font-size: 0.65rem; }
+      .logo-img { height: 35px; }
+      .about-header h1 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-container">
+    <a href="index.html">
+        <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" alt="Location Strategy Logo" class="logo-img">
+    </a>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="about-header">
+  <h1>Our Firm & Leadership</h1>
+</div>
+
+<section>
+  <div class="about-grid">
+    <div class="about-text">
+      <span class="section-label">Our Philosophy</span>
+      <h2>About Us</h2>
+      <p>Our firm specializes in high-level real estate advisory, rooted in a foundation of transactional experience and comprehensive market analysis. Successful real estate strategy requires more than just looking at a spreadsheet; it requires understanding the 'why' behind the 'what.'</p>
+      
+      <p>We utilize a data driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment. These nuances lead to notable outperformance of one real estate asset vs another from vacancy to rents to sales price to turnover.</p>
+      
+      <p>We know that data has limitations that necessitate relationships and surveying industry, government, economic development professionals for market color. From commercial developments to residential portfolios, we deliver the insights necessary to navigate today’s complex real estate ecosystem.</p>
+    </div>
+
+    <div class="principal-card">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/principal-photo.jpg" alt="Julie Chang" class="principal-image">
+      <div class="principal-content">
+        <span class="section-label">Leadership</span>
+        <h3>Julie Chang</h3>
+        <p>For over a decade, Julie Chang thrived in the dynamic world of Wall Street, working with both buy-side and sell-side clients in market data, technology and analytics.</p>
+        
+        <p>In pivoting to working with consumers as a licensed California real estate agent, Julie quickly recognized the emotional facets that drive real estate decisions in residential and multi family real estate sales. Julie has leveraged her analytical skills to provide data driven insights to clients while being cognizant of the psychological drivers in Buyer & Seller decision making.</p>
+        
+        <p>Her experiences in working with both technical and experiential clients has allowed her to unify the macro trends & economics with the micro decision making criteria.</p>
+        
+        <p>Julie is a graduate of the University of Texas at Austin. A Texas native, Julie travelled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how real estate and communities shape neighborhoods, social interaction, walkability, workforce and overall satisfaction.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Location Strategy LLC. All rights reserved.
+</footer>
+
+</body>
+</html>
