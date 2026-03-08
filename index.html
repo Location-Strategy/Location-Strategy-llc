@@ -85,6 +85,13 @@
       line-height: 1.2; 
     }
 
+    /* SERVICES SECTION */
+    #services { background: var(--cream); border-top: 1px solid #eee; }
+    .services-container { max-width: 1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .services-list { list-style: none; margin-top: 2rem; }
+    .services-list li { font-size: 1.05rem; margin-bottom: 1.2rem; padding-left: 2rem; position: relative; }
+    .services-list li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; font-size: 1.5rem; line-height: 1.2; }
+
     /* ABOUT US SECTION */
     #about { max-width: 1250px; margin: 0 auto; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
@@ -96,15 +103,21 @@
     .principal-content { padding: 2.5rem; }
     .principal-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--navy); margin-bottom: 0.5rem; }
 
-    /* SERVICES SECTION */
-    #services { background: var(--cream); border-top: 1px solid #eee; }
-    .services-container { max-width: 1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
-    .services-list { list-style: none; margin-top: 2rem; }
-    .services-list li { font-size: 1.05rem; margin-bottom: 1.2rem; padding-left: 2rem; position: relative; }
-    .services-list li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; font-size: 1.5rem; line-height: 1.2; }
+    /* FAQ SECTION */
+    #faqs { max-width: 1000px; margin: 0 auto; padding: 4rem 4rem; }
+    .faq-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); margin-bottom: 0.5rem; }
+    .faq-item { border-bottom: 1px solid #eee; padding: 1rem 0; }
+    .faq-question { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; transition: color 0.3s ease; }
+    .faq-toggle-icon { font-size: 1.2rem; color: #ccc; transition: transform 0.4s ease, color 0.3s ease; }
+    
+    /* FAQ Interactivity */
+    .faq-question:hover, .faq-item.active .faq-question { color: var(--sage); }
+    .faq-item.active .faq-toggle-icon { transform: rotate(180deg); color: var(--sage); }
+    .faq-answer { max-height: 0; overflow: hidden; transition: all 0.4s ease-in-out; font-size: 1.1rem; opacity: 0; }
+    .faq-item.active .faq-answer { max-height: 500px; padding-bottom: 2rem; opacity: 1; }
 
     /* CLIENTS SECTION */
-    #clients { background: var(--white); text-align: center; padding: 6rem 4rem; }
+    #clients { background: var(--cream); text-align: center; border-top: 1px solid #eee; padding: 6rem 4rem; }
     .clients-grid { 
       max-width: 1200px; 
       margin: 3rem auto 0; 
@@ -144,6 +157,7 @@
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About Us</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#faqs">FAQs</a></li>
       <li><a href="#clients">Our Clients</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
@@ -203,10 +217,25 @@
         <h3>Julie Chang</h3>
         <p>For over a decade, Julie Chang thrived in the dynamic world of Wall Street, working with both buy-side and sell-side clients in market data, technology and analytics.</p>
         <p style="margin-top: 1rem;">In pivoting to working with consumers as a licensed California real estate agent, Julie quickly recognized the emotional facets that drive real estate decisions in residential and multi family real estate sales. Julie has leveraged her analytical skills to provide data driven insights to clients while being cognizant of the psychological drivers in Buyer & Seller decision making.</p>
-        <p style="margin-top: 1rem;">Her experiences in working with both technical and experiential clients has allowed her to unify the macro trends & economics with the micro decision making criteria.</p>
-        <p style="margin-top: 1rem;">Julie is a graduate of the University of Texas at Austin. A Texas native, Julie travelled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how real estate and communities shape neighborhoods, social interaction, walkability, workforce and overall satisfaction.</p>
+        <p style="margin-top: 1rem;">Her experiences in working with both technical and experiential clients has allowed her to unify the macro trends & economics with the micro decision making criteria. Julie is a graduate of the University of Texas at Austin. A Texas native, Julie travelled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how real estate and communities shape neighborhoods, social interaction, walkability, workforce and overall satisfaction.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section id="faqs">
+  <h2 class="faq-title">Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <div class="faq-question">What services do you offer as a real estate consultant? <span class="faq-toggle-icon">▼</span></div>
+    <div class="faq-answer">We offer comprehensive market studies, property valuations, investment analysis, and development advisory tailored to the unique nuances of your specific Texas trade area.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">What is your experience in the real estate industry? <span class="faq-toggle-icon">▼</span></div>
+    <div class="faq-answer">Our team combines over 15 years of institutional experience, from Wall Street analytics to large-scale Texas land acquisition and brokerage.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-question">What types of properties do you specialize in? <span class="faq-toggle-icon">▼</span></div>
+    <div class="faq-answer">We specialize in residential development (ground-up and infill), multi-family assets, special districts (MUD/PID), and mixed-use commercial projects.</div>
   </div>
 </section>
 
@@ -230,6 +259,17 @@
 <footer>
   © 2026 Location Strategy LLC. All rights reserved.
 </footer>
+
+<script>
+  // FAQ Logic
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqItem = button.parentElement;
+      // Close other items if desired, otherwise just toggle this one
+      faqItem.classList.toggle('active');
+    });
+  });
+</script>
 
 </body>
 </html>
