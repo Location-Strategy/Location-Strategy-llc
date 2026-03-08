@@ -34,7 +34,7 @@
 
     /* HERO SECTION - REFINED WITH CENTERED HEADING */
     #hero { 
-      min-height: 75vh; 
+      min-height: 80vh; 
       background: #1e262f; 
       display: flex; 
       flex-direction: column;
@@ -48,10 +48,12 @@
     
     .hero-main-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 4.5rem;
+      font-size: 5rem; /* Enlarged text */
       font-weight: 300;
-      margin-bottom: 4rem;
+      margin-bottom: 5rem;
       color: var(--white);
+      max-width: 900px;
+      line-height: 1.1;
     }
 
     .stats-box { 
@@ -71,7 +73,7 @@
       text-transform: uppercase;
       letter-spacing: 0.2em;
       color: rgba(255,255,255,0.5);
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       display: block;
     }
 
@@ -116,8 +118,8 @@
     footer { text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem; }
 
     @media (max-width: 1024px) {
-      .hero-main-title { font-size: 3rem; }
-      .stats-box { grid-template-columns: 1fr; gap: 2rem; }
+      .hero-main-title { font-size: 3.5rem; }
+      .stats-box { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
       .about-grid, .services-container { grid-template-columns: 1fr; gap: 3rem; }
       header { padding: 1rem 2rem; }
     }
@@ -162,8 +164,8 @@
 <section id="about">
   <div class="about-grid">
     <div class="about-text">
-      <span class="section-label">Our Philosophy</span>
       <h2>About Us</h2>
+      <span class="section-label">Our Philosophy</span>
       <p>Our firm specializes in high-level real estate advisory, rooted in a foundation of transactional experience and comprehensive market analysis. Successful real estate strategy requires more than just looking at a spreadsheet; it requires understanding the 'why' behind the 'what.'</p>
       <p>We utilize a data driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment. These nuances lead to notable outperformance of one real estate asset vs another from vacancy to rents to sales price to turnover. We know that data has limitations that necessitate relationships and surveying industry, government, economic development professionals for market color. From commercial developments to residential portfolios, we deliver the insights necessary to navigate today’s complex real estate ecosystem.</p>
     </div>
