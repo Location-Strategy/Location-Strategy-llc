@@ -39,7 +39,8 @@
     
     .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.2em; display: block; margin-bottom: 1rem; }
     
-    .about-text h2, .principal-content h3 { 
+    /* UNIFIED HEADING STYLE */
+    .about-text h2, .principal-content h2 { 
       font-family: 'Cormorant Garamond', serif; 
       font-size: 3.2rem; 
       color: var(--navy); 
@@ -50,10 +51,8 @@
 
     .about-text p, .principal-content p { margin-bottom: 1.5rem; font-size: 1.05rem; color: #4a4a3a; }
 
-    /* PRINCIPAL CARD */
-    .principal-card { background: var(--cream); border: 1px solid #eee; position: sticky; top: 120px; }
-    .principal-image { width: 100%; height: auto; display: block; }
-    .principal-content { padding: 3rem; }
+    /* REMOVED STICKY CARD & IMAGE STYLES */
+    .principal-content { padding: 0; }
 
     footer { text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem; }
 
@@ -65,9 +64,7 @@
       .about-header h1 { font-size: 2.8rem; }
       section { padding: 4rem 2rem; }
       .about-grid { grid-template-columns: 1fr; gap: 4rem; }
-      .about-text h2, .principal-content h3 { font-size: 2.6rem; }
-      .principal-card { position: static; }
-      .principal-content { padding: 2rem; }
+      .about-text h2, .principal-content h2 { font-size: 2.6rem; }
     }
 
     @media (max-width: 480px) {
@@ -101,7 +98,8 @@
 <section>
   <div class="about-grid">
     <div class="about-text">
-      <h3>About Us</h3>
+      <span class="section-label">Firm Overview</span>
+      <h2>About Us</h2>
       <p>Our firm specializes in high-level real estate advisory, rooted in a foundation of transactional experience and comprehensive market analysis. Successful real estate strategy requires more than just looking at a spreadsheet; it requires understanding the 'why' behind the 'what.'</p>
       
       <p>We utilize a data driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment. These nuances lead to notable outperformance of one real estate asset vs another from vacancy to rents to sales price to turnover.</p>
@@ -109,17 +107,16 @@
       <p>We know that data has limitations that necessitate relationships and surveying industry, government, economic development professionals for market color. From commercial developments to residential portfolios, we deliver the insights necessary to navigate today’s complex real estate ecosystem.</p>
     </div>
 
-    <div class="principal-card">
-      <div class="principal-content">
-        <h3>Principal</h3>
-        <p>For over a decade, Julie Chang thrived in the dynamic world of Wall Street, working with both buy-side and sell-side clients in market data, technology and analytics.</p>
-        
-        <p>In pivoting to working with consumers as a licensed California real estate agent, Julie quickly recognized the emotional facets that drive real estate decisions in residential and multi family real estate sales. Julie has leveraged her analytical skills to provide data driven insights to clients while being cognizant of the psychological drivers in Buyer & Seller decision making.</p>
-        
-        <p>Her experiences in working with both technical and experiential clients has allowed her to unify the macro trends & economics with the micro decision making criteria.</p>
-        
-        <p>Julie is a graduate of the University of Texas at Austin. A Texas native, Julie travelled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how real estate and communities shape neighborhoods, social interaction, walkability, workforce and overall satisfaction.</p>
-      </div>
+    <div class="principal-content">
+      <span class="section-label">Leadership</span>
+      <h2>Principal</h2>
+      <p>For over a decade, Julie Chang thrived in the dynamic world of Wall Street, working with both buy-side and sell-side clients in market data, technology and analytics.</p>
+      
+      <p>In pivoting to working with consumers as a licensed California real estate agent, Julie quickly recognized the emotional facets that drive real estate decisions in residential and multi family real estate sales. Julie has leveraged her analytical skills to provide data driven insights to clients while being cognizant of the psychological drivers in Buyer & Seller decision making.</p>
+      
+      <p>Her experiences in working with both technical and experiential clients has allowed her to unify the macro trends & economics with the micro decision making criteria.</p>
+      
+      <p>Julie is a graduate of the University of Texas at Austin. A Texas native, Julie travelled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how real estate and communities shape neighborhoods, social interaction, walkability, workforce and overall satisfaction.</p>
     </div>
   </div>
 </section>
