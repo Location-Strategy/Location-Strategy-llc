@@ -60,11 +60,21 @@
     /* ABOUT US & PRINCIPAL */
     #about { max-width: 1250px; margin: 0 auto; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    .about-text h2 { font-family: 'Cormorant Garamond', serif; font-size: 4rem; color: var(--navy); margin-bottom: 1.5rem; }
+    
+    /* Updated Heading Styles for Alignment and Size */
+    .about-text h3, .principal-content h3 { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 3.5rem; 
+      color: var(--navy); 
+      margin-bottom: 1.5rem; 
+      line-height: 1.2;
+    }
+    
     .principal-card { background: var(--cream); border: 1px solid #eee; }
     .principal-image { width: 100%; height: auto; display: block; }
-    .principal-content { padding: 2.5rem; }
-    .principal-content h3 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: var(--navy); margin-bottom: 0.5rem; }
+    
+    /* Removed padding-top to ensure h3 aligns with the left column */
+    .principal-content { padding: 0 2.5rem 2.5rem 0; }
 
     /* FAQ INTERACTIVE */
     #faqs { max-width: 1000px; margin: 0 auto; padding: 4rem 4rem; }
@@ -91,6 +101,7 @@
       .about-grid, .services-container { grid-template-columns: 1fr; gap: 3rem; }
       header { padding: 1rem 2rem; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .principal-content { padding: 0; }
     }
   </style>
 </head>
@@ -158,7 +169,7 @@
       <p style="margin-top: 1.5rem;">We utilize a data driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment. These nuances lead to notable outperformance of one real estate asset vs another from vacancy to rents to sales price to turnover. We know that data has limitations that necessitate relationships and surveying industry, government, economic development professionals for market color. From commercial developments to residential portfolios, we deliver the insights necessary to navigate today’s complex real estate ecosystem.</p>
     </div>
  
-     <div class="principal-content">
+      <div class="principal-content">
         <h3>Principal</h3>
         <p>For over a decade, Julie Chang thrived in the dynamic world of Wall Street, working with both buy-side and sell-side clients in market data, technology and analytics.</p>
         <p style="margin-top: 1rem;">In pivoting to working with consumers as a licensed California real estate agent, Julie quickly recognized the emotional facets that drive real estate decisions in residential and multi family real estate sales. Julie has leveraged her analytical skills to provide data driven insights to clients while being cognizant of the psychological drivers in Buyer & Seller decision making.</p>
@@ -166,7 +177,6 @@
         <p style="margin-top: 1rem;">Julie is a graduate of the University of Texas at Austin. A Texas native, Julie travelled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how real estate and communities shape neighborhoods, social interaction, walkability, workforce and overall satisfaction.</p>
       </div>
     </div>
-  </div>
 </section>
 
 <section id="faqs">
@@ -213,8 +223,6 @@
   document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
       const faqItem = button.parentElement;
-      // Optional: Close other items when opening a new one
-      // document.querySelectorAll('.faq-item').forEach(item => { if(item !== faqItem) item.classList.remove('active'); });
       faqItem.classList.toggle('active');
     });
   });
