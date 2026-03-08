@@ -16,18 +16,18 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; color: var(--text-main); background: var(--white); line-height: 1.6; }
+    body { font-family: 'DM Sans', sans-serif; color: var(--text-main); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
     /* NAVIGATION */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: var(--white); padding: 1.5rem 4rem;
+      background: var(--white); padding: 1.2rem 4rem;
       display: flex; align-items: center; justify-content: space-between;
       border-bottom: 1px solid #f0f0f0;
     }
-    .logo-img { height: 50px; width: auto; }
-    nav ul { display: flex; list-style: none; gap: 2rem; align-items: center; }
-    nav a { color: var(--navy); text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; transition: 0.3s; }
+    .logo-img { height: 45px; width: auto; }
+    nav ul { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
+    nav a { color: var(--navy); text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; transition: 0.3s; }
     nav a:hover { color: var(--sage); }
 
     section { padding: 8rem 4rem; }
@@ -35,73 +35,70 @@
 
     /* HERO */
     #hero { 
-      min-height: 80vh; 
+      min-height: 85vh; 
       background: #1e262f; 
       display: flex; 
       flex-direction: column;
       align-items: center; 
       justify-content: center; 
-      padding: 10rem 4rem 6rem; 
+      padding: 10rem 2rem 6rem; 
       color: var(--white); 
-      margin-top: 80px; 
+      margin-top: 70px; 
       text-align: center;
     }
-    .hero-main-title { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; margin-bottom: 5rem; line-height: 1.1; max-width: 900px; }
-    .stats-box { width: 100%; max-width: 1200px; border: 1px solid rgba(255,255,255,0.1); padding: 4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; background: rgba(255,255,255,0.02); }
-    .stat-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; color: var(--sage); font-weight: 400; }
+    .hero-main-title { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; margin-bottom: 4rem; line-height: 1.1; max-width: 900px; }
+    
+    .stats-box { 
+      width: 100%; max-width: 1100px; 
+      border: 1px solid rgba(255,255,255,0.1); 
+      padding: 3rem; 
+      display: grid; 
+      grid-template-columns: repeat(3, 1fr); 
+      gap: 2rem; 
+      background: rgba(255,255,255,0.02); 
+    }
+    .stat-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); font-weight: 400; line-height: 1.2; }
 
     /* SERVICES */
     #services { background: var(--cream); border-top: 1px solid #eee; }
-    .services-container { max-width: 1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .services-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+    .services-main h2 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--navy); margin-bottom: 1.5rem; line-height: 1.1; }
     .services-list { list-style: none; margin-top: 2rem; }
-    .services-list li { font-size: 1.05rem; margin-bottom: 1.2rem; padding-left: 2rem; position: relative; }
+    .services-list li { font-size: 1rem; margin-bottom: 1.2rem; padding-left: 2rem; position: relative; }
     .services-list li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; font-size: 1.5rem; }
 
-    /* ABOUT US & PRINCIPAL */
-    #about { max-width: 1250px; margin: 0 auto; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
-    
-    /* Updated Heading Styles for Alignment and Size */
-    .about-text h3, .principal-content h3 { 
-      font-family: 'Cormorant Garamond', serif; 
-      font-size: 3.5rem; 
-      color: var(--navy); 
-      margin-bottom: 1.5rem; 
-      line-height: 1.2;
-    }
-    
-    .principal-card { background: var(--cream); border: 1px solid #eee; }
-    .principal-image { width: 100%; height: auto; display: block; }
-    
-    /* Removed padding-top to ensure h3 aligns with the left column */
-    .principal-content { padding: 0 2.5rem 2.5rem 0; }
-
-    /* FAQ INTERACTIVE */
-    #faqs { max-width: 1000px; margin: 0 auto; padding: 4rem 4rem; }
-    .faq-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); margin-bottom: 1.5rem; }
-    .faq-item { border-bottom: 1px solid #eee; padding: 0.5rem 0; }
-    .faq-question { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; transition: color 0.3s ease; }
-    .faq-toggle-icon { font-size: 1.2rem; color: #ccc; transition: transform 0.4s ease, color 0.3s ease; }
-    
-    .faq-question:hover, .faq-item.active .faq-question { color: var(--sage); }
-    .faq-item.active .faq-toggle-icon { transform: rotate(180deg); color: var(--sage); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: all 0.4s ease-in-out; font-size: 1.1rem; opacity: 0; }
-    .faq-item.active .faq-answer { max-height: 800px; padding-bottom: 2rem; opacity: 1; }
-
     /* CLIENTS */
-    #clients { background: var(--cream); text-align: center; border-top: 1px solid #eee; padding: 6rem 4rem; }
-    .clients-grid { max-width: 1200px; margin: 3rem auto 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 3rem; align-items: center; }
-    .client-logo { max-width: 120px; height: auto; filter: grayscale(100%); opacity: 0.5; transition: 0.4s; margin: 0 auto; }
+    #clients { background: var(--white); text-align: center; border-top: 1px solid #eee; padding: 6rem 2rem; }
+    .clients-grid { 
+      max-width: 1200px; 
+      margin: 3rem auto 0; 
+      display: grid; 
+      grid-template-columns: repeat(5, 1fr); 
+      gap: 3rem; 
+      align-items: center; 
+    }
+    .client-logo { max-width: 110px; height: auto; filter: grayscale(100%); opacity: 0.5; transition: 0.4s; margin: 0 auto; }
     .client-logo:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 
-    footer { text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem; }
+    footer { text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem; letter-spacing: 0.05em; }
 
+    /* MOBILE RESPONSIVENESS */
     @media (max-width: 1024px) {
-      .hero-main-title { font-size: 3rem; }
-      .about-grid, .services-container { grid-template-columns: 1fr; gap: 3rem; }
       header { padding: 1rem 2rem; }
-      .clients-grid { grid-template-columns: repeat(2, 1fr); }
-      .principal-content { padding: 0; }
+      nav ul { gap: 1.2rem; }
+      section { padding: 5rem 2rem; }
+      .hero-main-title { font-size: 3.2rem; }
+      .stats-box { grid-template-columns: 1fr; padding: 2rem; gap: 2.5rem; }
+      .services-container { grid-template-columns: 1fr; gap: 3rem; }
+      .services-main h2 { font-size: 2.8rem; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .client-logo { max-width: 90px; }
+    }
+
+    @media (max-width: 480px) {
+      nav a { font-size: 0.65rem; letter-spacing: 0.1em; }
+      .hero-main-title { font-size: 2.6rem; }
+      .logo-img { height: 35px; }
     }
   </style>
 </head>
@@ -109,15 +106,14 @@
 
 <header>
   <div class="logo-container">
-    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" alt="Location Strategy Logo" class="logo-img">
+    <a href="index.html">
+        <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" alt="Location Strategy Logo" class="logo-img">
+    </a>
   </div>
   <nav>
     <ul>
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About Us</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#faqs">FAQs</a></li>
-      <li><a href="#clients">Our Clients</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
   </nav>
@@ -144,89 +140,44 @@
 <section id="services">
   <div class="services-container">
     <div class="services-main">
+      <span class="section-label">Capabilities</span>
       <h2>Services We Offer</h2>
       <p>We provide custom consultancy or standard market feasibility studies for government special tax districts, bonds, and lender required studies. We provide studies for ground up development or existing asset analysis in single asset class projects, mixed use and master planned communities.</p>
     </div>
     <div class="services-list-box">
-      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); margin-bottom: 1rem;">Market Studies and Feasibility Analysis Services:</h3>
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--sage); margin-bottom: 1rem; font-weight: 400;">Feasibility Analysis Services:</h3>
       <ul class="services-list">
         <li>City and MSA level analysis of income, jobs, and demographics</li>
         <li>Drivers of job and population growth relating to household formation</li>
         <li>Overview of the Retail, Commercial and Residential Landscape</li>
-        <li>Competitive Market Area analysis for multiple asset types including Asset comparables</li>
+        <li>Competitive Market Area analysis for multiple asset types</li>
         <li>Demand and Absorption forecasting</li>
-        <li>Determine the highest and best use real estate or mix of real estate based on opportunities in the trade area. This includes an analysis of subtypes within the real estate type, and potential timing on what stage to introduce specific types to the market.</li>
+        <li>Highest and best use analysis for real estate subtypes and potential market timing.</li>
       </ul>
     </div>
   </div>
 </section>
 
-<section id="about">
-  <div class="about-grid">
-    <div class="about-text">
-      <h3>About Us</h3>
-      <p>Our firm specializes in high-level real estate advisory, rooted in a foundation of transactional experience and comprehensive market analysis. Successful real estate strategy requires more than just looking at a spreadsheet; it requires understanding the 'why' behind the 'what.'</p>
-      <p style="margin-top: 1.5rem;">We utilize a data driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment. These nuances lead to notable outperformance of one real estate asset vs another from vacancy to rents to sales price to turnover. We know that data has limitations that necessitate relationships and surveying industry, government, economic development professionals for market color. From commercial developments to residential portfolios, we deliver the insights necessary to navigate today’s complex real estate ecosystem.</p>
-    </div>
- 
-      <div class="principal-content">
-        <h3>Principal</h3>
-        <p>For over a decade, Julie Chang thrived in the dynamic world of Wall Street, working with both buy-side and sell-side clients in market data, technology and analytics.</p>
-        <p style="margin-top: 1rem;">In pivoting to working with consumers as a licensed California real estate agent, Julie quickly recognized the emotional facets that drive real estate decisions in residential and multi family real estate sales. Julie has leveraged her analytical skills to provide data driven insights to clients while being cognizant of the psychological drivers in Buyer & Seller decision making.</p>
-        <p style="margin-top: 1rem;">Her experiences in working with both technical and experiential clients has allowed her to unify the macro trends & economics with the micro decision making criteria.</p>
-        <p style="margin-top: 1rem;">Julie is a graduate of the University of Texas at Austin. A Texas native, Julie travelled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how real estate and communities shape neighborhoods, social interaction, walkability, workforce and overall satisfaction.</p>
-      </div>
-    </div>
-</section>
-
-<section id="faqs">
-  <h2 class="faq-title">Frequently Asked Questions</h2>
-  
-  <div class="faq-item">
-    <div class="faq-question">What services do you offer as a real estate consultant? <span class="faq-toggle-icon">▼</span></div>
-    <div class="faq-answer">We offer comprehensive market studies, property valuations, investment analysis, and development advisory tailored to the unique nuances of your specific trade area.</div>
-  </div>
-  
-  <div class="faq-item">
-    <div class="faq-question">What types of properties do you specialize in? <span class="faq-toggle-icon">▼</span></div>
-    <div class="faq-answer">We specialize in residential development (ground-up and infill), multi-family assets, special districts (MUD/PID), and mixed-use commercial projects.</div>
-  </div>
-  
-  <div class="faq-item">
-    <div class="faq-question">How does your data-driven approach benefit my project? <span class="faq-toggle-icon">▼</span></div>
-    <div class="faq-answer">By combining hard data with human behavior analysis, we identify "why" certain assets outperform others, allowing you to optimize pricing, vacancy rates, and overall asset utility.</div>
-  </div>
-</section>
-
 <section id="clients">
-  <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--navy);">Our Clients</h2>
- <div class="clients-grid">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/kb%20home.png" alt="KB Home" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/dr%20horton.png" alt="DR Horton" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Lennar2.png" alt="Lennar" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Century%20Communities2.png" alt="Century Communities" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Rice%20university2.png" alt="Rice University" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Sam%20Yager%20Inc.png" alt="Sam Yager Inc" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Johnson%20Development.png" alt="Johnson Development" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/cbre2.png" alt="CBRE" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/idv2.png" alt="IDV LLC" class="client-logo">
-  <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/K.%20Hovnanian.png" alt="K. Hovnanian" class="client-logo">
-</div>
+  <span class="section-label">Trusted By</span>
+  <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--navy); margin-bottom: 1rem;">Our Clients</h2>
+  <div class="clients-grid">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/kb%20home.png" alt="KB Home" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/dr%20horton.png" alt="DR Horton" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Lennar2.png" alt="Lennar" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Century%20Communities2.png" alt="Century Communities" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Rice%20university2.png" alt="Rice University" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Sam%20Yager%20Inc.png" alt="Sam Yager Inc" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Johnson%20Development.png" alt="Johnson Development" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/cbre2.png" alt="CBRE" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/idv2.png" alt="IDV LLC" class="client-logo">
+    <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/K.%20Hovnanian.png" alt="K. Hovnanian" class="client-logo">
+  </div>
 </section>
 
 <footer>
   © 2026 Location Strategy LLC. All rights reserved.
 </footer>
-
-<script>
-  // FAQ Toggle Logic
-  document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const faqItem = button.parentElement;
-      faqItem.classList.toggle('active');
-    });
-  });
-</script>
 
 </body>
 </html>
