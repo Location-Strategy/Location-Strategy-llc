@@ -100,22 +100,11 @@
     #services { background: var(--cream); border-top: 1px solid #eee; }
     .services-container { max-width: 1250px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
     .services-list { list-style: none; margin-top: 2rem; }
-    .services-list li { font-size: 1.1rem; margin-bottom: 1rem; padding-left: 2rem; position: relative; }
+    .services-list li { font-size: 1.05rem; margin-bottom: 1.2rem; padding-left: 2rem; position: relative; }
     .services-list li::before { content: "•"; position: absolute; left: 0; color: var(--sage); font-weight: bold; font-size: 1.5rem; line-height: 1.2; }
 
-    /* FAQ SECTION */
-    #faqs { max-width: 1000px; margin: 0 auto; padding: 4rem 4rem; }
-    .faq-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--sage); margin-bottom: 0.5rem; }
-    .faq-item { border-bottom: 1px solid #eee; padding: 1rem 0; }
-    .faq-question { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; transition: color 0.3s ease; }
-    .faq-toggle-icon { font-size: 1.2rem; color: #ccc; transition: transform 0.4s ease, color 0.3s ease; }
-    .faq-question:hover, .faq-item.active .faq-question { color: var(--sage); }
-    .faq-item.active .faq-toggle-icon { transform: rotate(180deg); color: var(--sage); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: all 0.4s ease-in-out; font-size: 1.1rem; opacity: 0; }
-    .faq-item.active .faq-answer { max-height: 500px; padding-bottom: 2rem; opacity: 1; }
-
     /* CLIENTS SECTION */
-    #clients { background: var(--cream); text-align: center; border-top: 1px solid #eee; padding: 6rem 4rem; }
+    #clients { background: var(--white); text-align: center; padding: 6rem 4rem; }
     .clients-grid { 
       max-width: 1200px; 
       margin: 3rem auto 0; 
@@ -132,17 +121,12 @@
       transition: 0.4s; 
       margin: 0 auto;
     }
-    .client-logo:hover { 
-      filter: grayscale(0%); 
-      opacity: 1; 
-      transform: scale(1.05); 
-    }
+    .client-logo:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 
     footer { text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem; }
 
     @media (max-width: 1024px) {
       .hero-main-title { font-size: 3rem; }
-      .stats-box { grid-template-columns: 1fr; gap: 2rem; padding: 2rem; }
       .about-grid, .services-container { grid-template-columns: 1fr; gap: 3rem; }
       header { padding: 1rem 2rem; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); }
@@ -160,7 +144,6 @@
       <li><a href="#hero">Home</a></li>
       <li><a href="#about">About Us</a></li>
       <li><a href="#services">Services</a></li>
-      <li><a href="#faqs">FAQs</a></li>
       <li><a href="#clients">Our Clients</a></li>
       <li><a href="contact.html">Contact Us</a></li>
     </ul>
@@ -185,60 +168,51 @@
   </div>
 </section>
 
+<section id="services">
+  <div class="services-container">
+    <div class="services-main">
+      <span class="section-label">Expertise</span>
+      <h2>Services We Offer</h2>
+      <p>We provide custom consultancy or standard market feasibility studies for government special tax districts, bonds, and lender required studies. We provide studies for ground up development or existing asset analysis in single asset class projects, mixed use and master planned communities.</p>
+    </div>
+    <div class="services-list-box">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); margin-bottom: 1rem;">Market Studies and Feasibility Analysis Services:</h3>
+      <ul class="services-list">
+        <li>City and MSA level analysis of income, jobs, and demographics</li>
+        <li>Drivers of job and population growth relating to household formation</li>
+        <li>Overview of the Retail, Commercial and Residential Landscape</li>
+        <li>Competitive Market Area analysis for multiple asset types including Asset comparables</li>
+        <li>Demand and Absorption forecasting</li>
+        <li>Determine the highest and best use real estate or mix of real estate based on opportunities in the trade area. This includes an analysis of subtypes within the real estate type, and potential timing on what stage to introduce specific types to the market.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
 <section id="about">
   <div class="about-grid">
     <div class="about-text">
       <h2>About Us</h2>
-      <span class="section-label">Our Philosophy</span>
-      <p>Our firm specializes in high-level real estate advisory, rooted in a foundation of transactional experience and comprehensive market analysis.</p>
-      <p>We utilize a data driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment.</p>
+      <p>Our firm specializes in high-level real estate advisory, rooted in a foundation of transactional experience and comprehensive market analysis. Successful real estate strategy requires more than just looking at a spreadsheet; it requires understanding the 'why' behind the 'what.'</p>
+      <p style="margin-top: 1.5rem;">We utilize a data driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment. These nuances lead to notable outperformance of one real estate asset vs another from vacancy to rents to sales price to turnover. We know that data has limitations that necessitate relationships and surveying industry, government, economic development professionals for market color. From commercial developments to residential portfolios, we deliver the insights necessary to navigate today’s complex real estate ecosystem.</p>
     </div>
     <div class="principal-card">
       <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/principal-photo.jpg" alt="Julie Chang" class="principal-image">
       <div class="principal-content">
         <span class="section-label">Principal</span>
         <h3>Julie Chang</h3>
-        <p>Julie has leveraged her analytical skills to provide data driven insights to clients while being cognizant of the psychological drivers in Buyer & Seller decision making.</p>
+        <p>For over a decade, Julie Chang thrived in the dynamic world of Wall Street, working with both buy-side and sell-side clients in market data, technology and analytics.</p>
+        <p style="margin-top: 1rem;">In pivoting to working with consumers as a licensed California real estate agent, Julie quickly recognized the emotional facets that drive real estate decisions in residential and multi family real estate sales. Julie has leveraged her analytical skills to provide data driven insights to clients while being cognizant of the psychological drivers in Buyer & Seller decision making.</p>
+        <p style="margin-top: 1rem;">Her experiences in working with both technical and experiential clients has allowed her to unify the macro trends & economics with the micro decision making criteria.</p>
+        <p style="margin-top: 1rem;">Julie is a graduate of the University of Texas at Austin. A Texas native, Julie travelled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how real estate and communities shape neighborhoods, social interaction, walkability, workforce and overall satisfaction.</p>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="services-container">
-    <div class="services-main">
-      <span class="section-label">Expertise</span>
-      <h2>Services We Offer</h2>
-      <p>We provide custom consultancy or standard market feasibility studies for government special tax districts, bonds, and lender required studies.</p>
-    </div>
-    <div class="services-list-box">
-      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); margin-bottom: 1rem;">Core Analysis:</h3>
-      <ul class="services-list">
-        <li>MSA level analysis of income and demographics</li>
-        <li>Drivers of job and population growth</li>
-        <li>Competitive Market Area analysis</li>
-        <li>Demand and Absorption forecasting</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section id="faqs">
-  <h2 class="faq-title">Frequently Asked Questions</h2>
-  <div class="faq-item">
-    <div class="faq-question">What services do you offer as a real estate consultant? <span class="faq-toggle-icon">▼</span></div>
-    <div class="faq-answer">We offer comprehensive market studies, property valuations, and development advisory.</div>
-  </div>
-  <div class="faq-item">
-    <div class="faq-question">What types of properties do you specialize in? <span class="faq-toggle-icon">▼</span></div>
-    <div class="faq-answer">Residential development, multi-family assets, and mixed-use commercial projects.</div>
   </div>
 </section>
 
 <section id="clients">
   <span class="section-label">Our Partnerships</span>
   <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--navy); margin-bottom: 2rem;">Our Clients</h2>
-  
   <div class="clients-grid">
     <img src="http://googleusercontent.com/image_collection/image_retrieval/8008114361809337194_0" alt="KB Home" class="client-logo">
     <img src="http://googleusercontent.com/image_collection/image_retrieval/5416578494854259681_0" alt="DR Horton" class="client-logo">
@@ -256,15 +230,6 @@
 <footer>
   © 2026 Location Strategy LLC. All rights reserved.
 </footer>
-
-<script>
-  document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-      const faqItem = button.parentElement;
-      faqItem.classList.toggle('active');
-    });
-  });
-</script>
 
 </body>
 </html>
