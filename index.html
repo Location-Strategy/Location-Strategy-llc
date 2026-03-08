@@ -80,6 +80,36 @@
     .client-logo { max-width: 110px; height: auto; filter: grayscale(100%); opacity: 0.5; transition: 0.4s; margin: 0 auto; }
     .client-logo:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 
+    /* CHARTBOOK SECTION */
+    #chartbook { background: var(--cream); border-top: 1px solid #eee; padding: 6rem 4rem; }
+    .chartbook-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; max-width: 1200px; margin: 0 auto; }
+    .chartbook-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--navy); line-height: 1.1; }
+    
+    .chartbook-grid { 
+        max-width: 1200px; 
+        margin: 0 auto; 
+        display: grid; 
+        grid-template-columns: repeat(3, 1fr); 
+        gap: 2.5rem; 
+    }
+
+    .post-card { 
+        background: var(--white); 
+        padding: 2.5rem; 
+        border: 1px solid #eee; 
+        text-decoration: none; 
+        transition: 0.3s; 
+        display: flex; 
+        flex-direction: column; 
+        height: 100%;
+    }
+    .post-card:hover { transform: translateY(-5px); border-color: var(--sage); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+    
+    .post-date { font-size: 0.7rem; font-weight: 700; color: var(--sage); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
+    .post-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; line-height: 1.2; }
+    .post-excerpt { font-size: 0.95rem; color: #666; margin-bottom: 2rem; flex-grow: 1; }
+    .read-more { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--navy); letter-spacing: 0.1em; border-bottom: 1px solid var(--sage); width: fit-content; }
+
     footer { text-align: center; padding: 4rem; background: #0b0f14; color: white; opacity: 0.6; font-size: 0.8rem; letter-spacing: 0.05em; }
 
     /* MOBILE RESPONSIVENESS */
@@ -93,6 +123,8 @@
       .services-main h2 { font-size: 2.8rem; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
       .client-logo { max-width: 90px; }
+      .chartbook-grid { grid-template-columns: 1fr; }
+      .chartbook-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
     }
 
     @media (max-width: 480px) {
@@ -140,6 +172,7 @@
 <section id="services">
   <div class="services-container">
     <div class="services-main">
+      <span class="section-label">Capabilities</span>
       <h2>Services We Offer</h2>
       <p>We provide custom consultancy or standard market feasibility studies for government special tax districts, bonds, and lender required studies. We provide studies for ground up development or existing asset analysis in single asset class projects, mixed use and master planned communities.</p>
     </div>
@@ -158,6 +191,7 @@
 </section>
 
 <section id="clients">
+  <span class="section-label">Trusted By</span>
   <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: var(--navy); margin-bottom: 1rem;">Our Clients</h2>
   <div class="clients-grid">
     <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/kb%20home.png" alt="KB Home" class="client-logo">
@@ -170,6 +204,39 @@
     <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/cbre2.png" alt="CBRE" class="client-logo">
     <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/idv2.png" alt="IDV LLC" class="client-logo">
     <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/K.%20Hovnanian.png" alt="K. Hovnanian" class="client-logo">
+  </div>
+</section>
+
+<section id="chartbook">
+  <div class="chartbook-header">
+    <div>
+      <span class="section-label">Insights</span>
+      <h2>The Chartbook</h2>
+    </div>
+    <a href="https://locationstrategy.beehiiv.com/" target="_blank" class="read-more" style="margin-bottom: 0.5rem;">View All Posts →</a>
+  </div>
+
+  <div class="chartbook-grid">
+    <a href="https://locationstrategy.beehiiv.com/p/location-strategy-chartbook-03-07-2026" target="_blank" class="post-card">
+      <span class="post-date">March 07, 2026</span>
+      <h4>Location Strategy Chartbook: March Edition</h4>
+      <p class="post-excerpt">Deep dive into the latest market shifts, job growth drivers, and demand forecasting for Q1...</p>
+      <span class="read-more">Read Analysis</span>
+    </a>
+
+    <a href="https://locationstrategy.beehiiv.com/" target="_blank" class="post-card">
+      <span class="post-date">February 20, 2026</span>
+      <h4>Housing Inventory and Household Formation</h4>
+      <p class="post-excerpt">Analyzing the correlation between multi-family permit velocity and local demographic shifts...</p>
+      <span class="read-more">Read Analysis</span>
+    </a>
+
+    <a href="https://locationstrategy.beehiiv.com/" target="_blank" class="post-card">
+      <span class="post-date">February 05, 2026</span>
+      <h4>Retail Landscape Evolution</h4>
+      <p class="post-excerpt">How physical retail footprints are adapting to high-density mixed-use developments...</p>
+      <span class="read-more">Read Analysis</span>
+    </a>
   </div>
 </section>
 
