@@ -30,34 +30,41 @@
     nav a { color: var(--navy); text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; transition: 0.3s; }
     nav a:hover { color: var(--sage); }
 
-    section { padding: 8rem 4rem; }
+    section { padding: 6rem 4rem; }
     .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.2em; display: block; margin-bottom: 1.5rem; }
 
-    /* HERO */
+    /* HERO - UPDATED FOR COMPACTNESS */
     #hero { 
-      min-height: 85vh; 
+      min-height: auto; /* Removed 85vh to prevent background stretching */
       background: #1e262f; 
       display: flex; 
       flex-direction: column;
       align-items: center; 
       justify-content: center; 
-      padding: 10rem 2rem 6rem; 
+      padding: 6rem 2rem; /* Balanced padding */
       color: var(--white); 
       margin-top: 70px; 
       text-align: center;
     }
-    .hero-main-title { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; margin-bottom: 4rem; line-height: 1.1; max-width: 900px; }
+    .hero-main-title { 
+        font-family: 'Cormorant Garamond', serif; 
+        font-size: 4.5rem; 
+        font-weight: 300; 
+        margin-bottom: 3rem; 
+        line-height: 1.1; 
+        max-width: 900px; 
+    }
     
     .stats-box { 
       width: 100%; max-width: 1100px; 
       border: 1px solid rgba(255,255,255,0.1); 
-      padding: 3rem; 
+      padding: 2.5rem; 
       display: grid; 
       grid-template-columns: repeat(3, 1fr); 
       gap: 2rem; 
       background: rgba(255,255,255,0.02); 
     }
-    .stat-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); font-weight: 400; line-height: 1.2; }
+    .stat-item h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--sage); font-weight: 400; line-height: 1.2; }
 
     /* SERVICES */
     #services { background: var(--cream); border-top: 1px solid #eee; }
@@ -151,23 +158,25 @@
   </nav>
 </header>
 
-<section id="hero" style="padding: 6rem 2rem 4rem;"> <h1 class="hero-main-title" style="font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; margin-bottom: 3rem; line-height: 1.1; max-width: 900px;">Real Estate Market Studies</h1>
+<section id="hero"> 
+  <h1 class="hero-main-title">Real Estate Market Studies</h1>
   
-  <div class="stats-box" style="width: 100%; max-width: 1100px; border: 1px solid rgba(255,255,255,0.1); padding: 2.5rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; background: rgba(255,255,255,0.02);">
+  <div class="stats-box">
     <div class="stat-item" style="text-align: center;">
         <span class="section-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: rgba(255,255,255,0.5); letter-spacing: 0.2em; display: block; margin-bottom: 1rem;">Expertise</span>
-        <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); font-weight: 400; line-height: 1.2;">Data driven demand and market analysis</h4>
+        <h4>Data driven demand and market analysis</h4>
     </div>
     <div class="stat-item" style="text-align: center;">
         <span class="section-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: rgba(255,255,255,0.5); letter-spacing: 0.2em; display: block; margin-bottom: 1rem;">Experience</span>
-        <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); font-weight: 400; line-height: 1.2;">500+ Market Studies</h4>
+        <h4>500+ Market Studies</h4>
     </div>
     <div class="stat-item" style="text-align: center;">
         <span class="section-label" style="font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: rgba(255,255,255,0.5); letter-spacing: 0.2em; display: block; margin-bottom: 1rem;">Established</span>
-        <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 2rem; color: var(--sage); font-weight: 400; line-height: 1.2;">Founded in 2019</h4>
+        <h4>Founded in 2019</h4>
     </div>
   </div>
 </section>
+
 <section id="services">
   <div class="services-container">
     <div class="services-main">
