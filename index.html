@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Location Strategy LLC | Real Estate Market Studies</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <style>
     :root {
       --sage: #8aaa3a;
@@ -18,17 +18,16 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; color: var(--text-main); background: var(--white); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-    /* NAVIGATION - ADJUSTED PADDING FOR LARGER LOGO */
+    /* NAVIGATION */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: var(--white); padding: 0.8rem 4rem; /* Reduced vertical padding since logo is taller */
+      background: var(--white); padding: 0.8rem 4rem;
       display: flex; align-items: center; justify-content: space-between;
       border-bottom: 1px solid #f0f0f0;
     }
     
-    /* LOGO SIZE - UPDATED */
     .logo-img { 
-        height: 65px; /* Increased from 45px */
+        height: 65px; 
         width: auto; 
         display: block;
     }
@@ -40,7 +39,7 @@
     section { padding: 6rem 4rem; }
     .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.2em; display: block; margin-bottom: 1.5rem; }
 
-    /* HERO */
+    /* HERO - UPDATED FOR SMALLER TOP MARGIN */
     #hero { 
       min-height: auto; 
       background: #1e262f; 
@@ -48,16 +47,16 @@
       flex-direction: column;
       align-items: center; 
       justify-content: center; 
-      padding: 6rem 2rem; 
+      padding: 3rem 2rem 5rem; /* Decreased top padding significantly */
       color: var(--white); 
-      margin-top: 90px; /* Increased margin to account for taller header */
+      margin-top: 80px; /* Reduced margin-top to pull it closer to header */
       text-align: center;
     }
     .hero-main-title { 
         font-family: 'Cormorant Garamond', serif; 
         font-size: 4.5rem; 
         font-weight: 300; 
-        margin-bottom: 3rem; 
+        margin-bottom: 2.5rem; /* Slightly reduced bottom margin to box */
         line-height: 1.1; 
         max-width: 900px; 
     }
