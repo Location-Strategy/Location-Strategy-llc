@@ -414,16 +414,16 @@
  <div class="chartbook-grid" id="chartbook-posts"></div>
    
    <script>
-const API_KEY = "a6eca6c2fb71";
+const API_KEY = "YOUR_REAL_API_KEY_HERE";
 const PUBLICATION_ID = "ff2f7b2f-fb11-4696-a5dc-a6eca6c2fb71";
 
 async function loadPosts() {
   try {
     const response = await fetch(
-      `https://api.beehiiv.com/v2/publications/${ff2f7b2f-fb11-4696-a5dc-a6eca6c2fb71}/posts?limit=3`,
+      `https://api.beehiiv.com/v2/publications/${PUBLICATION_ID}/posts?limit=3`,
       {
         headers: {
-          "Authorization": `Bearer ${a6eca6c2fb71}`
+          "Authorization": `Bearer ${API_KEY}`
         }
       }
     );
