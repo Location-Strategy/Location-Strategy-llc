@@ -414,21 +414,17 @@
   <div class="chartbook-grid" id="chartbook-posts"></div>
 
 <script>
-fetch("https://api.beehiiv.com/v2/publications/ff2f7b2f-fb11-4696-a5dc-a6eca6c2fb71/posts", {
-  headers: {
-    Authorization: "Bearer ff2f7b2f-fb11-4696-a5dc-a6eca6c2fb71"
-  }
-})
+fetch("https://api.rss2json.com/v1/api.json?rss_url=https://locationstrategy.beehiiv.com/feed")
 .then(res => res.json())
 .then(data => {
   const container = document.getElementById("chartbook-posts");
 
-  data.data.slice(0,3).forEach(post => {
+  data.items.slice(0, 3).forEach(post => {
     const card = `
-      <a href="${post.url}" target="_blank" class="post-card">
-        <span class="post-date">${new Date(post.publish_date).toDateString()}</span>
+      <a href="${post.link}" target="_blank" class="post-card">
+        <span class="post-date">${new Date(post.pubDate).toDateString()}</span>
         <h4>${post.title}</h4>
-        <p class="post-excerpt">${post.subtitle || ''}</p>
+        <p class="post-excerpt">${post.description.replace(/<[^>]+>/g, '').slice(0,120)}...</p>
         <span class="read-more">Read Full Analysis</span>
       </a>
     `;
