@@ -411,54 +411,40 @@
 
   <!-- CHARTBOOK -->
  <section id="chartbook">
- <div class="chartbook-grid" id="chartbook-posts"></div>
-   <div>
-      <h2 style="margin-bottom: 1rem;">Chartbook</h2>
-    </div>
+  <div class="chartbook-header">
+    <h2>Chartbook</h2>
+  </div>
 
-   <script>
-const API_KEY = "wH4kbHoOK1ndxndJIxdqHU5h2RTh76Pzis2QY8PiR0KGDO2JLogZ7ajGyeS4g6V3";
-const PUBLICATION_ID = "ff2f7b2f-fb11-4696-a5dc-a6eca6c2fb71";
+  <div class="chartbook-grid" id="chartbook-posts"></div>
 
-async function loadPosts() {
-  try {
-    const response = await fetch(
-      `https://api.beehiiv.com/v2/publications/${PUBLICATION_ID}/posts?limit=3`,
-      {
-        headers: {
-          "Authorization": `Bearer ${API_KEY}`
-        }
-      }
-    );
+  <script>
+fetch("https://api.rss2json.com/v1/api.json?rss_url=https://locationstrategy.beehiiv.com/feed")
+.then(res => res.json())
+.then(data => {
+  const container = document.getElementById("chartbook-posts");
 
-    const data = await response.json();
-    const container = document.getElementById("chartbook-posts");
+  container.innerHTML = "";
 
-    container.innerHTML = "";
-
-    data.data.forEach(post => {
-      const date = new Date(post.publish_date).toLocaleDateString("en-US", {
-        month: "long",
-        day: "2-digit",
-        year: "numeric"
-      });
-
-      container.innerHTML += `
-        <a href="${post.url}" target="_blank" class="post-card">
-          <span class="post-date">${date}</span>
-          <h4>${post.title}</h4>
-          <p class="post-excerpt">${post.subtitle || "Latest market insights and analysis."}</p>
-          <span class="read-more">Read Full Analysis</span>
-        </a>
-      `;
+  data.items.slice(0, 3).forEach(post => {
+    const date = new Date(post.pubDate).toLocaleDateString("en-US", {
+      month: "long",
+      day: "2-digit",
+      year: "numeric"
     });
 
-  } catch (error) {
-    console.error("Error loading posts:", error);
-  }
-}
-
-loadPosts();
+    container.innerHTML += `
+      <a href="${post.link}" target="_blank" class="post-card">
+        <span class="post-date">${date}</span>
+        <h4>${post.title}</h4>
+        <p class="post-excerpt">
+          ${post.description.replace(/<[^>]+>/g, '').slice(0,120)}...
+        </p>
+        <span class="read-more">Read Full Analysis</span>
+      </a>
+    `;
+  });
+})
+.catch(err => console.error("RSS error:", err));
 </script>
 </section>
   <footer>
