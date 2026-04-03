@@ -409,55 +409,53 @@
     </div>
   </section>
 
-  <!-- CHARTBOOK -->
+<!-- CHARTBOOK -->
  <section id="chartbook">
   <div class="chartbook-header">
-    <h2>Chartbook</h2>
+    <div>
+      <h2 style="margin-bottom: 1rem;">Chartbook</h2>
+    </div>
+    <a href="https://locationstrategy.beehiiv.com/" target="_blank" class="read-more" style="margin-bottom: 0.5rem;">
+      View All Posts →
+    </a>
   </div>
 
-  <div class="chartbook-grid" id="chartbook-posts"></div>
+  <div class="chartbook-grid">
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
+    <a href="https://locationstrategy.beehiiv.com/p/location-strategy-chartbook-03-07-2026"
+       target="_blank"
+       class="post-card">
+      <span class="post-date">March 07, 2026</span>
+      <h4>March 7 Edition</h4>
+      <p class="post-excerpt">
+        Deep dive into the latest market shifts, job growth drivers, and demand forecasting for early March.
+      </p>
+      <span class="read-more">Read Full Analysis</span>
+    </a>
 
-  fetch("https://api.rss2json.com/v1/api.json?rss_url=https://rss.beehiiv.com/feeds/Fu4rQlaTm3.xml")
-  .then(res => res.json())
-  .then(data => {
-    const container = document.getElementById("chartbook-posts");
+    <a href="https://locationstrategy.beehiiv.com/p/location-strategy-chartbook-02-28-2026"
+       target="_blank"
+       class="post-card">
+      <span class="post-date">February 28, 2026</span>
+      <h4>Feb 28 Edition</h4>
+      <p class="post-excerpt">
+        Analyzing the latest inventory trends and economic indicators heading into the end of February.
+      </p>
+      <span class="read-more">Read Full Analysis</span>
+    </a>
 
-    container.innerHTML = "";
+    <a href="https://locationstrategy.beehiiv.com/p/location-strategy-chartbook-02-21-2026"
+       target="_blank"
+       class="post-card">
+      <span class="post-date">February 21, 2026</span>
+      <h4>Feb 21 Edition</h4>
+      <p class="post-excerpt">
+        Mid-month market recap covering sector rotation and emerging residential demand signals.
+      </p>
+      <span class="read-more">Read Full Analysis</span>
+    </a>
 
-    if (!data.items || data.items.length === 0) {
-      container.innerHTML = "<p>No posts available.</p>";
-      return;
-    }
-
-    data.items.slice(0, 3).forEach(post => {
-      const date = new Date(post.pubDate).toLocaleDateString("en-US", {
-        month: "long",
-        day: "2-digit",
-        year: "numeric"
-      });
-
-      container.innerHTML += `
-        <a href="${post.link}" target="_blank" class="post-card">
-          <span class="post-date">${date}</span>
-          <h4>${post.title}</h4>
-          <p class="post-excerpt">
-            ${post.description.replace(/<[^>]+>/g, '').slice(0,120)}...
-          </p>
-          <span class="read-more">Read Full Analysis</span>
-        </a>
-      `;
-    });
-  })
-  .catch(err => {
-    console.error("RSS error:", err);
-    document.getElementById("chartbook-posts").innerHTML = "<p>Failed to load posts.</p>";
-  });
-
-});
-</script>
+  </div>
 </section>
   <footer>
     © 2026 Location Strategy LLC. All rights reserved.
