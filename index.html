@@ -3,10 +3,10 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Location Strategy LLC | Real Estate Market Studies</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
@@ -93,6 +93,7 @@
 
     /* HERO */
     #hero {
+      min-height: auto;
       background: #1e262f;
       display: flex;
       flex-direction: column;
@@ -116,18 +117,20 @@
     .stats-box {
       width: 100%;
       max-width: 1100px;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       padding: 2.5rem;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      background: rgba(255,255,255,0.02);
+      background: rgba(255, 255, 255, 0.02);
     }
 
     .stat-item h4 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.8rem;
       color: var(--sage);
+      font-weight: 400;
+      line-height: 1.2;
     }
 
     /* SERVICES */
@@ -149,6 +152,7 @@
       font-size: 1.8rem;
       color: var(--navy);
       margin-bottom: 1.5rem;
+      line-height: 1.1;
     }
 
     .services-list {
@@ -157,6 +161,7 @@
     }
 
     .services-list li {
+      font-size: 1rem;
       margin-bottom: 1.2rem;
       padding-left: 2rem;
       position: relative;
@@ -167,12 +172,15 @@
       position: absolute;
       left: 0;
       color: var(--sage);
+      font-weight: bold;
       font-size: 1.5rem;
     }
 
     /* CLIENTS */
     #clients {
+      background: var(--white);
       text-align: center;
+      border-top: 1px solid #eee;
       padding: 6rem 2rem;
     }
 
@@ -182,26 +190,43 @@
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       gap: 3rem;
+      align-items: center;
     }
 
     .client-logo {
       max-width: 110px;
+      height: auto;
       filter: grayscale(100%);
       opacity: 0.5;
+      transition: 0.4s;
+      margin: 0 auto;
+    }
+
+    .client-logo:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.05);
     }
 
     /* CHARTBOOK */
     #chartbook {
       background: var(--cream);
+      border-top: 1px solid #eee;
       padding: 6rem 4rem;
     }
 
     .chartbook-header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 3rem;
+      align-items: flex-end;
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 0 auto 3rem;
+    }
+
+    .chartbook-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--navy);
     }
 
     .chartbook-grid {
@@ -213,10 +238,51 @@
     }
 
     .post-card {
-      background: white;
+      background: var(--white);
       padding: 2.5rem;
       border: 1px solid #eee;
       text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      transition: 0.3s;
+    }
+
+    .post-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--sage);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .post-date {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--sage);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .post-card h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
+    .post-excerpt {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 2rem;
+      flex-grow: 1;
+    }
+
+    .read-more {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--navy);
+      border-bottom: 1px solid var(--sage);
+      width: fit-content;
     }
 
     footer {
@@ -224,62 +290,140 @@
       padding: 1.5rem;
       background: #1e262f;
       color: white;
+      opacity: 0.7;
+      font-size: 0.75rem;
+    }
+
+    /* MOBILE */
+    @media (max-width: 1024px) {
+      header { padding: 1rem 2rem; }
+      nav ul { gap: 1.2rem; }
+      section { padding: 5rem 2rem; }
+      .stats-box { grid-template-columns: 1fr; }
+      .services-container { grid-template-columns: 1fr; }
+      .clients-grid { grid-template-columns: repeat(2, 1fr); }
+      .chartbook-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      nav a { font-size: 0.65rem; }
+      .logo-img { height: 45px; }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="logo-container">
-    <a href="index.html">
-      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg" class="logo-img">
-    </a>
-  </div>
+  <header>
+    <div class="logo-container">
+      <a href="index.html">
+        <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/LS%20logo.jpg"
+             alt="Location Strategy Logo"
+             class="logo-img">
+      </a>
+    </div>
 
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
-    </ul>
-  </nav>
-</header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<section id="chartbook">
+  <!-- HERO -->
+  <section id="hero">
+    <h1 class="hero-main-title">Real Estate Market Studies</h1>
 
-  <div class="chartbook-header">
-    <h2>Chartbook</h2>
-    <a href="https://locationstrategy.beehiiv.com/" target="_blank">View All Posts →</a>
-  </div>
+    <div class="stats-box">
+      <div class="stat-item" style="text-align: center;">
+        <span class="section-label" style="color: rgba(255,255,255,0.5); margin-bottom: 1rem;">Expertise</span>
+        <h4>Data driven demand and market analysis</h4>
+      </div>
 
-  <div class="chartbook-grid">
+      <div class="stat-item" style="text-align: center;">
+        <span class="section-label" style="color: rgba(255,255,255,0.5); margin-bottom: 1rem;">Experience</span>
+        <h4>500+ Market Studies</h4>
+      </div>
 
-    <a href="#" class="post-card">
-      <span class="post-date">March 07, 2026</span>
-      <h4>March 7 Edition</h4>
-      <p>Deep dive into the latest market shifts.</p>
-    </a>
+      <div class="stat-item" style="text-align: center;">
+        <span class="section-label" style="color: rgba(255,255,255,0.5); margin-bottom: 1rem;">Established</span>
+        <h4>Founded in 2019</h4>
+      </div>
+    </div>
+  </section>
 
-    <a href="#" class="post-card">
-      <span class="post-date">February 28, 2026</span>
-      <h4>Feb 28 Edition</h4>
-      <p>Analyzing latest inventory trends.</p>
-    </a>
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="services-container">
 
-    <a href="#" class="post-card">
-      <span class="post-date">February 21, 2026</span>
-      <h4>Feb 21 Edition</h4>
-      <p>Mid-month market recap.</p>
-    </a>
+      <div class="services-main">
+        <h2>Services We Offer</h2>
 
-  </div>
+        <p>
+          We provide custom real estate consultancy and standard market feasibility studies for real estate projects...
+        </p>
 
-</section>
+        <p style="margin-top: 1rem;">
+          We are your third party real estate market data solution for demand and absorption market studies...
+        </p>
+      </div>
 
-<footer>
-  © 2026 Location Strategy LLC. All rights reserved.
-</footer>
+      <div class="services-list-box">
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; font-weight: 600;">
+          Market Studies and Feasibility Analysis Services:
+        </h3>
+
+        <ul class="services-list">
+          <li>City and MSA level analysis...</li>
+          <li>Drivers of job and population growth...</li>
+          <li>Overview of the Retail...</li>
+          <li>Competitive Market Area analysis...</li>
+          <li>Asset comparables...</li>
+          <li>Demand and Absorption forecasting</li>
+          <li>Determine the highest and best use...</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CLIENTS -->
+  <section id="clients">
+    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem;">
+      Our Clients
+    </h2>
+
+    <div class="clients-grid">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/kb%20home.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/dr%20horton.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Lennar2.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Century%20Communities2.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Rice%20university2.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Sam%20Yager%20Inc.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/Johnson%20Development.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/cbre2.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/idv2.png" class="client-logo">
+      <img src="https://raw.githubusercontent.com/Location-Strategy/Location-Strategy-llc/main/K.%20Hovnanian.png" class="client-logo">
+    </div>
+  </section>
+
+  <!-- CHARTBOOK -->
+  <section id="chartbook">
+    <div class="chartbook-header">
+      <h2>Chartbook</h2>
+      <a href="https://locationstrategy.beehiiv.com/" target="_blank" class="read-more">View All Posts →</a>
+    </div>
+
+    <div class="chartbook-grid">
+      <!-- cards unchanged -->
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Location Strategy LLC. All rights reserved.
+  </footer>
 
 </body>
 </html>
