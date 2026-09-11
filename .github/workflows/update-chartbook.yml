@@ -3,10 +3,10 @@ name: Update Chartbook section
 # Keeps the "Chartbook" section on the homepage in sync with the latest
 # posts from the Location Strategy Chartbook beehiiv newsletter
 # (https://locationstrategy.beehiiv.com/). Runs scripts/update_chartbook.py,
-# which pulls the public RSS feed and rewrites the 3 post cards between the
-# CHARTBOOK_ITEMS markers in index.html. If that produces a change, it's
-# committed straight to main, which triggers the existing Pages deploy
-# workflow (static.yml).
+# which pulls the public RSS feed, cleans excerpt copy, and rewrites the
+# 3 post cards between the CHARTBOOK_ITEMS markers in index.html. If that
+# produces a change, it's committed straight to main, which triggers the
+# existing Pages deploy workflow (static.yml).
 
 on:
   schedule:
