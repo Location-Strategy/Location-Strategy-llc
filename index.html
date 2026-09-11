@@ -5,14 +5,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Location Strategy LLC | Real Estate Market Studies</title>
-  <meta name="description" content="Location Strategy LLC provides data-driven real estate market studies, feasibility analysis, and demand/absorption research for developers, homebuilders, and institutional real estate partners." />
+  <meta name="description" content="Location Strategy LLC provides data-driven real estate market studies, feasibility analysis, and demand and absorption research for developers, homebuilders, and institutional partners." />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon180.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://locationstrategyllc.com/" />
   <meta property="og:title" content="Location Strategy LLC | Real Estate Market Studies" />
-  <meta property="og:description" content="Data-driven real estate market studies, feasibility analysis, and demand/absorption research for developers, homebuilders, and institutional real estate partners." />
+  <meta property="og:description" content="Data-driven real estate market studies, feasibility analysis, and demand and absorption research for developers, homebuilders, and institutional partners." />
   <meta property="og:image" content="https://locationstrategyllc.com/LS%20logo.jpg" />
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -38,7 +38,7 @@
     }
 
     .section-label {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
       color: var(--sage);
@@ -65,10 +65,25 @@
       font-family: var(--font-serif);
       font-size: 3.1rem;
       font-weight: 600;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1rem;
       line-height: 1.08;
       max-width: 900px;
       color: var(--white);
+    }
+
+    .hero-lede {
+      max-width: 640px;
+      margin: 0 auto 1.75rem;
+      color: rgba(255,255,255,0.78);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.85rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.75rem;
     }
 
     .stats-box {
@@ -80,7 +95,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       background: rgba(255, 255, 255, 0.02);
-      align-items: start;
+      align-items: stretch;
     }
 
     .stat-item {
@@ -91,17 +106,17 @@
     }
 
     .stat-item .section-label {
-      color: rgba(255, 255, 255, 0.5);
+      color: rgba(255, 255, 255, 0.82);
       margin-bottom: 1rem;
     }
 
-    .stat-item h4 {
+    .stat-item .stat-value {
       font-family: var(--font-serif);
       font-size: 1.65rem;
-      color: var(--sage);
+      color: var(--sage-on-dark);
       font-weight: 400;
       line-height: 1.25;
-      max-width: 16ch;
+      max-width: 18ch;
     }
 
     /* SERVICES */
@@ -138,6 +153,10 @@
 
     .services-main p + p {
       margin-top: 1rem;
+    }
+
+    .services-cta {
+      margin-top: 1.75rem;
     }
 
     .services-list {
@@ -184,21 +203,26 @@
       margin-bottom: 1rem;
     }
 
+    #clients .clients-intro {
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin: 0 auto;
+    }
+
     .clients-grid {
       max-width: 1200px;
       margin: 3rem auto 0;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 2.5rem 3rem;
+      gap: 1.5rem 2rem;
       align-items: center;
       justify-items: center;
     }
 
     .client-logo {
-      max-width: 130px;
-      max-height: 72px;
-      width: auto;
-      height: auto;
+      width: 100%;
+      max-width: 140px;
+      height: 56px;
       object-fit: contain;
       transition: transform 0.4s;
       margin: 0 auto;
@@ -260,7 +284,7 @@
     }
 
     .post-date {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       font-weight: 700;
       color: var(--sage);
       text-transform: uppercase;
@@ -301,20 +325,24 @@
     @media (max-width: 1024px) {
       section { padding: 5rem 2rem; }
       .stats-box { grid-template-columns: 1fr; }
-      .stat-item h4 { max-width: none; }
+      .stat-item .stat-value { max-width: none; }
       .services-container { grid-template-columns: 1fr; gap: 3rem; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); }
       .chartbook-grid { grid-template-columns: 1fr; }
       .chartbook-header { flex-wrap: wrap; align-items: center; }
+      #hero { padding: 2.5rem 1.25rem 3.5rem; }
     }
 
     @media (max-width: 480px) {
-      .hero-main-title { font-size: 2.2rem; }
+      .hero-main-title { font-size: 2.15rem; }
+      .stat-item .stat-value { font-size: 1.45rem; }
+      section, #chartbook, #clients { padding-left: 1.25rem; padding-right: 1.25rem; }
     }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <header>
     <div class="logo-container">
@@ -326,33 +354,41 @@
       </a>
     </div>
 
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+    </button>
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
+  <main id="main">
   <!-- HERO -->
   <section id="hero">
     <h1 class="hero-main-title">Real Estate Market Studies</h1>
+    <p class="hero-lede">Demand, absorption, and feasibility analysis for developers, homebuilders, and institutional partners.</p>
+    <div class="hero-actions">
+      <a class="btn" href="contact.html">Request a study</a>
+    </div>
 
     <div class="stats-box">
       <div class="stat-item">
         <span class="section-label">Expertise</span>
-        <h4>Data-driven demand and market analysis</h4>
+        <p class="stat-value">Demand &amp; market analysis</p>
       </div>
 
       <div class="stat-item">
         <span class="section-label">Experience</span>
-        <h4>500+ market studies</h4>
+        <p class="stat-value">500+ market studies</p>
       </div>
 
       <div class="stat-item">
         <span class="section-label">Established</span>
-        <h4>Founded in 2019</h4>
+        <p class="stat-value">Founded in 2019</p>
       </div>
     </div>
   </section>
@@ -365,15 +401,18 @@
         <h2>Services We Offer</h2>
 
         <p>
-          We provide custom real estate consultancy and standard market feasibility studies for real estate projects. If you are site selecting, developing or building ground-up projects from smaller sites to MPC and 1000+ acreage mixed-use projects, we work across the real estate asset types of single-family, multifamily, office, retail, industrial and other special uses to determine highest and best use, feasibility and demand.
+          We provide custom real estate advisory and market feasibility studies for projects of every scale—from individual sites to master-planned communities and mixed-use developments of 1,000 acres or more. Across single-family, multifamily, office, retail, industrial, and specialty uses, we evaluate highest and best use, feasibility, and demand.
         </p>
 
         <p>
-          We are your third-party real estate market data solution for demand and absorption market studies that help you market the project, for government approvals, bond issuance, or for analysis and product mix. We are experienced in producing studies for MUD, MMD, PID or any special tax or bond district that satisfies state requirements such as TCEQ approval in Texas.
+          We are an independent source of market data for demand and absorption studies used in project marketing, government approvals, bond issuance, and product-mix decisions. We prepare studies for MUDs, MMDs, PIDs, and other special tax or bond districts, including work that meets state requirements such as TCEQ approval in Texas.
         </p>
 
         <p>
-          Our focus is on the real estate and the ecosystem of the built world. We work with your partners who financially model, or other engineering and real estate partners, to ensure that we understand the site feasibility constraints.
+          Our work is grounded in real estate and the broader built environment. We coordinate with financial modelers, engineers, and other project partners so site constraints are reflected in the analysis.
+        </p>
+        <p class="services-cta">
+          <a class="btn" href="contact.html">Request a study</a>
         </p>
       </div>
 
@@ -381,13 +420,13 @@
         <h3>Market Studies and Feasibility Analysis</h3>
 
         <ul class="services-list">
-          <li>City and MSA level analysis</li>
+          <li>City- and MSA-level analysis</li>
           <li>Drivers of job and population growth</li>
-          <li>Overview of housing and retail in the CMA</li>
+          <li>Housing and retail overview for the CMA</li>
           <li>Competitive market area analysis</li>
           <li>Asset comparables</li>
           <li>Demand and absorption forecasting</li>
-          <li>Highest and best use determination</li>
+          <li>Highest-and-best-use determination</li>
         </ul>
       </div>
 
@@ -397,6 +436,7 @@
   <!-- CLIENTS -->
   <section id="clients">
     <h2>Our Clients</h2>
+    <p class="clients-intro">Selected teams we have supported across residential, commercial, and institutional work.</p>
 
     <div class="clients-grid">
       <img src="kb%20home.png" alt="KB Home" width="196" height="148" class="client-logo">
@@ -423,10 +463,10 @@
 
   <div class="chartbook-grid">
 
-  <!-- The 3 post cards below are regenerated automatically from the beehiiv
-       RSS feed by scripts/update_chartbook.py (see
-       .github/workflows/update-chartbook.yml). Hand edits between the
-       CHARTBOOK_ITEMS markers will be overwritten on the next scheduled run. -->
+  <!-- Regenerated from the beehiiv RSS feed by scripts/update_chartbook.py
+       (workflow: .github/workflows/update-chartbook.yml).
+       Excerpts are cleaned in the script — edit clean_excerpt() there,
+       not the markup between these markers. -->
   <!-- CHARTBOOK_ITEMS:START -->
 
   <a href="https://locationstrategy.beehiiv.com/p/location-strategy-chartbook-09-05-2026"
@@ -435,7 +475,7 @@
     <span class="post-date">September 5, 2026</span>
     <h4>September 5 Edition</h4>
     <p class="post-excerpt">
-      In August, the share of people unemployed for more than 27 weeks came in at 27.0%, up from 25.5% in the prior month.
+      In August, the share of people unemployed for more than 27 weeks rose to 27.0%, up from 25.5% the prior month.
     </p>
     <span class="read-more">Read Full Analysis</span>
   </a>
@@ -457,7 +497,7 @@
     <span class="post-date">August 22, 2026</span>
     <h4>August 22 Edition</h4>
     <p class="post-excerpt">
-      US consumer spending growth is forecast to slow in the second half of 2026 after a surge in tax refunds likely provided a boost to the consumer in the spring, according to Jan Hatzius, Goldman Sachs…
+      U.S. consumer spending growth is forecast to slow in the second half of 2026 after a surge in tax refunds likely boosted spending in the spring, according to Jan Hatzius of Goldman Sachs…
     </p>
     <span class="read-more">Read Full Analysis</span>
   </a>
@@ -465,9 +505,22 @@
   <!-- CHARTBOOK_ITEMS:END -->
 </div>
 </section>
+  </main>
   <footer>
     © 2026 Location Strategy LLC. All rights reserved.
   </footer>
+
+  <script>
+    const header = document.querySelector('header');
+    const toggle = document.querySelector('.nav-toggle');
+    if (toggle && header) {
+      toggle.addEventListener('click', () => {
+        const open = header.classList.toggle('is-open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+    }
+  </script>
 
 </body>
 </html>

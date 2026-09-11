@@ -1,21 +1,22 @@
-/* Shared stylesheet for locationstrategyllc.com
-   Rules here apply to all three pages (index.html, about.html, contact.html).
-   Page-specific layout stays in each page's inline <style> block. */
+/* Shared stylesheet for locationstrategyllc.com */
 
 :root {
-  --sage: #8aaa3a;
+  --sage: #6f8f22;
+  --sage-on-dark: #c5dd6a;
   --navy: #1a242f;
   --cream: #f9f9f4;
   --white: #ffffff;
   --text-main: #3a3a2a;
-  --text-muted: #5c5c4e;
-  --text-gray: #aab2bd;
-  --header-height: 128px;
+  --text-muted: #4f4f42;
+  --text-gray: #d5dbe3;
+  --header-height: 80px;
+  --focus: #1a242f;
+  --focus-ring: #c5dd6a;
 
   --font-serif: 'Cormorant Garamond', serif;
   --font-sans: 'DM Sans', sans-serif;
 
-  --text-size: 1.0625rem;      /* 17px — one body size sitewide */
+  --text-size: 1.0625rem;
   --text-leading: 1.65;
   --h1-size: 2.9rem;
   --h2-size: 1.8rem;
@@ -30,6 +31,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 12px);
 }
 
 body {
@@ -48,18 +50,47 @@ p {
   color: var(--text-main);
 }
 
-/* NAVIGATION
-   Each page adds its own header positioning (fixed vs sticky) inline. */
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 2000;
+  background: var(--navy);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0.75rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--sage);
+  outline-offset: 3px;
+}
+
+header :focus-visible,
+.btn:focus-visible,
+nav a:focus-visible {
+  outline-color: var(--sage);
+}
+
+/* NAV */
 header {
   background: var(--white);
-  padding: 1rem 4rem;
+  padding: 0.75rem 4rem;
+  min-height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1.5rem;
 }
 
 .logo-img {
-  height: 96px;
+  height: 56px;
   width: auto;
   display: block;
 }
@@ -67,7 +98,7 @@ header {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 2.5rem;
+  gap: 0.5rem;
   align-items: center;
 }
 
@@ -76,16 +107,76 @@ nav a {
   text-decoration: none;
   font-size: 0.75rem;
   font-weight: 700;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
   transition: color 0.3s;
 }
 
-nav a:hover {
+nav a:hover,
+nav a[aria-current="page"] {
   color: var(--sage);
 }
 
-/* Shared heading helpers */
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 10px 8px;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+  display: block;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 1px;
+}
+
+.nav-toggle span {
+  position: relative;
+  width: 22px;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 22px;
+}
+
+.nav-toggle span::before { top: -7px; }
+.nav-toggle span::after { top: 7px; }
+
+.btn {
+  display: inline-block;
+  background: var(--sage);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.6rem;
+  border: 0;
+  cursor: pointer;
+  min-height: 44px;
+  transition: background 0.25s, transform 0.2s;
+}
+
+.btn:hover {
+  background: #5f7c1c;
+}
+
 .section-title {
   font-family: var(--font-serif);
   font-size: var(--h2-size);
@@ -95,24 +186,55 @@ nav a:hover {
   margin-bottom: 1.5rem;
 }
 
-/* FOOTER */
 footer,
 .site-footer {
   text-align: center;
   padding: 1.5rem;
   background: #1e262f;
-  color: white;
-  opacity: 0.7;
-  font-size: 0.75rem;
+  color: #e8eaed;
+  font-size: 0.85rem;
 }
 
-/* MOBILE */
 @media (max-width: 1024px) {
-  header { padding: 1rem 2rem; }
-  nav ul { gap: 1.5rem; }
+  header { padding: 0.75rem 1.25rem; }
 }
 
-@media (max-width: 480px) {
-  nav a { font-size: 0.65rem; }
-  .logo-img { height: 64px; }
+@media (max-width: 720px) {
+  .nav-toggle { display: block; }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--white);
+    border-bottom: 1px solid #eee;
+    display: none;
+  }
+
+  header.is-open nav { display: block; }
+
+  nav ul {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0.5rem 0 1rem;
+  }
+
+  nav li { border-top: 1px solid #f0f0f0; }
+
+  nav a {
+    display: flex;
+    padding: 0.9rem 1.25rem;
+  }
+
+  .logo-img { height: 48px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

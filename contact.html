@@ -46,15 +46,17 @@
 
     .contact-links { display: flex; flex-direction: column; gap: 1rem; }
     .contact-link-item {
-      color: var(--sage);
+      color: var(--sage-on-dark);
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 1.35rem;
       font-weight: 500;
       width: fit-content;
+      max-width: 100%;
+      overflow-wrap: anywhere;
       border-bottom: 2px solid transparent;
       transition: border-color 0.3s;
     }
-    .contact-link-item:hover { border-bottom: 2px solid var(--sage); }
+    .contact-link-item:hover { border-bottom: 2px solid var(--sage-on-dark); }
 
     #contact-form {
       display: flex;
@@ -70,7 +72,7 @@
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.15em;
-      color: var(--sage);
+      color: var(--sage-on-dark);
       font-weight: 700;
     }
 
@@ -83,7 +85,7 @@
       font-size: 1rem;
       transition: border-color 0.3s;
     }
-    input:focus, textarea:focus { outline: none; border-color: var(--sage); }
+    input:focus, textarea:focus { outline: 3px solid var(--sage-on-dark); outline-offset: 2px; border-color: var(--sage-on-dark); }
 
     button {
       background: var(--sage);
@@ -109,31 +111,39 @@
       font-size: 1.5rem;
     }
 
+    textarea { resize: vertical; }
+
     @media (max-width: 1024px) {
-      .contact-container { grid-template-columns: 1fr; padding: 3rem 2rem; }
-      .contact-info h1 { font-size: 2.4rem; }
+      .contact-container { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      .contact-info h1 { font-size: 2.3rem; }
+      #contact-form { padding: 1.5rem; }
+      .contact-link-item { font-size: 1.05rem; }
     }
   </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
 <header>
   <a href="index.html">
     <img src="LS%20logo.jpg" class="logo-img" alt="Location Strategy Logo" width="136" height="100">
   </a>
+  <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span>
+  </button>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="contact.html">Contact Us</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" aria-current="page">Contact</a></li>
     </ul>
   </nav>
 </header>
 
-<div class="contact-container">
+<main id="main" class="contact-container">
   <div class="contact-info">
-    <h1>Let's discuss your next project.</h1>
-    <p>Expert market analysis and development advisory. We respond to all inquiries within 24 hours.</p>
+    <h1>Let’s discuss your next project.</h1>
+    <p>Market analysis and development advisory for real estate teams. We respond to every inquiry within 24 hours.</p>
 
     <div class="contact-links">
       <a href="mailto:jchang@locationstrategyllc.com" class="contact-link-item">jchang@locationstrategyllc.com</a>
@@ -167,9 +177,20 @@
         Thank you. Your message has been sent successfully.
     </div>
   </div>
-</div>
+</main>
 
 <footer class="site-footer">&copy; 2026 Location Strategy LLC. All rights reserved.</footer>
+<script>
+  const header = document.querySelector('header');
+  const toggle = document.querySelector('.nav-toggle');
+  if (toggle && header) {
+    toggle.addEventListener('click', () => {
+      const open = header.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    });
+  }
+</script>
 
 <script>
   const form = document.getElementById("contact-form");
@@ -196,14 +217,16 @@
       } else {
         response.json().then(data => {
           if (Object.hasOwn(data, 'errors')) {
-            alert(data["errors"].map(error => error["message"]).join(", "));
+            status.textContent = data["errors"].map(error => error["message"]).join(", ");
           } else {
-            alert("Oops! There was a problem submitting your form");
+            status.textContent = "There was a problem submitting the form. Please try again or email us directly.";
           }
+          status.style.display = "block";
         })
       }
     }).catch(error => {
-      alert("Oops! There was a problem submitting your form");
+      status.textContent = "There was a problem submitting the form. Please try again or email us directly.";
+      status.style.display = "block";
     }).finally(() => {
       btn.disabled = false;
       btn.innerHTML = "Send Message";
