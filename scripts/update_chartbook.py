@@ -6,12 +6,12 @@ Chartbook's public beehiiv RSS feed.
 Run manually with:  python3 scripts/update_chartbook.py
 Runs automatically via .github/workflows/update-chartbook.yml
 """
-import datetime
 import html
 import re
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
 
 FEED_URL = "https://rss.beehiiv.com/feeds/Fu4rQlaTm3.xml"
 INDEX_HTML = "index.html"
@@ -38,17 +38,45 @@ def strip_tags(fragment: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def clean_excerpt(text: str) -> str:
+    """Fix feed artifacts so homepage cards read as complete sentences."""
+    text = re.sub(
+        r"\bIn ([A-Z][a-z]+), % of unemployed\b",
+        r"In \1, the share of people unemployed",
+        text,
+    )
+    text = re.sub(r"\b% of unemployed\b", "the share of people unemployed", text)
+    text = re.sub(r"\bcame in at\b", "was", text)
+    text = re.sub(r"\bin prior month\b", "in the prior month", text)
+    text = re.sub(r"\bUS\b", "U.S.", text)
+    text = re.sub(r", Goldman Sachs\b", " of Goldman Sachs", text)
+    text = re.sub(r"\s+", " ", text).strip()
+
+    if text and text[-1] not in ".!?…":
+        text += "."
+    return text
+
+
 def extract_excerpt(content_html: str) -> str:
     """Pick the first substantial paragraph of body text as a preview excerpt."""
     paragraphs = re.findall(r"<p[^>]*>(.*?)</p>", content_html, flags=re.IGNORECASE | re.DOTALL)
+    text = ""
     for raw in paragraphs:
-        text = strip_tags(raw)
-        if len(text) >= 50:
-            if len(text) > EXCERPT_MAX_LEN:
-                truncated = text[:EXCERPT_MAX_LEN].rsplit(" ", 1)[0]
-                text = truncated + "…"
-            return text
-    return "Read the latest edition of the Location Strategy Chartbook."
+        candidate = strip_tags(raw)
+        if len(candidate) >= 50:
+            text = candidate
+            break
+
+    if not text:
+        return "Read the latest edition of the Location Strategy Chartbook."
+
+    text = clean_excerpt(text)
+
+    if len(text) > EXCERPT_MAX_LEN:
+        truncated = text[:EXCERPT_MAX_LEN].rsplit(" ", 1)[0]
+        text = truncated.rstrip(".,;:") + "…"
+
+    return text
 
 
 def parse_items(xml_text: str):
@@ -62,7 +90,6 @@ def parse_items(xml_text: str):
         if not (title and link and pub_date_raw):
             continue
         try:
-            from email.utils import parsedate_to_datetime
             pub_date = parsedate_to_datetime(pub_date_raw)
         except (TypeError, ValueError):
             continue
