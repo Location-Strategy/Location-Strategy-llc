@@ -1,0 +1,50 @@
+name: Update Chartbook section
+
+# Keeps the "Chartbook" section on the homepage in sync with the latest
+# posts from the Location Strategy Chartbook beehiiv newsletter
+# (https://locationstrategy.beehiiv.com/). Runs scripts/update_chartbook.py,
+# which pulls the public RSS feed, cleans excerpt copy, and rewrites the
+# 3 post cards between the CHARTBOOK_ITEMS markers in index.html. If that
+# produces a change, it's committed straight to main, which triggers the
+# existing Pages deploy workflow (static.yml).
+
+on:
+  schedule:
+    # Newsletter publishes weekly (Saturdays ~10:30 UTC). Check daily so a
+    # new edition shows up on the site within a few hours either way.
+    - cron: "0 14 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-chartbook
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Update chartbook section from RSS feed
+        run: python3 scripts/update_chartbook.py
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No changes to index.html."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Update Chartbook section with latest posts"
+          git push
