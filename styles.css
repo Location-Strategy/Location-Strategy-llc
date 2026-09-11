@@ -1,0 +1,91 @@
+/* Shared stylesheet for locationstrategyllc.com
+   Rules here apply to all three pages (index.html, about.html, contact.html).
+   Anything page-specific (hero, services grid, contact form, about grid,
+   header positioning) stays in that page's own inline <style> block. */
+
+:root {
+  --sage: #8aaa3a;
+  --navy: #1a242f;
+  --cream: #f9f9f4;
+  --white: #ffffff;
+  --text-main: #3a3a2a;
+  --text-gray: #aab2bd;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* NAVIGATION
+   Each page adds its own header positioning (fixed vs sticky, z-index,
+   border) inline, since that intentionally differs by page. */
+header {
+  background: var(--white);
+  padding: 1rem 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-img {
+  height: 96px;
+  width: auto;
+  display: block;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+nav a {
+  color: var(--navy);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--sage);
+}
+
+/* FOOTER
+   index.html/about.html use a bare <footer>; contact.html uses
+   class="site-footer" on its <footer> — both styled the same way. */
+footer,
+.site-footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #1e262f;
+  color: white;
+  opacity: 0.7;
+  font-size: 0.75rem;
+}
+
+/* MOBILE */
+@media (max-width: 1024px) {
+  header { padding: 1rem 2rem; }
+  nav ul { gap: 1.5rem; }
+}
+
+@media (max-width: 480px) {
+  nav a { font-size: 0.65rem; }
+  .logo-img { height: 64px; }
+}

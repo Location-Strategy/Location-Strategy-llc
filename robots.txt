@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://locationstrategyllc.com/sitemap.xml
