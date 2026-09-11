@@ -18,38 +18,60 @@
   <style>
     body { color: var(--text-main); background: var(--white); }
 
-    /* NAVIGATION (page-specific: fixed header) */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
       border-bottom: 1px solid #f0f0f0;
     }
 
-    /* HEADER SECTION */
-    .about-header { background: var(--navy); color: white; padding: 10rem 4rem 5rem; text-align: center; }
-    .about-header h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.9rem; font-weight: 300; letter-spacing: 0.02em; line-height: 1.15; }
+    .about-header {
+      background: var(--navy);
+      color: white;
+      padding: 10rem 4rem 5rem;
+      text-align: center;
+    }
+    .about-header h1 {
+      font-family: var(--font-serif);
+      font-size: var(--h1-size);
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      line-height: 1.15;
+      color: var(--white);
+    }
 
-    /* CONTENT GRID */
     section { padding: 6rem 4rem; max-width: 1200px; margin: 0 auto; }
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-    
-    .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--sage); letter-spacing: 0.2em; display: block; margin-bottom: 1rem; }
-    
-    /* UNIFIED HEADING STYLE */
-    .about-text h2, .principal-content h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--sage);
+      letter-spacing: 0.2em;
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .about-text h2,
+    .principal-content h2 {
+      font-family: var(--font-serif);
+      font-size: var(--h2-size);
       color: var(--navy);
       margin-bottom: 1.5rem;
-      line-height: 1.1;
+      line-height: var(--h2-leading);
       font-weight: 600;
     }
 
-    .about-text p, .principal-content p { margin-bottom: 1.5rem; font-size: 1.05rem; color: #4a4a3a; }
+    .about-text p,
+    .principal-content p {
+      margin-bottom: 1.5rem;
+      font-size: var(--text-size);
+      font-weight: 400;
+      line-height: var(--text-leading);
+      color: var(--text-main);
+    }
 
-    /* REMOVED STICKY CARD & IMAGE STYLES */
     .principal-content { padding: 0; }
 
-    /* MOBILE RESPONSIVENESS */
     @media (max-width: 1024px) {
       .about-header { padding: 8rem 2rem 4rem; }
       .about-header h1 { font-size: 2.4rem; }
@@ -80,7 +102,7 @@
 </header>
 
 <div class="about-header">
-  <h1>Our Firm & Leadership</h1>
+  <h1>Our Firm &amp; Leadership</h1>
 </div>
 
 <section>
@@ -88,16 +110,16 @@
     <div class="about-text">
       <h2>About Us</h2>
       <p>Our firm specializes in high-level real estate advisory, rooted in a foundation of transactional experience and comprehensive market analysis. Successful real estate strategy requires more than just looking at a spreadsheet; it requires understanding the 'why' behind the 'what.'</p>
-      
-      <p>We utilize a data driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment. These nuances lead to notable outperformance of one real estate asset vs another from vacancy to rents to sales price to turnover.</p>
-      
+
+      <p>We utilize a data-driven approach to analyze performance while applying the nuanced understanding of human behavior to optimize the utility and appeal of the built environment. These nuances lead to notable outperformance of one real estate asset vs another from vacancy to rents to sales price to turnover.</p>
+
       <p>We know that data has limitations that necessitate relationships and surveying industry, government, economic development professionals for market color. From commercial developments to residential portfolios, we deliver the insights necessary to navigate today’s complex real estate ecosystem.</p>
     </div>
 
     <div class="principal-content">
       <h2>Principal</h2>
       <p>For over a decade, Julie Chang thrived in the dynamic world of Wall Street, working with both buy-side and sell-side clients in market data, technology and analytics.</p>
-      
+
       <p>In pivoting to working with consumers as a licensed California real estate agent, Julie quickly recognized the emotional facets that drive real estate decisions in residential and multifamily sales. Julie has leveraged her analytical skills to provide data-driven insights to clients while remaining cognizant of the psychological drivers behind end users' buying and selling decisions. Stepping outside the spreadsheet and the data to recognize that real estate is ultimately built for people is critical to how it performs.</p>
 
       <p>Julie is a graduate of the University of Texas at Austin. A Texas native, Julie traveled the US and internationally for business and leisure. Having lived in multiple diverse environments has stoked her passion for how our built environment shapes community, neighborhoods, social interaction, walkability, workforce and overall satisfaction. Desirability is often an understated factor in an asset's financial performance. Once you normalize for location, why do two assets in similar locations perform differently? Our goal is to keep building on our data analytics to deliver these insights to our institutional clients as they build the next generation of real estate.</p>

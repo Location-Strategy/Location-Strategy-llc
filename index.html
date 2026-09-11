@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +24,6 @@
       background: var(--white);
     }
 
-    /* NAVIGATION (page-specific: fixed header) */
     header {
       position: fixed;
       top: 0;
@@ -59,17 +57,18 @@
       justify-content: center;
       padding: 3rem 2rem 5rem;
       color: var(--white);
-      margin-top: 128px;
+      margin-top: var(--header-height);
       text-align: center;
     }
 
     .hero-main-title {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--font-serif);
       font-size: 3.1rem;
       font-weight: 600;
       margin-bottom: 2.5rem;
       line-height: 1.08;
       max-width: 900px;
+      color: var(--white);
     }
 
     .stats-box {
@@ -81,14 +80,28 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       background: rgba(255, 255, 255, 0.02);
+      align-items: start;
+    }
+
+    .stat-item {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .stat-item .section-label {
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 1rem;
     }
 
     .stat-item h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
       color: var(--sage);
       font-weight: 400;
-      line-height: 1.2;
+      line-height: 1.25;
+      max-width: 16ch;
     }
 
     /* SERVICES */
@@ -103,30 +116,43 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 5rem;
+      align-items: start;
     }
 
-    .services-main h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
+    .services-main h2,
+    .services-list-box h3 {
+      font-family: var(--font-serif);
+      font-size: var(--h2-size);
       font-weight: 600;
       color: var(--navy);
       margin-bottom: 1.5rem;
-      line-height: 1.1;
+      line-height: var(--h2-leading);
     }
 
     .services-main p {
-      font-size: 1.05rem;
+      font-size: var(--text-size);
+      font-weight: 400;
+      line-height: var(--text-leading);
+      color: var(--text-main);
+    }
+
+    .services-main p + p {
+      margin-top: 1rem;
     }
 
     .services-list {
       list-style: none;
-      margin-top: 2rem;
+      margin-top: 0;
     }
 
     .services-list li {
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-      padding-left: 2rem;
+      font-family: var(--font-sans);
+      font-size: var(--text-size);
+      font-weight: 400;
+      line-height: var(--text-leading);
+      color: var(--text-main);
+      margin-bottom: 0.85rem;
+      padding-left: 1.75rem;
       position: relative;
     }
 
@@ -134,9 +160,11 @@
       content: "•";
       position: absolute;
       left: 0;
+      top: 0;
       color: var(--sage);
-      font-weight: bold;
-      font-size: 1.5rem;
+      font-weight: 700;
+      font-size: 1.15rem;
+      line-height: var(--text-leading);
     }
 
     /* CLIENTS */
@@ -147,19 +175,32 @@
       padding: 6rem 2rem;
     }
 
+    #clients h2 {
+      font-family: var(--font-serif);
+      font-size: var(--h2-size);
+      font-weight: 600;
+      line-height: var(--h2-leading);
+      color: var(--navy);
+      margin-bottom: 1rem;
+    }
+
     .clients-grid {
       max-width: 1200px;
       margin: 3rem auto 0;
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 3rem;
+      gap: 2.5rem 3rem;
       align-items: center;
+      justify-items: center;
     }
 
     .client-logo {
-      max-width: 110px;
+      max-width: 130px;
+      max-height: 72px;
+      width: auto;
       height: auto;
-      transition: 0.4s;
+      object-fit: contain;
+      transition: transform 0.4s;
       margin: 0 auto;
     }
 
@@ -177,16 +218,19 @@
     .chartbook-header {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: baseline;
       max-width: 1200px;
       margin: 0 auto 3rem;
+      gap: 1.5rem;
     }
 
     .chartbook-header h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
+      font-family: var(--font-serif);
+      font-size: var(--h2-size);
       font-weight: 600;
+      line-height: var(--h2-leading);
       color: var(--navy);
+      margin-bottom: 0;
     }
 
     .chartbook-grid {
@@ -195,6 +239,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 2.5rem;
+      align-items: stretch;
     }
 
     .post-card {
@@ -205,7 +250,7 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-      transition: 0.3s;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
     }
 
     .post-card:hover {
@@ -219,20 +264,24 @@
       font-weight: 700;
       color: var(--sage);
       text-transform: uppercase;
+      letter-spacing: 0.08em;
       margin-bottom: 1rem;
     }
 
     .post-card h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.8rem;
+      font-family: var(--font-serif);
+      font-size: var(--h2-size);
       font-weight: 600;
+      line-height: var(--h2-leading);
       color: var(--navy);
       margin-bottom: 1rem;
     }
 
     .post-excerpt {
-      font-size: 0.95rem;
-      color: #666;
+      font-size: var(--text-size);
+      font-weight: 400;
+      line-height: var(--text-leading);
+      color: var(--text-muted);
       margin-bottom: 2rem;
       flex-grow: 1;
     }
@@ -241,18 +290,22 @@
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
       color: var(--navy);
       border-bottom: 1px solid var(--sage);
       width: fit-content;
+      text-decoration: none;
     }
 
     /* MOBILE */
     @media (max-width: 1024px) {
       section { padding: 5rem 2rem; }
       .stats-box { grid-template-columns: 1fr; }
-      .services-container { grid-template-columns: 1fr; }
+      .stat-item h4 { max-width: none; }
+      .services-container { grid-template-columns: 1fr; gap: 3rem; }
       .clients-grid { grid-template-columns: repeat(2, 1fr); }
       .chartbook-grid { grid-template-columns: 1fr; }
+      .chartbook-header { flex-wrap: wrap; align-items: center; }
     }
 
     @media (max-width: 480px) {
@@ -287,18 +340,18 @@
     <h1 class="hero-main-title">Real Estate Market Studies</h1>
 
     <div class="stats-box">
-      <div class="stat-item" style="text-align: center;">
-        <span class="section-label" style="color: rgba(255,255,255,0.5); margin-bottom: 1rem;">Expertise</span>
-        <h4>Data driven demand and market analysis</h4>
+      <div class="stat-item">
+        <span class="section-label">Expertise</span>
+        <h4>Data-driven demand and market analysis</h4>
       </div>
 
-      <div class="stat-item" style="text-align: center;">
-        <span class="section-label" style="color: rgba(255,255,255,0.5); margin-bottom: 1rem;">Experience</span>
-        <h4>500+ Market Studies</h4>
+      <div class="stat-item">
+        <span class="section-label">Experience</span>
+        <h4>500+ market studies</h4>
       </div>
 
-      <div class="stat-item" style="text-align: center;">
-        <span class="section-label" style="color: rgba(255,255,255,0.5); margin-bottom: 1rem;">Established</span>
+      <div class="stat-item">
+        <span class="section-label">Established</span>
         <h4>Founded in 2019</h4>
       </div>
     </div>
@@ -315,28 +368,26 @@
           We provide custom real estate consultancy and standard market feasibility studies for real estate projects. If you are site selecting, developing or building ground-up projects from smaller sites to MPC and 1000+ acreage mixed-use projects, we work across the real estate asset types of single-family, multifamily, office, retail, industrial and other special uses to determine highest and best use, feasibility and demand.
         </p>
 
-        <p style="margin-top: 1rem;">
+        <p>
           We are your third-party real estate market data solution for demand and absorption market studies that help you market the project, for government approvals, bond issuance, or for analysis and product mix. We are experienced in producing studies for MUD, MMD, PID or any special tax or bond district that satisfies state requirements such as TCEQ approval in Texas.
         </p>
 
-        <p style="margin-top: 1rem;">
+        <p>
           Our focus is on the real estate and the ecosystem of the built world. We work with your partners who financially model, or other engineering and real estate partners, to ensure that we understand the site feasibility constraints.
         </p>
       </div>
 
       <div class="services-list-box">
-        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--navy); margin-bottom: 1rem; font-weight: 600;">
-          Market Studies and Feasibility Analysis Services:
-        </h3>
+        <h3>Market Studies and Feasibility Analysis</h3>
 
         <ul class="services-list">
           <li>City and MSA level analysis</li>
           <li>Drivers of job and population growth</li>
-          <li>Overview of Housing and Retail in the CMA</li>
-          <li>Competitive Market Area analysis</li>
+          <li>Overview of housing and retail in the CMA</li>
+          <li>Competitive market area analysis</li>
           <li>Asset comparables</li>
-          <li>Demand and Absorption forecasting</li>
-          <li>Determine the highest and best use</li>
+          <li>Demand and absorption forecasting</li>
+          <li>Highest and best use determination</li>
         </ul>
       </div>
 
@@ -345,9 +396,7 @@
 
   <!-- CLIENTS -->
   <section id="clients">
-    <h2 style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--navy); margin-bottom: 1rem;">
-      Our Clients
-    </h2>
+    <h2>Our Clients</h2>
 
     <div class="clients-grid">
       <img src="kb%20home.png" alt="KB Home" width="196" height="148" class="client-logo">
@@ -366,10 +415,8 @@
 <!-- CHARTBOOK -->
  <section id="chartbook">
   <div class="chartbook-header">
-    <div>
-      <h2 style="margin-bottom: 1rem;">Chartbook</h2>
-    </div>
-    <a href="https://locationstrategy.beehiiv.com/" target="_blank" class="read-more" style="margin-bottom: 0.5rem;">
+    <h2>Chartbook</h2>
+    <a href="https://locationstrategy.beehiiv.com/" target="_blank" class="read-more">
       View All Posts →
     </a>
   </div>
@@ -388,7 +435,7 @@
     <span class="post-date">September 5, 2026</span>
     <h4>September 5 Edition</h4>
     <p class="post-excerpt">
-      In August, % of unemployed for more than 27 weeks came in at 27.0%, up from 25.5% in prior month
+      In August, the share of people unemployed for more than 27 weeks came in at 27.0%, up from 25.5% in the prior month.
     </p>
     <span class="read-more">Read Full Analysis</span>
   </a>

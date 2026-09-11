@@ -1,7 +1,6 @@
 /* Shared stylesheet for locationstrategyllc.com
    Rules here apply to all three pages (index.html, about.html, contact.html).
-   Anything page-specific (hero, services grid, contact form, about grid,
-   header positioning) stays in that page's own inline <style> block. */
+   Page-specific layout stays in each page's inline <style> block. */
 
 :root {
   --sage: #8aaa3a;
@@ -9,7 +8,18 @@
   --cream: #f9f9f4;
   --white: #ffffff;
   --text-main: #3a3a2a;
+  --text-muted: #5c5c4e;
   --text-gray: #aab2bd;
+  --header-height: 128px;
+
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'DM Sans', sans-serif;
+
+  --text-size: 1.0625rem;      /* 17px — one body size sitewide */
+  --text-leading: 1.65;
+  --h1-size: 2.9rem;
+  --h2-size: 1.8rem;
+  --h2-leading: 1.2;
 }
 
 *, *::before, *::after {
@@ -23,14 +33,23 @@ html {
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
-  line-height: 1.6;
+  font-family: var(--font-sans);
+  font-size: var(--text-size);
+  font-weight: 400;
+  line-height: var(--text-leading);
+  color: var(--text-main);
   -webkit-font-smoothing: antialiased;
 }
 
+p {
+  font-size: var(--text-size);
+  font-weight: 400;
+  line-height: var(--text-leading);
+  color: var(--text-main);
+}
+
 /* NAVIGATION
-   Each page adds its own header positioning (fixed vs sticky, z-index,
-   border) inline, since that intentionally differs by page. */
+   Each page adds its own header positioning (fixed vs sticky) inline. */
 header {
   background: var(--white);
   padding: 1rem 4rem;
@@ -59,16 +78,24 @@ nav a {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  transition: 0.3s;
+  transition: color 0.3s;
 }
 
 nav a:hover {
   color: var(--sage);
 }
 
-/* FOOTER
-   index.html/about.html use a bare <footer>; contact.html uses
-   class="site-footer" on its <footer> — both styled the same way. */
+/* Shared heading helpers */
+.section-title {
+  font-family: var(--font-serif);
+  font-size: var(--h2-size);
+  font-weight: 600;
+  line-height: var(--h2-leading);
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+/* FOOTER */
 footer,
 .site-footer {
   text-align: center;

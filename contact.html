@@ -18,7 +18,6 @@
   <style>
     body { background: var(--navy); color: var(--white); }
 
-    /* NAVIGATION (page-specific: sticky, not fixed, header) */
     header {
       position: sticky; top: 0; z-index: 100;
     }
@@ -29,35 +28,76 @@
       max-width: 1400px; margin: 0 auto;
     }
 
-    .contact-info h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.9rem; margin-bottom: 1.5rem; font-weight: 300; line-height: 1.15; }
-    .contact-info p { font-size: 1.05rem; color: var(--text-gray); margin-bottom: 2rem; }
-    
+    .contact-info h1 {
+      font-family: var(--font-serif);
+      font-size: var(--h1-size);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+    }
+    .contact-info p {
+      font-size: var(--text-size);
+      font-weight: 400;
+      line-height: var(--text-leading);
+      color: var(--text-gray);
+      margin-bottom: 2rem;
+    }
+
     .contact-links { display: flex; flex-direction: column; gap: 1rem; }
-    .contact-link-item { color: var(--sage); text-decoration: none; font-size: 1.5rem; font-weight: 500; width: fit-content; border-bottom: 2px solid transparent; transition: 0.3s; }
+    .contact-link-item {
+      color: var(--sage);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 500;
+      width: fit-content;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.3s;
+    }
     .contact-link-item:hover { border-bottom: 2px solid var(--sage); }
 
-    /* Form Styling */
-    #contact-form { display: flex; flex-direction: column; gap: 1.5rem; background: rgba(255,255,255,0.03); padding: 3rem; border: 1px solid rgba(255,255,255,0.1); transition: opacity 0.3s ease; }
+    #contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: rgba(255,255,255,0.03);
+      padding: 3rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      transition: opacity 0.3s ease;
+    }
     .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-    label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--sage); font-weight: 700; }
-    
-    input, textarea { 
-      padding: 1.2rem; background: rgba(255,255,255,0.05); 
-      border: 1px solid rgba(255,255,255,0.2); color: white; 
-      font-family: 'DM Sans', sans-serif; font-size: 1rem;
+    label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--sage);
+      font-weight: 700;
+    }
+
+    input, textarea {
+      padding: 1.2rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      font-family: var(--font-sans);
+      font-size: 1rem;
       transition: border-color 0.3s;
     }
     input:focus, textarea:focus { outline: none; border-color: var(--sage); }
-    
-    button { 
-      background: var(--sage); color: white; border: none; 
-      padding: 1.2rem; font-weight: 700; cursor: pointer; 
-      text-transform: uppercase; letter-spacing: 0.15em;
+
+    button {
+      background: var(--sage);
+      color: white;
+      border: none;
+      padding: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
       transition: background 0.3s, transform 0.2s;
     }
     button:hover { background: #9bbd4a; transform: translateY(-2px); }
 
-    /* Success Message Styling */
     #form-status {
       display: none;
       background: rgba(138, 170, 58, 0.1);
@@ -65,7 +105,7 @@
       color: var(--white);
       padding: 2rem;
       text-align: center;
-      font-family: 'Cormorant Garamond', serif;
+      font-family: var(--font-serif);
       font-size: 1.5rem;
     }
 
@@ -94,7 +134,7 @@
   <div class="contact-info">
     <h1>Let's discuss your next project.</h1>
     <p>Expert market analysis and development advisory. We respond to all inquiries within 24 hours.</p>
-    
+
     <div class="contact-links">
       <a href="mailto:jchang@locationstrategyllc.com" class="contact-link-item">jchang@locationstrategyllc.com</a>
       <a href="tel:8323043478" class="contact-link-item">(832) 304-3478</a>
@@ -107,19 +147,19 @@
         <label for="full-name">Full Name</label>
         <input type="text" id="full-name" name="name" placeholder="Your Name" required>
       </div>
-      
+
       <div class="form-group">
         <label for="email">Email Address</label>
         <input type="email" id="email" name="email" placeholder="email@example.com" required>
       </div>
-      
+
       <div class="form-group">
         <label for="message">Project Details</label>
         <textarea id="message" name="message" rows="6" placeholder="How can we help?" required></textarea>
       </div>
-      
+
       <input type="text" name="_gotcha" style="display:none">
-      
+
       <button type="submit" id="submit-btn">Send Message</button>
     </form>
 
@@ -142,7 +182,7 @@
     btn.innerHTML = "Sending...";
 
     const data = new FormData(event.target);
-    
+
     fetch(event.target.action, {
       method: form.method,
       body: data,
