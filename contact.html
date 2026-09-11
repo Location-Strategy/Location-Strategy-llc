@@ -4,28 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | Location Strategy LLC</title>
-  <meta name="description" content="Contact Location Strategy LLC for real estate market studies, feasibility analysis, and demand/absorption research. We respond to all inquiries within 24 hours." />
+  <meta name="description" content="Contact Location Strategy LLC for real estate market studies, feasibility analysis, and demand and absorption research." />
+  <link rel="canonical" href="https://locationstrategyllc.com/contact.html" />
+  <meta name="theme-color" content="#1a242f" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon180.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://locationstrategyllc.com/contact.html" />
   <meta property="og:title" content="Contact Us | Location Strategy LLC" />
-  <meta property="og:description" content="Contact Location Strategy LLC for real estate market studies, feasibility analysis, and demand/absorption research. We respond to all inquiries within 24 hours." />
+  <meta property="og:description" content="Contact Location Strategy LLC for real estate market studies, feasibility analysis, and demand and absorption research." />
   <meta property="og:image" content="https://locationstrategyllc.com/LS%20logo.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet"/>
   <link href="styles.css" rel="stylesheet" />
   <style>
     body { background: var(--navy); color: var(--white); }
 
     header {
-      position: sticky; top: 0; z-index: 100;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      border-bottom: 1px solid #f0f0f0;
     }
-
     .contact-container {
       display: grid; grid-template-columns: 1fr 1fr;
       padding: 5rem 6rem; gap: 6rem; align-items: center;
-      max-width: 1400px; margin: 0 auto;
+      max-width: 1400px; margin: var(--header-height) auto 0;
     }
 
     .contact-info h1 {
@@ -112,6 +116,11 @@
     }
 
     textarea { resize: vertical; }
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--text-gray);
+      margin: 0;
+    }
 
     @media (max-width: 1024px) {
       .contact-container { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
@@ -143,7 +152,7 @@
 <main id="main" class="contact-container">
   <div class="contact-info">
     <h1>Let’s discuss your next project.</h1>
-    <p>Market analysis and development advisory for real estate teams. We respond to every inquiry within 24 hours.</p>
+    <p>Market analysis and development advisory for real estate teams nationwide.</p>
 
     <div class="contact-links">
       <a href="mailto:jchang@locationstrategyllc.com" class="contact-link-item">jchang@locationstrategyllc.com</a>
@@ -155,12 +164,12 @@
     <form id="contact-form" action="https://formspree.io/f/mpqyqwyw" method="POST">
       <div class="form-group">
         <label for="full-name">Full Name</label>
-        <input type="text" id="full-name" name="name" placeholder="Your Name" required>
+        <input type="text" id="full-name" name="name" placeholder="Your Name" autocomplete="name" required>
       </div>
 
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="email@example.com" required>
+        <input type="email" id="email" name="email" placeholder="email@example.com" autocomplete="email" inputmode="email" required>
       </div>
 
       <div class="form-group">
@@ -171,6 +180,7 @@
       <input type="text" name="_gotcha" style="display:none">
 
       <button type="submit" id="submit-btn">Send Message</button>
+      <p class="form-note">Sent to Location Strategy LLC. We do not sell inquiry details.</p>
     </form>
 
     <div id="form-status" role="status" aria-live="polite">

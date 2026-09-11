@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Location Strategy LLC | Real Estate Market Studies</title>
   <meta name="description" content="Location Strategy LLC provides data-driven real estate market studies, feasibility analysis, and demand and absorption research for developers, homebuilders, and institutional partners." />
+  <link rel="canonical" href="https://locationstrategyllc.com/" />
+  <meta name="theme-color" content="#1a242f" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="favicon180.png" />
@@ -14,9 +16,34 @@
   <meta property="og:title" content="Location Strategy LLC | Real Estate Market Studies" />
   <meta property="og:description" content="Data-driven real estate market studies, feasibility analysis, and demand and absorption research for developers, homebuilders, and institutional partners." />
   <meta property="og:image" content="https://locationstrategyllc.com/LS%20logo.jpg" />
+  <meta property="og:image:alt" content="Location Strategy LLC logo" />
+  <meta name="twitter:card" content="summary" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
   <link href="styles.css" rel="stylesheet" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Location Strategy LLC",
+    "url": "https://locationstrategyllc.com/",
+    "logo": "https://locationstrategyllc.com/LS%20logo.jpg",
+    "image": "https://locationstrategyllc.com/LS%20logo.jpg",
+    "email": "jchang@locationstrategyllc.com",
+    "telephone": "+1-832-304-3478",
+    "description": "Data-driven real estate market studies, feasibility analysis, and demand and absorption research.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "founder": {
+      "@type": "Person",
+      "name": "Julie Chang"
+    }
+  }
+  </script>
 
   <style>
     body {
@@ -210,22 +237,31 @@
     }
 
     .clients-grid {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 3rem auto 0;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 1.5rem 2rem;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 1.25rem 1.5rem;
+      align-items: stretch;
+      justify-items: stretch;
+    }
+
+    .client-cell {
+      display: flex;
       align-items: center;
-      justify-items: center;
+      justify-content: center;
+      height: 88px;
+      padding: 0.75rem 1rem;
     }
 
     .client-logo {
       width: 100%;
-      max-width: 140px;
       height: 56px;
+      max-width: 148px;
       object-fit: contain;
-      transition: transform 0.4s;
-      margin: 0 auto;
+      object-position: center;
+      filter: none;
+      transition: transform 0.3s;
     }
 
     .client-logo:hover {
@@ -242,7 +278,7 @@
     .chartbook-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
       max-width: 1200px;
       margin: 0 auto 3rem;
       gap: 1.5rem;
@@ -370,7 +406,7 @@
   <!-- HERO -->
   <section id="hero">
     <h1 class="hero-main-title">Real Estate Market Studies</h1>
-    <p class="hero-lede">Demand, absorption, and feasibility analysis for developers, homebuilders, and institutional partners.</p>
+    <p class="hero-lede">Demand, absorption, and feasibility analysis for developers, homebuilders, and institutional partners. We work across the United States.</p>
     <div class="hero-actions">
       <a class="btn" href="contact.html">Request a study</a>
     </div>
@@ -439,16 +475,16 @@
     <p class="clients-intro">Selected teams we have supported across residential, commercial, and institutional work.</p>
 
     <div class="clients-grid">
-      <img src="kb%20home.png" alt="KB Home" width="196" height="148" class="client-logo">
-      <img src="dr%20horton.png" alt="D.R. Horton" width="254" height="148" class="client-logo">
-      <img src="Lennar2.png" alt="Lennar" width="160" height="148" class="client-logo">
-      <img src="Century%20Communities2.png" alt="Century Communities" width="149" height="148" class="client-logo">
-      <img src="Rice%20university2.png" alt="Rice University" width="267" height="148" class="client-logo">
-      <img src="Sam%20Yager%20Inc.png" alt="Sam Yager Inc." width="148" height="148" class="client-logo">
-      <img src="Johnson%20Development.png" alt="Johnson Development" width="188" height="148" class="client-logo">
-      <img src="cbre2.png" alt="CBRE" width="269" height="148" class="client-logo">
-      <img src="idv2.png" alt="IDV" width="133" height="84" class="client-logo">
-      <img src="K.%20Hovnanian.png" alt="K. Hovnanian" width="270" height="148" class="client-logo">
+      <div class="client-cell"><img src="kb%20home.png" alt="KB Home" width="196" height="148" class="client-logo"></div>
+      <div class="client-cell"><img src="dr%20horton.png" alt="D.R. Horton" width="254" height="148" class="client-logo"></div>
+      <div class="client-cell"><img src="Lennar2.png" alt="Lennar" width="160" height="148" class="client-logo"></div>
+      <div class="client-cell"><img src="Century%20Communities2.png" alt="Century Communities" width="149" height="148" class="client-logo"></div>
+      <div class="client-cell"><img src="Rice%20university2.png" alt="Rice University" width="267" height="148" class="client-logo"></div>
+      <div class="client-cell"><img src="Sam%20Yager%20Inc.png" alt="Sam Yager Inc." width="148" height="148" class="client-logo"></div>
+      <div class="client-cell"><img src="Johnson%20Development.png" alt="Johnson Development" width="188" height="148" class="client-logo"></div>
+      <div class="client-cell"><img src="cbre2.png" alt="CBRE" width="269" height="148" class="client-logo"></div>
+      <div class="client-cell"><img src="idv2.png" alt="IDV" width="133" height="84" class="client-logo"></div>
+      <div class="client-cell"><img src="K.%20Hovnanian.png" alt="K. Hovnanian" width="270" height="148" class="client-logo"></div>
     </div>
   </section>
 
